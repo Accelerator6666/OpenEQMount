@@ -2,17 +2,23 @@ name: Calculations CI
 
 on:
   push:
+    paths-ignore:
+      - 'hardware/cad/generated/**'
+      - 'hardware/cad/v03_generated/**'
   pull_request:
 
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Check motion math
-        run: python -m unittest discover -s tests -v
+          python-version: '3.11'
+      - name: Install CAD test dependency
+        run: python -m pip install 'cadquery>=2.5,<3' pytest
+      - name: Check calculations and mechanics
+        run: python -m pytest -q tests/
       - name: Print baseline parameters
         run: python tools/motion_math.py
