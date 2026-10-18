@@ -2,13 +2,14 @@
   "status": "concept_only_NOT_manufacturing_ready",
   "latitude_deg": 35.0,
   "axis_reduction": "100:1 harmonic x 3:1 belt (belt not modelled)",
+  "dfam_status": "legacy_layout_not_DfAM_not_printable",
   "parts": [
     {
       "name": "base_plate",
       "approx_world_bbox_mm": [
         126.0,
         114.0,
-        12.01
+        12.0
       ],
       "type": "concept_geometry"
     },
@@ -24,9 +25,9 @@
     {
       "name": "ra_housing",
       "approx_world_bbox_mm": [
-        96.06,
-        97.76,
-        108.56
+        96.0,
+        97.66,
+        108.46
       ],
       "type": "concept_geometry"
     },
@@ -69,9 +70,9 @@
     {
       "name": "dec_housing",
       "approx_world_bbox_mm": [
-        49.11,
-        91.08,
-        91.08
+        49.0,
+        91.0,
+        91.0
       ],
       "type": "concept_geometry"
     },
@@ -96,7 +97,7 @@
     {
       "name": "camera_clamp_adapter_blank",
       "approx_world_bbox_mm": [
-        10.01,
+        10.0,
         119.2,
         110.6
       ],
