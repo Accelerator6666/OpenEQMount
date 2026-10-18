@@ -1,0 +1,14 @@
+category,item,suggested_spec,qty,status,remarks
+Drive,RA harmonic reducer,100:1 / capacity TBD,1,TBD,Confirm size torque backlash and allowed overturning moment
+Drive,DEC harmonic reducer,100:1 / capacity TBD,1,TBD,Confirm mounting and support bearings
+Transmission,RA synchronous belt and pulleys,3:1 / profile TBD,1,TBD,Select after RPM torque and packaging
+Transmission,DEC synchronous belt and pulleys,3:1 / profile TBD,1,TBD,Select after RPM torque and packaging
+Motor,RA stepper,1.8-degree step angle / current TBD,1,TBD,Confirm with torque calculations
+Motor,DEC stepper,1.8-degree step angle / current TBD,1,TBD,Confirm with torque calculations
+Electronics,OnStepX supported ESP32 control board,FYSETC E4 candidate,1,Candidate,Verify exact revision and pinmap
+Electronics,Stepper driver,TMC2209 candidate,2,Candidate,Current thermals and board compatibility need verification
+Safety,Home sensor,Type TBD,2,TBD,Prefer known fail-state design
+Safety,E-stop & power protection,Design TBD,1,TBD,Not software only
+Mechanical,RA/DEC support bearings,Rated moment TBD,2,TBD,Do not load gearbox beyond ratings
+Mechanical,RA latitude adjustment base,Range TBD,1,TBD,Set latitude after location known
+Mechanical,DEC dovetail clamp,Vixen interface candidate,1,TBD,Verify telescope plate

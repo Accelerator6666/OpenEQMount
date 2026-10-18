@@ -1,0 +1,19 @@
+[
+  "tests/test_motion_math.py::MountKinematicsTests::test_degree_slew",
+  "tests/test_motion_math.py::MountKinematicsTests::test_reduction",
+  "tests/test_motion_math.py::MountKinematicsTests::test_reject_zero_gear_ratio",
+  "tests/test_motion_math.py::MountKinematicsTests::test_resolution",
+  "tests/test_motion_math.py::MountKinematicsTests::test_sidereal_one_revolution",
+  "tests/test_mount_sizing.py::TestSizing::test_angular_quantization",
+  "tests/test_mount_sizing.py::TestSizing::test_bad_input",
+  "tests/test_mount_sizing.py::TestSizing::test_belt",
+  "tests/test_mount_sizing.py::TestSizing::test_dec_margin",
+  "tests/test_mount_sizing.py::TestSizing::test_ra_margin",
+  "tests/test_mount_sizing.py::TestSizing::test_unbalanced_dec",
+  "tests/test_v03_mechanics.py::test_belt_length_provisional",
+  "tests/test_v03_mechanics.py::test_motor_slots_allow_31_mm_nominal_pattern",
+  "tests/test_v03_mechanics.py::test_no_hard_component_intersections",
+  "tests/test_v03_mechanics.py::test_oem_patterns_exact_counts",
+  "tests/test_v03_mechanics.py::test_output_and_rear_holes_are_clear_at_expected_centres",
+  "tests/test_v03_mechanics.py::test_positive_clearance_and_printability"
+]

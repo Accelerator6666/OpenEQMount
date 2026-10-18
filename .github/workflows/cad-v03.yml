@@ -1,0 +1,35 @@
+name: V0.3 Printable Interface CAD
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v03.py'
+      - 'docs/mechanical-v03-3dprint.md'
+      - 'tests/test_v03_mechanics.py'
+      - '.github/workflows/cad-v03.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install generator and tests
+        run: python -m pip install 'cadquery>=2.5,<3' pytest
+      - name: Test V0.3 mechanical geometry
+        run: python -m pytest -q tests/test_v03_mechanics.py
+      - name: Rebuild STEP and STL
+        run: python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
+      - name: Upload bench-fit prototypes only
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-v03-bench-fit-not-load-rated
+          path: |
+            hardware/cad/v03_generated/*.step
+            hardware/cad/v03_generated/*.stl
+            hardware/cad/v03_generated/manifest.json
+          if-no-files-found: error

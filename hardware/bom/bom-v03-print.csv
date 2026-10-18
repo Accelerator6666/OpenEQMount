@@ -1,0 +1,25 @@
+part,qty,status,notes
+CSF-17-100-2UH harmonic reducer,1,supplier_nominal,DO NOT SUBSTITUTE CLONE without measuring full drawing
+CSF-14-100-2UH harmonic reducer,1,supplier_nominal,DO NOT SUBSTITUTE CLONE without measuring full drawing
+RA rear mount housing PETG-CF,1,print_prototype,Ø80.5 bore; PCD71 6xM4 clearance
+DEC rear mount housing PETG-CF,1,print_prototype,Ø74.5 bore; PCD65 6xM4 clearance
+RA output adapter PETG-CF,1,print_prototype,PCD27 6xM5
+DEC output adapter PETG-CF,1,print_prototype,PCD23 6xM4
+NEMA17 motor carriage,2,print_prototype,31mm motor hole square & sliding adjustment
+Optional input shaft bearing bridge,2,experimental_not_required,requires verified new input shaft design
+608-2RS (8x22x7),1,optional_unverified,not main RA axis bearing
+626-2RS (6x19x6),1,optional_unverified,not main DEC axis bearing
+NEMA17 motor shaft 5mm,2,model_tbd,verify motor dimensions/torque/thread depth
+M5x12 socket head grade as required,6,trial,RA output engagement 5.5mm theoretical
+M4x12 socket head grade as required,6,trial,DEC output engagement 5.5mm theoretical
+M4 gearbox rear screws length TBD,12,must_measure,nominal M4x14 yields 5mm from 9mm rear cap but OEM thread depth unknown
+Metal wash plates / washers,24,mandatory_for_trial,do not apply factory metal-to-metal torque into plastics
+M3x12 NEMA17 mounting screws,8,trial,adjust for motor internal tapped depth and washers
+M4 9mm metal stand-offs,4,trial,two per axis; third/fourth brace required before motion tests
+20T GT2 metal pulley,2,provisional_2mm_pitch,motor 5mm hub as chosen
+60T GT2 metal pulley,2,provisional_2mm_pitch,driven hub must fit VERIFIED gearbox input adapter
+GT2 252mm belt trial only,2,fit_measurement,85mm nominal centre +-5mm travel
+M4 heat-set insert supplier-specific,12,unconfirmed,bore MUST be tuned to actual insert model
+PETG-CF dry filament,1,trial,abrasive material needs hardened nozzle
+RA DEC joining metal reinforcement,1,UNRESOLVED,needed before any 3-5kg camera usage
+Tripod / latitude adjust / saddle,1,UNRESOLVED,not included in V0.3

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+# KiCad backup / autosave; don't ignore native CAD/PCB projects
+*-backups/
+*.kicad_prl
