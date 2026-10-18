@@ -95,7 +95,7 @@ def generate(p: MountParams) -> dict[str, cq.Workplane]:
     return result
 
 
-def write_models(parts, out:Path, p:MountParams):
+def write_models(parts, out:Path, p:MountParams, export_unsafe_concept_stl:bool=False):
     out.mkdir(parents=True,exist_ok=True)
     assembly = cq.Assembly(name='OpenEQMount_V02_CONCEPT')
     part_catalogue=[]
@@ -104,7 +104,7 @@ def write_models(parts, out:Path, p:MountParams):
         assembly.add(solid,name=name,color=COLORS[name])
         cq.exporters.export(solid, str(out/f'{name}.step'), exportType='STEP')
         # Motors and reducer envelopes intentionally not issued as printable STL parts.
-        if name in {'base_plate','fixed_latitude_wedge','ra_housing',
+        if export_unsafe_concept_stl and name in {'base_plate','fixed_latitude_wedge','ra_housing',
                     'ra_crosshead','dec_support_bracket','dec_housing','camera_clamp_adapter_blank'}:
             cq.exporters.export(solid, str(out/f'{name}.stl'), exportType='STL', tolerance=0.18, angularTolerance=0.2)
         bb=solid.val().BoundingBox()
@@ -114,6 +114,7 @@ def write_models(parts, out:Path, p:MountParams):
     assembly.save(str(out/'OpenEQMount_V02_assembly.step'),exportType='STEP')
     (out/'manifest.json').write_text(json.dumps({'status':'concept_only_NOT_manufacturing_ready',
         'latitude_deg':p.latitude_deg,'axis_reduction':'100:1 harmonic x 3:1 belt (belt not modelled)',
+        'dfam_status':'legacy_layout_not_DfAM_not_printable',
         'parts':part_catalogue,'critical_note':'Mechanical mating holes, belt drive, hinges, cable paths and fit verification are NOT implemented.'},
         ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f'Created {len(parts)} solids, STEP assembly, individual STEP/STL: {out}')
@@ -123,9 +124,11 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--latitude',type=float,default=35)
     parser.add_argument('--out',type=Path,default=Path(__file__).parent/'generated')
+    parser.add_argument('--export-unsafe-concept-stl',action='store_true',
+        help='Legacy visual meshes ONLY; not DfAM-qualified or safe for manufacture')
     args=parser.parse_args()
     p=MountParams(latitude_deg=args.latitude)
-    write_models(generate(p),args.out,p)
+    write_models(generate(p),args.out,p,args.export_unsafe_concept_stl)
 
 if __name__=='__main__':
     main()

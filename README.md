@@ -1,8 +1,24 @@
 # OpenEQMount — 开源双轴摄影赤道仪
 
-**当前版本：V0.3 / FDM 3D 打印 RA/DEC 减速器接口试装原型，尚未经过真实负载与安全验证。**
+**当前版本：V0.3 / DfAM 受控 FDM 打印试装原型，尚未经过真实负载与安全验证。**
 
 用途已经确定：**广角星野摄影；目标摄影载荷 3–5 kg；最长焦距 ≤500 mm**。这些属于研发目标，不是量产参数或已确认的安全载荷。项目以德式双轴赤道仪 (GEM) 为基础，拟使用 RA/DEC 独立谐波减速器 + 3:1 同步带传动，第一阶段优先兼容 OnStepX 生态。
+
+
+## DfAM 强制机械设计规范（2026-10-18 生效）
+
+**全部未来 3D 打印零件必须按 [DfAM 设计规范](docs/dfam-design-standard.md) 建模、检查和归档**：先确定打印方向和各层载荷，再设计可自支撑的悬垂、低应力集中圆角/筋板、金属贯穿承力连接、按打印机标定的配合公差以及维修拆装空间。
+
+V0.3 已重构电机耳板的圆角/XY 面加强筋和部分 M4 金属贯穿连接，STL 自动落在 Z=0，生成 `manifest.json` 中逐件 DfAM 记录，使用 `tools/dfam_gate.py` 进行网格、尺寸和受控资料检查。**自动 Gate A 通过并不代表打印支撑、强度或 3–5 kg 载荷认证；Gate B 切片/实物配合及 Gate C 载荷与安全测试仍待完成。**
+
+```bash
+python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
+python tools/dfam_gate.py --report hardware/cad/v03_generated/dfam-gate-report.json
+python -m pytest -q
+```
+
+**V0.2 的旧 STL 属于不符合本 DfAM 发放流程的外形概念，不再随正式仓库/Actions 作为打印文件发布**；保留 V0.2 STEP 与可编辑源代码用于历史回溯。
 
 ## V0.2 机械选型
 
@@ -17,7 +33,7 @@ Both have 100:1 ratios and integrated crossed-roller output bearings. Official s
 
 ![CAD concept](hardware/cad/generated/OpenEQMount_V02_iso.png)
 
-The `hardware/cad/` folder contains **editable CadQuery Python source**, separate STEP components, a combined STEP conceptual assembly, STL shape-prototype files, and three PNG previews. V0.2 shows a **fixed** parametric latitude wedge at 35°, reconfigurable at generation to 25–60°; a functional, continuously adjustable polar wedge remains to be designed.
+The `hardware/cad/` folder contains **editable CadQuery Python source**, separate STEP components, a combined STEP conceptual assembly and three PNG previews. **Legacy V0.2 concept STLs are no longer distributed as print files.** V0.2 shows a **fixed** parametric latitude wedge at 35°, reconfigurable at generation to 25–60°; a functional, continuously adjustable polar wedge remains to be designed.
 
 ## Quick start
 

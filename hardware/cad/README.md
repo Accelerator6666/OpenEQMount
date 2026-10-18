@@ -18,7 +18,7 @@ xvfb-run -a python tools/render_cad_preview.py
 
 - `generated/OpenEQMount_V02_assembly.step`: separate conceptual bodies (use FreeCAD or Fusion 360 to inspect).
 - `generated/{part}.step`: individual bodies with placeholder interfaces.
-- `generated/{part}.stl`: **shape prototypes only** (do not rely on as load-bearing components).
+- `generated/{part}.stl`: **legacy concept meshes removed from default generator / released repository**, as they are not DfAM-controlled printable parts.
 - `generated/manifest.json`: all modeled elements and approximate bounding boxes.
 - `generated/OpenEQMount_V02_{iso,side,front}.png`: scene previews.
 
@@ -35,3 +35,15 @@ python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
 Generated STEP and STL are geometrically checked *bench-fit prototypes*, not
 rated mechanical components. Reducer rear M4 threaded-hole angular phase is
 provisional and must be checked against purchased OEM hardware.
+
+### Mandatory DfAM gate for V0.3+
+
+Every printable part must follow [`docs/dfam-design-standard.md`](../../docs/dfam-design-standard.md) and have a complete per-part record in the generated manifest. STL output is print-plane normalized; STEP remains assembly-positioned.
+
+```bash
+python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
+python tools/dfam_gate.py --report hardware/cad/v03_generated/dfam-gate-report.json
+```
+
+The automated **digital Gate A** checks watertight single-body STL meshes, metadata, file inventory and 220 mm bed size; this does not demonstrate absence of supports, field durability or payload safety. Each design requires human slicer/fit **Gate B** and mechanical **Gate C** before use.

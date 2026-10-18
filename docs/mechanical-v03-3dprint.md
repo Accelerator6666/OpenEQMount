@@ -31,10 +31,11 @@
 
 ## 3. Printed reducer rear shells
 
-- `ra_rear_mount_housing`: cap Ø108×9 mm (z -9..0), sleeve bore Ø80.5 (Ø79 reducer +1.5 diametral), sleeve outer Ø100.5, length 43 mm, six Ø4.5 rear screw clearance holes PCD71; four M4 heat-set insert pilot bores Ø5.5 at PCD92; side M4 insert bosses at (x,y)=(57,±25) mm.
-- `dec_rear_mount_housing`: cap Ø104×9 mm, bore Ø74.5, sleeve outer Ø94.5, length 39 mm, six Ø4.5 holes PCD65; same auxiliary mounting interface PCD92 and side bosses.
+- `ra_rear_mount_housing`: cap Ø108×9 mm (z -9..0), sleeve bore Ø80.5 (Ø79 reducer +1.5 diametral), sleeve outer Ø100.5, length 43 mm; six Ø4.5 rear screw clearance holes PCD71; four Ø4.5 through holes at PCD92 for optional bridge; rounded and gusseted motor mounting ears with Ø4.5 through holes at (x,y)=(57,±25) mm.
+- `dec_rear_mount_housing`: cap Ø104×9 mm, bore Ø74.5, sleeve outer Ø94.5, length 39 mm; six Ø4.5 rear holes PCD65; same optional bridge interface, rounded/gusseted motor ears and through holes.
+
 - **The reducers are retained axially by their metal rear threaded pattern**, not by clamping on the gearbox OD. On assembly, insert the reducer from the output side, face side out, and place the M4 bolts through the printed cap from behind; use substantial washers/metal backing washers. Example M4×14 with a 9mm cap may give 5mm theoretical engagement, but the supplied thread depth is not specified on that face: **measure before buying or tightening screws**.
-- Never rely on plastic threads for cyclic fastening. If heat-set inserts are used, use the exact insert manufacturer's recommended boss/hole size and verify pull-out; the 5.5mm CAD bore is **a placeholder nominal pilot**, not a universal insert spec.
+- **DfAM revision:** bridge/motor ear connections use Ø4.5 **through clearances** with metal M4 bolts, metal washers/spacers and metal nuts. Verify head/washer access, nut retention and actual length before any powered test. The original Ø5.5 heat-set insert blind sockets are superseded; heat-set inserts are **not permitted as untested primary tensile joints**.
 
 ## 4. NEMA17 motor carriers / timing belts
 
@@ -50,7 +51,18 @@
 - It is for a *future supported metal input shaft design*. Cannot install until wave-generator bore geometry, shaft length, shaft preload/axial location and pulley spacing are measured.
 - Never insert a mismatched shaft or load an internal bearing from a bridge that cannot be coaxially aligned. Printed radial bearing seats cannot guarantee machining-level concentricity.
 
-## 6. Printer guidance and fit strategy
+## 6. Binding DfAM policy and printer guidance
+
+Every printable part now follows [DfAM design controls](dfam-design-standard.md). Exported V0.3 STL Z-min is 0 with XY bed plane. **Digital checks cannot verify stresses, overhang support, layer adhesion or manufacturer fit**. The Gate B slicer/print review and Gate C physical load validation are still pending. All V0.3 parts are labelled `prototype_unqualified` in the CAD manifest.
+
+Run the reproducible Gate A:
+
+```bash
+python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
+python tools/dfam_gate.py --report hardware/cad/v03_generated/dfam-gate-report.json
+```
+
+## 6.1 Printer guidance and fit strategy
 
 | Parameter | Initial value (adjust by coupon) |
 |---|---|
@@ -62,7 +74,7 @@
 | Nozzle | 0.4/0.6 mm; hardened for abrasive CF |
 | Orientation | Rear housings: rear cap underside z=-9 on print bed; output adapters: lower face on bed; sliders: large planar side on bed |
 | Supports | Designed around axial printable bores; support settings remain slicer-dependent |
-| Heat-set inserts | DO NOT install until measuring chosen inserts; use brass/steel inserts of known dimensions in intended pockets |
+| Load joint fasteners | Ø4.5 through clearances plus accessible metal washers and nuts; not plastic threads or untested heat-set inserts |
 
 **Tolerance gauges (print first):** `*_fit_gauge_diam_plus_0p6/1p2/1p8` = reducer OD plus 0.6, 1.2, 1.8 mm of *diametral* clearance; `*_bearing_gauge_bore_plus_0p10/0p20/0p30` = bearing OD plus hole clearance 0.10/0.20/0.30 mm. They are calibration rings; a clear slip fit is desirable for gearbox OD, while bearing pilot fits must avoid overconstraint. The full CAD housing uses +1.5mm diameter, not a press fit. **Measure supplier ODs and print actual ring tests.**
 

@@ -98,16 +98,22 @@ def housing(r:Reducer):
     # alternative clearance holes, interleaved by 30 degrees. This flange uses
     # the 6 threaded holes; rotate start angle when physically verifying part.
     part=cut_z(part,circle_points(r.rear_pcd,6,BOLT_ORIENTATION_DEG),4.5,-10,0.5)
-    # Bearing bridge heat-set-insert pilot holes (outside reducer bolt PCD),
-    # 4 mounting points at 45 degrees on PCD 92. DON'T drill into OEM unit.
-    part=cut_z(part,circle_points(BRIDGE_PCD,4,45),5.5,-9.2,-2.0)
-    # Side two reinforced ears: 2 M4 heat-set insert pilots for NEMA slider
-    # 9mm spacer, mounted from -Z. Size leaves motor separate from reducer.
-    for yy in (-25.,25.):
-        lug=cq.Workplane('XY').box(26,18,REAR_CAP_THICKNESS,centered=(True,True,False))
-        lug=lug.translate((57,yy,-9))
+    # Through-bolts with captured METAL nuts/washers replace unqualified
+    # heat-set inserts in cyclic/tensile load paths (DfAM-JOINT-01).
+    # These are accessible THROUGH holes; exact hardware stack not yet qualified.
+    part=cut_z(part,circle_points(BRIDGE_PCD,4,45),BRIDGE_M4_CLEAR,-9.5,0.5)
+    # FDM-friendly rounded motor ears with integral XY-plane gussets:
+    # spreads in-plane force into rear cap without creating unsupported Z ledges.
+    for sign in (-1,1):
+        yy=sign*25.
+        lug=(cq.Workplane('XY').box(26,18,REAR_CAP_THICKNESS,centered=(True,True,False))
+             .edges('|Z').fillet(3).translate((57,yy,-9)))
         part=part.union(lug)
-    part=cut_z(part,[(57,-25),(57,25)],5.5,-9.2,-2)
+        gusset=(cq.Workplane('XY').polyline([(38,yy-sign*15),(62,yy-sign*10),
+                                           (66,yy+sign*10),(38,yy+sign*15)])
+                .close().extrude(REAR_CAP_THICKNESS).translate((0,0,-9)))
+        part=part.union(gusset)
+    part=cut_z(part,[(57,-25),(57,25)],BRIDGE_M4_CLEAR,-9.5,0.5)
     return part
 
 
@@ -117,7 +123,7 @@ def nema_motor_carrier(r:Reducer):
     # Installation via exactly two metal M4 spacers, nominal 9mm long;
     # add third structural tie before live load testing.
     plate=(cq.Workplane('XY').box(66,68,7, centered=(True,True,False))
-           .translate((85,0,-25)))
+           .edges('|Z').fillet(3).translate((85,0,-25)))
     plate=cut_z(plate,[(57,-25),(57,25)],4.5,-26,-17)
     # Motor pilot Ø22 => 24mm slot with +-5mm x-travel.
     pilot=(cq.Workplane('XY').center(85,0).slot2D(34,24,0).extrude(9)
@@ -149,7 +155,7 @@ def bearing_bridge(r:Reducer):
     # Relief against the motor slider: otherwise the outside arcs intersect
     # the moving NEMA17 carrier near +X. Does not remove the 45-degree lugs.
     relief=(cq.Workplane("XY").box(45,46,thick+5)
-            .translate((70.5,0,bottom+thick/2)))
+            .edges('|Z').fillet(3).translate((70.5,0,bottom+thick/2)))
     part=part.cut(relief)
     return part
 
@@ -184,21 +190,59 @@ def assign_parts(only:str='all'):
     return parts
 
 
+DFAM_PROCESS = 'FFF/FDM'
+DFAM_STATUS = 'prototype_unqualified'
+DFAM_POLICY = 'docs/dfam-design-standard.md'
+
+def dfam_profile(name:str) -> dict:
+    """Required FDM design contract. Risk notes are NOT strength certification."""
+    is_coupon='gauge' in name
+    role= ('calibration_coupon' if is_coupon else
+           'rear_mount_housing' if 'rear_mount_housing' in name else
+           'motor_carrier' if 'nema17_slider' in name else
+           'output_adapter' if 'output_bolt_adapter' in name else
+           'auxiliary_bearing_bridge')
+    joint= ('no_fasteners' if is_coupon else
+            'metal_through_bolts_washers_and_nuts' if role in ('rear_mount_housing','motor_carrier','auxiliary_bearing_bridge') else
+            'OEM_metal_thread_plus_metal_spreader_required_unverified')
+    return {
+        'process': DFAM_PROCESS,
+        'policy':DFAM_POLICY,
+        'status':DFAM_STATUS,
+        'role':role,
+        'print_orientation':'model_+Z_up;_XY_plane_on_bed',
+        'bed_contact':'min_Z_face',
+        'stl_min_z_mm':0.0,
+        'material_initial':'PETG_fit_only',
+        'slicer_profile':'0.4_to_0.6mm_nozzle;_0.20mm_layer;_6_perimeters_on_interfaces;_7_top_bottom',
+        'structural_load_verified':False,
+        'infill_is_not_strength_certification':True,
+        'fastener_strategy':joint,
+        'critical_layer_risk':('low_fit_coupon' if is_coupon else
+            'check_Z_delamination_and_creep_at_fasteners'),
+        'overhang_support_status':'slicer_review_pending',
+        'minimum_wall_analysed':False,
+        'postprocess_and_fit':'print_coupon_first;_measure_holes;_deburr_without_force',
+        'external_safety_gate':'NO_field_or_payload_use_without_physical_tests',
+    }
+
 def export(out:Path,only='all',include_gauges=True):
     out.mkdir(parents=True,exist_ok=True)
     parts=assign_parts(only)
     if not include_gauges:parts={k:v for k,v in parts.items() if 'gauge' not in k}
     manifest={'release':'V0.3',
        'status':'bench_fit_only_NOT_load_rated_NOT_complete_mount',
+       'dfam_contract_version':'1.0', 'dfam_policy':DFAM_POLICY,
        'ra_supplier':asdict(RA),'dec_supplier':asdict(DEC),
        'rear_flange_orientation_deg':'30 provisional: physically verify 2UH thread-vs-clear holes before printed fit',
        'gearbox_mounting_bolts':'6 x M4 on PCD71 RA / PCD65 DEC into metal factory threads; rear cap Ø4.5 clearance',
        'output_adapters':'RA 6 x M5 on PCD27 ; DEC 6 x M4 on PCD23',
        'nema17':'31x31 M3 square holes; x +-5 mm via slots; motor center x85 mm nominal',
+       'dfam_joint_design':'PCD92 bridge and motor-ear holes are 4.5mm THROUGH clearance for metal through-bolts/nuts/washers; never treat as load-rated',
        'main_axis_bearing':'integrated cross-roller inside OEM 2UH; NEVER use 608/626 as primary bending support',
        'input_guide_bearings':'608 (8x22x7) RA and 626 (6x19x6) DEC OPTIONAL & not yet compatible-verified',
        'open_items':['verify actual manufacturer drawing revision', 'input wave-generator hub/shaft design',
-          'metal reinforcement and polymer creep/load tests','belt stock length and true pulley plane',
+          'verify through-bolt head/washer/nut tool access and polymer creep/load tests','belt stock length and true pulley plane',
           'real CAD yoke RA-DEC load path','saddle bolt holes, polar wedge and tripod interface'],
        'items':[]}
     assembly=cq.Assembly(name='OpenEQMount_V03_BENCH_INTERFACE_LAYOUT')
@@ -207,11 +251,16 @@ def export(out:Path,only='all',include_gauges=True):
             raise ValueError(f'{name} must be one fused, independent solid, got {len(shape.solids().vals())}')
         step=out/f'{name}.step'; stl=out/f'{name}.stl'
         cq.exporters.export(shape,str(step),exportType='STEP')
-        cq.exporters.export(shape,str(stl),exportType='STL',tolerance=0.15,angularTolerance=0.22)
+        # STEP keeps assembly coordinates. STL is intentionally placed with its
+        # largest planar bottom on Z=0 (not hovering at negative project Z).
+        # Every printable STL has documented +Z layer direction.
+        bb0=shape.val().BoundingBox()
+        print_shape=shape.translate((0,0,-bb0.zmin))
+        cq.exporters.export(print_shape,str(stl),exportType='STL',tolerance=0.15,angularTolerance=0.22)
         bb=shape.val().BoundingBox()
         manifest['items'].append({'name':name,'bbox_mm':[round(bb.xlen,2),round(bb.ylen,2),round(bb.zlen,2)],
                     'volume_cc':round(shape.val().Volume()/1000,2),
-                    'prototype_only':True})
+                    'prototype_only':True,'dfam':dfam_profile(name)})
         if 'gauge' not in name:
             # Keep RA and DEC in separate groups in a layout, not a physically
             # collocated zero-offset assembly that would misleadingly intersect.

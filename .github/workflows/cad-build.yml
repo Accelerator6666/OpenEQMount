@@ -24,6 +24,5 @@ jobs:
           name: OpenEQMount-v02-concept-cad
           path: |
             hardware/cad/generated/*.step
-            hardware/cad/generated/*.stl
             hardware/cad/generated/*.json
           if-no-files-found: error

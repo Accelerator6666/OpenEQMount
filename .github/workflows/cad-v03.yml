@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'hardware/cad/generate_v03.py'
+      - 'tools/dfam_gate.py'
+      - 'docs/dfam-design-standard.md'
+      - 'tests/test_dfam_contract.py'
       - 'docs/mechanical-v03-3dprint.md'
       - 'tests/test_v03_mechanics.py'
       - '.github/workflows/cad-v03.yml'
@@ -19,11 +22,13 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install generator and tests
-        run: python -m pip install 'cadquery>=2.5,<3' pytest
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh
       - name: Test V0.3 mechanical geometry
-        run: python -m pytest -q tests/test_v03_mechanics.py
+        run: python -m pytest -q tests/test_v03_mechanics.py tests/test_dfam_contract.py
       - name: Rebuild STEP and STL
         run: python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
+      - name: DfAM digital gate (NOT structural approval)
+        run: python tools/dfam_gate.py --report hardware/cad/v03_generated/dfam-gate-report.json
       - name: Upload bench-fit prototypes only
         uses: actions/upload-artifact@v4
         with:
@@ -32,4 +37,5 @@ jobs:
             hardware/cad/v03_generated/*.step
             hardware/cad/v03_generated/*.stl
             hardware/cad/v03_generated/manifest.json
+            hardware/cad/v03_generated/dfam-gate-report.json
           if-no-files-found: error
