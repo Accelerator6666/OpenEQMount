@@ -64,3 +64,8 @@ python tools/render_v07.py
 ```
 
 注意：必须使用 **V0.7 追加钻孔的金属替换顶板**，不得在旧 V0.5 顶板上强行安装，也不得将 RA 旋转输出板固定到极轴底座。同步带模型只是独立、无载荷的试验台；实际 2UH 波发生器输入参数未确认，严禁接电测试。见 [设计说明](../../docs/mechanical-v07-ra-stator-and-belt-bench.md)。
+
+
+### V1.0 ROT camera bearing bench
+
+Use `generate_v10_rotator_bench.py` to rebuild the V1.0 **unqualified metal bearing bench**. Open the combined `v10_generated/OpenEQMount_V10_ROTATOR_BENCH_UNQUALIFIED.step` directly in FreeCAD. Only the three non-load fitting gauges have printable STL outputs. See [V1.0 risks](../../docs/mechanical-v10-rotator-bearing-bench.md).

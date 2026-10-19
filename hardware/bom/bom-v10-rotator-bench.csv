@@ -1,0 +1,14 @@
+Part,Quantity,Candidate/spec,Status,Role / caution
+Bearings,2,6808-2RS 40x52x7,JTEKT dimensional reference only,Not checked for 3-5 kg off-axis moments
+Stator shell,1,Aluminium machined Ø128,Metal proposal,Check seat tolerance and DEC stator mating
+Hollow rotor,1,Steel or aluminium Ø40 outside,Metal proposal,Needs shoulder and axial retention design
+Independent retention collar,1,Metal Ø65,Unqualified reference,Does not certify fall prevention
+Camera flange,1,Metal Ø108 with 6x M4 clearance PCD88,Unqualified reference,Camera saddle geometry missing
+Hard limit ring,1,Metal arc sector proposal,Unqualified reference,Not a functioning end stop
+Motor mount,1,Metal NEMA17 slotted plate,Unqualified reference,Needs actual mounted standoffs and screw length
+Drive pulley,1,GT2 80T nominal,Pitch only,No actual teeth hub spindle or pulley
+Motor pulley,1,GT2 20T nominal,Pitch only,No actual pulley
+NEMA17 motor,1,Current/torque TBD,Not selected,No electrical hardware
+FDM index ring,1,PETG fit-only prototype,Gate A,No structural role
+FDM bolt gauge,1,PETG fit-only prototype,Gate A,No structural role
+FDM cable sample,1,PETG fit-only prototype,Gate A,No structural role

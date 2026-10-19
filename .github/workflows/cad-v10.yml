@@ -1,0 +1,66 @@
+name: V1.0 Camera ROT Bench DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v10_rotator_bench.py'
+      - 'tools/dfam_gate_v10.py'
+      - 'tests/test_v10_rotator_bench.py'
+      - 'tools/render_v10.py'
+      - 'docs/mechanical-v10-rotator-bearing-bench.md'
+      - '.github/workflows/cad-v10.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v10_rotator_bench.py'
+      - 'tools/dfam_gate_v10.py'
+      - 'tests/test_v10_rotator_bench.py'
+      - 'tools/render_v10.py'
+      - '.github/workflows/cad-v10.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v10-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  rotator-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and test dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+      - name: Test rotator bench design
+        run: python -m pytest -q tests/test_v10_rotator_bench.py
+      - name: Build STEP STL and manifest
+        run: python hardware/cad/generate_v10_rotator_bench.py --out hardware/cad/v10_generated
+      - name: Run DfAM digital gate A
+        run: python tools/dfam_gate_v10.py --dir hardware/cad/v10_generated --report hardware/cad/v10_generated/dfam-gate-report.json
+      - name: Render bench reference preview
+        run: |
+          python -m pip install matplotlib
+          python tools/render_v10.py
+      - name: Commit reproducible CAD outputs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v10_generated
+          if git diff --cached --quiet; then
+            echo 'V1.0 CAD outputs unchanged.'
+          else
+            git commit -m 'Generate V1.0 ROT bench STEP STL preview [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Publish CAD bench artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V10-ROTATOR-BENCH-GATE-A-UNQUALIFIED
+          path: |
+            hardware/cad/v10_generated/*.step
+            hardware/cad/v10_generated/*.stl
+            hardware/cad/v10_generated/*.json
+            hardware/cad/v10_generated/*.png
+          if-no-files-found: error
