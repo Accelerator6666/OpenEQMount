@@ -48,3 +48,12 @@
 - [ ] Validate OEM fastener phase, bolt engagement, real angle profiles and shim gaps.
 - [ ] Complete Gate B slicer/fit and Gate C mechanical/safety qualification.
 - [ ] Design polar wedge, wave-generator shaft, counterweight, camera saddle and independent retention.
+
+
+## V0.5 Gate A: 2026-10-19
+
+- [x] Prototype polar wedge metal load-path CAD; 25–45° tilt and ±5° azimuth geometry; editable CadQuery and STEP
+- [x] 5 bed-aligned DfAM NONSTRUCTURAL FDM STL, Gate A mesh validation, tests, BOM and CAD workflow
+- [ ] **V0.6 blocking safety design:** fixed-RA-housing reducer adapter; positive mechanical altitude lock and physical stops; metal redundant retention
+- [ ] V0.6 engineering: M8 jack/buckling/preload, axially supported azimuth turntable, actual tripod adapter
+- [ ] Gate B slicer, measurement and bench assembly; Gate C structural + creep + shock + fail-safe tests

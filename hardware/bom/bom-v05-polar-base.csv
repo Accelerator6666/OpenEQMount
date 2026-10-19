@@ -1,0 +1,18 @@
+id,part,qty,material_or_standard,role,status
+1,Tripod anchor metal base,1,6061-T6 candidate 210x158x6mm,structural fabrication,NOT_APPROVED
+2,Azimuth rotating metal deck,1,6061-T6 candidate 166x145x6mm,structural fabrication,NOT_APPROVED
+3,Lower hinge metal fork,2,Aluminum/steel to engineer,structural hinge,NOT_APPROVED
+4,Tilted RA stator interface metal plate,1,Aluminum/steel to engineer,structural RA mounting,NOT_APPROVED
+5,Lower altitude jack metal double clevis,1,Aluminum/steel to engineer,structural jack end,NOT_APPROVED
+6,M8 hinge pin with retention,1,Steel shaft / double-shear / retaining hardware,Hinge bearing,PLACEHOLDER
+7,M8 adjustable jack with pivot ends,1,Rated metal telescopic/lead screw to engineer,Altitude micro-adjust,PLACEHOLDER
+8,Azimuth opposing M6 jack screw,2,Steel M6 screw + thrust pad to engineer,Azimuth micro-adjust,PLACEHOLDER
+9,M6 azimuth locking stud and washer,2,Rated metal hardware,Azimuth hard lock,TO_DESIGN
+10,Tripod stud and radial/thrust washers,1 set,Metal assembly to selected tripod,Tripod axial/radial restraint,TO_DESIGN
+11,Secondary altitude lock and positive stops,1 set,Metal arc clamp / pins,Independent mechanical failsafe,TO_DESIGN
+12,Independent payload retention,1,Rated steel cable/strap and bolts,Metal fall arrest,TO_DESIGN
+13,Left non-load-bearing cover,1,PETG bench only,Cosmetic/protective print,PRINT_GATE_A
+14,Right non-load-bearing cover,1,PETG bench only,Cosmetic/protective print,PRINT_GATE_A
+15,Altitude pointer,1,PETG bench only,Visual pointer print,PRINT_GATE_A
+16,Azimuth scale ring,1,PETG bench only,Visual alignment print,PRINT_GATE_A
+17,Fastener clearance coupon,1,PETG bench only,Calibrate prints,PRINT_GATE_A

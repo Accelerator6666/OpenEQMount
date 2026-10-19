@@ -96,3 +96,14 @@ V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**�
 - [已生成 V0.4 STEP/STL](hardware/cad/v04_generated)
 
 **仍为 bench-fit 原型；3–5 kg 只是研发目标，不得加载摄影器材。** 需采购实物验证厂家孔位、打印测试 Gate B、力学及失效保护 Gate C 后才能评估野外使用。
+
+
+## V0.5 — Adjustable Polar Wedge (Gate A, not load rated)
+
+- Parameterized latitude trial **25–45°** and azimuth slot ±5°; kinematic metal base, twin hinge ears and reference jack.
+- **5 nonstructural DfAM printed** covers/gauges/scale; **10 metal reference** parts. NO load-rated altitude lock, fail-safe or tripod interface yet.
+- Warning: DO NOT attach the *rotating* V0.4 RA output plate to the wedge. A separate **fixed RA stator housing adapter** must be engineered.
+- [V0.5 engineering notes](docs/mechanical-v05-polar-base.md) · [BOM](hardware/bom/bom-v05-polar-base.csv) · [CAD generator](hardware/cad/generate_v05.py) · [Gate A model outputs](hardware/cad/v05_generated/)
+- `python -m pytest -q tests/test_v05_polar_wedge.py` and `python tools/dfam_gate_v05.py --dir hardware/cad/v05_generated`.
+
+**V0.5 is a bench-fit research model; no photography or external load until Gate B/C verification, metal locks and safety restraint.**

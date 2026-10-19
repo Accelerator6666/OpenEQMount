@@ -30,3 +30,11 @@ Track pending slicer and mechanical acceptance in [issue #1](https://github.com/
 - Keep source `hardware/cad/generate_v04.py`, Gate A checker `tools/dfam_gate_v04.py`, and tests `tests/test_v04_frame.py` in sync. The metal part STEP files are **provisional**, not machining-release drawings.
 - Before merging changes to V0.4: `python hardware/cad/generate_v04.py --out hardware/cad/v04_generated && python tools/dfam_gate_v04.py --dir hardware/cad/v04_generated --report hardware/cad/v04_generated/dfam-gate-report.json && python -m pytest -q tests/test_v04_frame.py`.
 - Only Gate A is automated. Do not mark Gate B or C qualified without physical measurements and safety evidence.
+
+
+## V0.5 polar wedge addition (mandatory)
+
+- All polar-wedge prints are NONSTRUCTURAL fit, reference or guard parts; never replace metal base, hinge, jack or fasteners with printed substitutes.
+- The RA mounting surface is for the **stationary reducer housing** through a future engineered adapter, not the rotating V0.4 RA output plate. Never connect the RA rotating output to the fixed tripod structure.
+- V0.5 nominal range 25–45° and azimuth ±5° are *kinematic targets*, not qualified motion/strength limits.
+- Keep independent mechanical altitude lock, physical motion stops, metal retention, rated M8/azimuth jack, tripod adapter and Gate B/C evidence explicitly pending.
