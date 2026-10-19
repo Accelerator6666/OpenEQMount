@@ -1,0 +1,13 @@
+Item,Quantity,Material,Role,Procurement/size,Status
+V07 replacement wedge upper deck,1,Aluminum/steel,Metal locking-compatible wedge deck,Extra 4x M6 thru candidate holes,Unverified machining reference
+V07 lower RA stand-off,4,Metal only,Maintain vertical clearance over V06 lock lugs,26mm L x Ø16 x Ø6.6 thru,Unverified preload and fastener
+V07 intermediate RA adapter,1,Metal only,Transfer RA stator load to stand-offs,172 x 110 x 8mm,Unverified load path
+V07 upper RA stand-off,4,Metal only,Support gearbox stationary flange,21mm L x Ø16 x Ø6.6 thru,Unverified preload and fastener
+V07 rear stator flange,1,Metal only,Connect only to CSF-17 stationary rear housing,M4 x 6 on PCD71 provisional phase; 8mm plate,Requires exact gearbox verification
+V07 isolated RA metal test fixture,1,Metal only,Unpowered belt layout bench,GT2 60/20 nominal; C115±5mm,Input connection unknown
+V07 isolated DEC metal test fixture,1,Metal only,Unpowered belt layout bench,GT2 60/20 nominal; C115±5mm,Input connection unknown
+V07 RA FDM alignment lid,1,PETG,LOOSE non-load test panel,flat 3mm,Gate B/C pending
+V07 DEC FDM alignment lid,1,PETG,LOOSE non-load test panel,flat 3mm,Gate B/C pending
+V07 hole fit gauge,1,PETG,Measured hole clearance coupon,Ø3.4 3.6 4.4 4.6,Gate B/C pending
+Real 2UH input shaft bearings pulley coupling,0,Metal,NOT INCLUDED until OEM input drawing known,do not fabricate,Blocked
+Tripod safety tether fasteners torque values,0,Metal,NOT INCLUDED for current bench CAD,independent restraint required,Blocked

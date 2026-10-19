@@ -1,0 +1,65 @@
+name: V0.7 RA Stator and Belt DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v07.py'
+      - 'hardware/cad/generate_v05.py'
+      - 'tests/test_v07_ra_input_interface.py'
+      - 'tools/dfam_gate_v07.py'
+      - 'docs/mechanical-v07-ra-stator-and-belt-bench.md'
+      - '.github/workflows/cad-v07.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v07.py'
+      - 'tests/test_v07_ra_input_interface.py'
+      - 'tools/dfam_gate_v07.py'
+      - '.github/workflows/cad-v07.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v07-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  design-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD test dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+      - name: V0.7 mechanical design tests
+        run: python -m pytest -q tests/test_v07_ra_input_interface.py
+      - name: Generate non-qualified STEP and STL
+        run: python hardware/cad/generate_v07.py --latitude 35 --out hardware/cad/v07_generated
+      - name: DfAM Gate A (digital only)
+        run: python tools/dfam_gate_v07.py --dir hardware/cad/v07_generated --report hardware/cad/v07_generated/dfam-gate-report.json
+      - name: Render static engineering previews
+        run: |
+          python -m pip install matplotlib
+          python tools/render_v07.py
+      - name: Commit V0.7 generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v07_generated
+          if git diff --cached --quiet; then
+            echo 'V0.7 generated outputs already match repository.'
+          else
+            git commit -m 'Generate V0.7 Gate A bench CAD [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Publish unqualified STEP/STL bench CAD artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V07-GateA-UNQUALIFIED
+          path: |
+            hardware/cad/v07_generated/*.step
+            hardware/cad/v07_generated/*.stl
+            hardware/cad/v07_generated/*.json
+            hardware/cad/v07_generated/*.png
+          if-no-files-found: error

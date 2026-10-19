@@ -51,3 +51,16 @@ The automated **digital Gate A** checks watertight single-body STL meshes, metad
 
 ### V0.4 DfAM metal-reinforced RA/DEC frame
 Run `python hardware/cad/generate_v04.py --out hardware/cad/v04_generated`, then `python tools/dfam_gate_v04.py --dir hardware/cad/v04_generated --report hardware/cad/v04_generated/dfam-gate-report.json`. The 5 printable prototypes are nonstructural. Metal STEP proposals are not cutting-ready engineering drawings. See [V0.4 mechanical note](../../docs/mechanical-v04-frame.md). GitHub Action `cad-v04.yml` regenerates these files on main.
+
+
+### V0.7 静止 RA 固定端 & 双轴 GT2 台架（未验证）
+
+```bash
+python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+python -m pytest -q tests/test_v07_ra_input_interface.py
+python hardware/cad/generate_v07.py --latitude 35 --out hardware/cad/v07_generated
+python tools/dfam_gate_v07.py --dir hardware/cad/v07_generated
+python tools/render_v07.py
+```
+
+注意：必须使用 **V0.7 追加钻孔的金属替换顶板**，不得在旧 V0.5 顶板上强行安装，也不得将 RA 旋转输出板固定到极轴底座。同步带模型只是独立、无载荷的试验台；实际 2UH 波发生器输入参数未确认，严禁接电测试。见 [设计说明](../../docs/mechanical-v07-ra-stator-and-belt-bench.md)。
