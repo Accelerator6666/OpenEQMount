@@ -1,0 +1,26 @@
+{
+  "release": "V0.7",
+  "gate": "A: geometry and document contract only",
+  "result": "PASS",
+  "not_load_rated": true,
+  "gate_B": "PENDING",
+  "gate_C": "PENDING",
+  "printed_inventory": [
+    {
+      "name": "v07_ra_NONLOAD_LID_GAUGE_PRINT_FLAT",
+      "watertight": true,
+      "connected": true
+    },
+    {
+      "name": "v07_dec_NONLOAD_LID_GAUGE_PRINT_FLAT",
+      "watertight": true,
+      "connected": true
+    },
+    {
+      "name": "v07_M3_M4_TOLERANCE_GAUGE_PRINT_FLAT",
+      "watertight": true,
+      "connected": true
+    }
+  ],
+  "errors": []
+}

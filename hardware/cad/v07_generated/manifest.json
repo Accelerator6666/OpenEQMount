@@ -1,0 +1,259 @@
+{
+  "release": "V0.7",
+  "status": "prototype_unqualified_Gate_A_only",
+  "latitude_deg": 35.0,
+  "manufacturing_approval": false,
+  "mechanical_load_approved": false,
+  "input_coupling_verified": false,
+  "OEM_bolt_phase_verified": false,
+  "payload_rated_kg": null,
+  "wedge_RA_mount": {
+    "mode": "stationary reducer housing only",
+    "wedge_pilot_holes_mm": [
+      [
+        -43.0,
+        -27.0
+      ],
+      [
+        -43.0,
+        27.0
+      ],
+      [
+        65.0,
+        -27.0
+      ],
+      [
+        65.0,
+        27.0
+      ]
+    ],
+    "wedge_requires_replacement_drilled_deck": true,
+    "reducer_rear_pcd_mm": 71.0,
+    "phase_deg": 30.0,
+    "phase_verified": false
+  },
+  "belt": {
+    "pitch_mm": 2.0,
+    "teeth": {
+      "driven": 60,
+      "motor": 20
+    },
+    "motor_distance_nominal_mm": 115.0,
+    "adjustment_plus_minus_mm": 5.0,
+    "ratio": 3.0,
+    "approx_pitch_length_mm": {
+      "110.0": 301.474,
+      "115.0": 311.41,
+      "120.0": 321.351
+    },
+    "coupling": "UNKNOWN; no wave generator bore, keyway, clamping or axial location specified"
+  },
+  "metal_parts": [
+    {
+      "name": "v07_wedge_RA_STATOR_BASE_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        105.21,
+        110.0,
+        145.48
+      ]
+    },
+    {
+      "name": "v07_WEDGE_REPLACEMENT_TOP_DECK_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        108.4,
+        106.0,
+        143.23
+      ]
+    },
+    {
+      "name": "v07_RA_STATOR_REAR_FLANGE_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        105.21,
+        110.0,
+        145.48
+      ]
+    },
+    {
+      "name": "v07_RA_RISER_1_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        26.38,
+        16.0,
+        25.15
+      ]
+    },
+    {
+      "name": "v07_RA_LOWER_POST_1_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        30.48,
+        16.0,
+        28.02
+      ]
+    },
+    {
+      "name": "v07_RA_RISER_2_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        26.38,
+        16.0,
+        25.15
+      ]
+    },
+    {
+      "name": "v07_RA_LOWER_POST_2_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        30.48,
+        16.0,
+        28.02
+      ]
+    },
+    {
+      "name": "v07_RA_RISER_3_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        26.38,
+        16.0,
+        25.15
+      ]
+    },
+    {
+      "name": "v07_RA_LOWER_POST_3_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        30.48,
+        16.0,
+        28.02
+      ]
+    },
+    {
+      "name": "v07_RA_RISER_4_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        26.38,
+        16.0,
+        25.15
+      ]
+    },
+    {
+      "name": "v07_RA_LOWER_POST_4_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        30.48,
+        16.0,
+        28.02
+      ]
+    },
+    {
+      "name": "v07_ra_BELT_BENCH_ONLY_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        208.0,
+        106.0,
+        7.0
+      ]
+    },
+    {
+      "name": "v07_dec_BELT_BENCH_ONLY_METAL",
+      "material": "metal prototype; dimensions/strength/retention unqualified",
+      "role": "metal only. NO printed structural replacements.",
+      "bbox_mm": [
+        208.0,
+        106.0,
+        7.0
+      ]
+    }
+  ],
+  "printed_parts": [
+    {
+      "name": "v07_ra_NONLOAD_LID_GAUGE_PRINT_FLAT",
+      "material": "PETG bench-fit only, no mechanical load approval",
+      "status": "prototype_unqualified",
+      "role": "loose decorative bench panel / dimensional calibration coupon only",
+      "print_orientation": "bottom XY surface on Z=0, +Z layer build",
+      "layer_direction": "XY face, no approved structural load along XY or Z",
+      "load_path": "NONE. Not a belt guard or fastener, do not install on powered assembly",
+      "overhang_strategy": "flat design; mandatory manual slicer review",
+      "metal_joint": "NONE — not permitted to restrain any axis or moving part",
+      "min_wall_mm": "pending Gate B slicer/actual extrusion width",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        100.01,
+        34.01,
+        3.01
+      ],
+      "volume_cc": 9.93
+    },
+    {
+      "name": "v07_dec_NONLOAD_LID_GAUGE_PRINT_FLAT",
+      "material": "PETG bench-fit only, no mechanical load approval",
+      "status": "prototype_unqualified",
+      "role": "loose decorative bench panel / dimensional calibration coupon only",
+      "print_orientation": "bottom XY surface on Z=0, +Z layer build",
+      "layer_direction": "XY face, no approved structural load along XY or Z",
+      "load_path": "NONE. Not a belt guard or fastener, do not install on powered assembly",
+      "overhang_strategy": "flat design; mandatory manual slicer review",
+      "metal_joint": "NONE — not permitted to restrain any axis or moving part",
+      "min_wall_mm": "pending Gate B slicer/actual extrusion width",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        100.01,
+        34.01,
+        3.01
+      ],
+      "volume_cc": 9.93
+    },
+    {
+      "name": "v07_M3_M4_TOLERANCE_GAUGE_PRINT_FLAT",
+      "material": "PETG bench-fit only, no mechanical load approval",
+      "status": "prototype_unqualified",
+      "role": "loose decorative bench panel / dimensional calibration coupon only",
+      "print_orientation": "bottom XY surface on Z=0, +Z layer build",
+      "layer_direction": "XY face, no approved structural load along XY or Z",
+      "load_path": "NONE. Not a belt guard or fastener, do not install on powered assembly",
+      "overhang_strategy": "flat design; mandatory manual slicer review",
+      "metal_joint": "NONE — not permitted to restrain any axis or moving part",
+      "min_wall_mm": "pending Gate B slicer/actual extrusion width",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        96.0,
+        25.0,
+        4.0
+      ],
+      "volume_cc": 9.36
+    }
+  ],
+  "warnings": [
+    "Prototype only: NEVER power the motor or carry camera payload using this release.",
+    "RA fixed casing / rotating RA output MUST remain distinct. Do not tie either to a moving wedge member incorrectly.",
+    "The adapter has an UNVERIFIED rear M4 angular phase; OEM/actual reducer rear layout must be checked first.",
+    "Gearbox 2UH INPUT wave-generator shaft/bore/axial plane is UNKNOWN. The pulley drawings are pitch envelopes only.",
+    "Belt cassette is an UNATTACHED desk fixture. No connection to the reducer or polar wedge is implied.",
+    "Replacement wedge deck adds four NEW metal through-holes to avoid V0.6 upper lock lugs. Original V0.5 top plate cannot directly accept this adapter.",
+    "Two levels of metal posts are needed to lift RA stator OVER V0.6 lock lugs; bolt stack and driver/tool access not approved.",
+    "Upper fixed adaptor standoffs and bolts are METAL ONLY and not statically or fatigue verified.",
+    "DfAM Gate A is digital only. Gate B print & fit and Gate C actual load/creep/retention testing pending."
+  ]
+}
