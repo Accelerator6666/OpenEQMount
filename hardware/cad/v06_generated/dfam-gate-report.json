@@ -1,0 +1,31 @@
+{
+  "release": "V0.6",
+  "gate": "A: digital geometry only",
+  "result": "PASS",
+  "not_load_rated": true,
+  "gate_B": "PENDING",
+  "gate_C": "PENDING",
+  "parts": [
+    {
+      "name": "v06_left_lock_GUARD_PRINT_FLAT",
+      "closed": true,
+      "connected": true
+    },
+    {
+      "name": "v06_right_lock_GUARD_PRINT_FLAT",
+      "closed": true,
+      "connected": true
+    },
+    {
+      "name": "v06_bolt_fit_GAUGE_PRINT_FLAT",
+      "closed": true,
+      "connected": true
+    },
+    {
+      "name": "v06_unqualified_WARNING_TAG_PRINT_FLAT",
+      "closed": true,
+      "connected": true
+    }
+  ],
+  "errors": []
+}

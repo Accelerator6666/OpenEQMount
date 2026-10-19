@@ -1,0 +1,230 @@
+{
+  "release": "V0.6",
+  "status": "prototype_unqualified_Gate_A_only",
+  "latitude_deg": 35.0,
+  "lat_trial_range": [
+    25.0,
+    45.0
+  ],
+  "printed_parts": [
+    {
+      "name": "v06_left_lock_GUARD_PRINT_FLAT",
+      "material": "PETG bench-fit only; field/structural use prohibited",
+      "status": "prototype_unqualified",
+      "role": "non-load-bearing guard or hole calibration coupon",
+      "print_orientation": "flat bottom at Z=0, +Z layers",
+      "layer_direction": "Z interlayer only, no structural load permitted",
+      "load_path": "NONE — all locking, stops, and tripod loads routed through metal parts",
+      "overhang_strategy": "planar horizontal print; slicer review still required",
+      "metal_joint": "loose cover only; printed features NEVER clamp load or stop the mount",
+      "min_wall_mm": "to be measured during slicer Gate B",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        70.14,
+        20.0,
+        3.0
+      ],
+      "volume_cc": 3.84,
+      "field_load_approved": false
+    },
+    {
+      "name": "v06_right_lock_GUARD_PRINT_FLAT",
+      "material": "PETG bench-fit only; field/structural use prohibited",
+      "status": "prototype_unqualified",
+      "role": "non-load-bearing guard or hole calibration coupon",
+      "print_orientation": "flat bottom at Z=0, +Z layers",
+      "layer_direction": "Z interlayer only, no structural load permitted",
+      "load_path": "NONE — all locking, stops, and tripod loads routed through metal parts",
+      "overhang_strategy": "planar horizontal print; slicer review still required",
+      "metal_joint": "loose cover only; printed features NEVER clamp load or stop the mount",
+      "min_wall_mm": "to be measured during slicer Gate B",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        70.14,
+        20.0,
+        3.0
+      ],
+      "volume_cc": 3.84,
+      "field_load_approved": false
+    },
+    {
+      "name": "v06_bolt_fit_GAUGE_PRINT_FLAT",
+      "material": "PETG bench-fit only; field/structural use prohibited",
+      "status": "prototype_unqualified",
+      "role": "non-load-bearing guard or hole calibration coupon",
+      "print_orientation": "flat bottom at Z=0, +Z layers",
+      "layer_direction": "Z interlayer only, no structural load permitted",
+      "load_path": "NONE — all locking, stops, and tripod loads routed through metal parts",
+      "overhang_strategy": "planar horizontal print; slicer review still required",
+      "metal_joint": "loose cover only; printed features NEVER clamp load or stop the mount",
+      "min_wall_mm": "to be measured during slicer Gate B",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        116.0,
+        28.0,
+        5.01
+      ],
+      "volume_cc": 14.87,
+      "field_load_approved": false
+    },
+    {
+      "name": "v06_unqualified_WARNING_TAG_PRINT_FLAT",
+      "material": "PETG bench-fit only; field/structural use prohibited",
+      "status": "prototype_unqualified",
+      "role": "non-load-bearing guard or hole calibration coupon",
+      "print_orientation": "flat bottom at Z=0, +Z layers",
+      "layer_direction": "Z interlayer only, no structural load permitted",
+      "load_path": "NONE — all locking, stops, and tripod loads routed through metal parts",
+      "overhang_strategy": "planar horizontal print; slicer review still required",
+      "metal_joint": "loose cover only; printed features NEVER clamp load or stop the mount",
+      "min_wall_mm": "to be measured during slicer Gate B",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        64.0,
+        26.0,
+        3.0
+      ],
+      "volume_cc": 4.91,
+      "field_load_approved": false
+    }
+  ],
+  "metal_parts": [
+    {
+      "name": "v06_az_deck_WITH_LOCK_M6_HOLES_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        193.0,
+        145.0,
+        22.0
+      ]
+    },
+    {
+      "name": "v06_tripod_PCD62_M10_GENERIC_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        146.0,
+        146.0,
+        6.0
+      ]
+    },
+    {
+      "name": "v06_tripod_PCD62_3_8_CLEARANCE_GENERIC_METAL_OPTION",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        146.0,
+        146.0,
+        6.0
+      ]
+    },
+    {
+      "name": "v06_lock_sector_LEFT_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        81.5,
+        16.0,
+        128.0
+      ]
+    },
+    {
+      "name": "v06_upper_lock_lug_LEFT_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        50.92,
+        21.0,
+        48.49
+      ]
+    },
+    {
+      "name": "v06_M8_clamp_pin_LEFT_METAL_ENVELOPE",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        8.0,
+        24.0,
+        8.0
+      ]
+    },
+    {
+      "name": "v06_M6_stop_pin_LEFT_METAL_ENVELOPE",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        6.0,
+        24.0,
+        6.0
+      ]
+    },
+    {
+      "name": "v06_lock_sector_RIGHT_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        81.5,
+        16.0,
+        128.0
+      ]
+    },
+    {
+      "name": "v06_upper_lock_lug_RIGHT_METAL",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        50.92,
+        21.0,
+        48.49
+      ]
+    },
+    {
+      "name": "v06_M8_clamp_pin_RIGHT_METAL_ENVELOPE",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        8.0,
+        24.0,
+        8.0
+      ]
+    },
+    {
+      "name": "v06_M6_stop_pin_RIGHT_METAL_ENVELOPE",
+      "material": "metal reference, not approved for manufacture or load",
+      "role": "METAL ONLY / 3D-print forbidden for load",
+      "bbox_mm": [
+        6.0,
+        24.0,
+        6.0
+      ]
+    }
+  ],
+  "lock_slot": {
+    "radius_mm": 92.914,
+    "angle_offsets_deg": 8.043,
+    "bolt_nominal": "M8 clearance Ø9mm, reference only"
+  },
+  "stop_slot": {
+    "radius_mm": 79.076,
+    "angle_offsets_deg": 9.462,
+    "bolt_nominal": "M6 clearance Ø7mm, metal-only end-stop path"
+  },
+  "tripod": {
+    "base_variant": "provisional adapter Ø10.5",
+    "option": "Ø10.0 for 3/8-in candidate; not threaded",
+    "stud_inserts": "NOT included; no rated tripod mounting specified"
+  },
+  "warnings": [
+    "NOT LOAD RATED: latch/pin yield, clamp friction, structural bolt engagement, hinge tolerances, fatigue and dynamic stopping energy NOT verified.",
+    "No claim of independent fall arrest. A lost/disengaged pin could still permit uncontrolled motion. Use no payload.",
+    "No specific reducer or tripod mating interface is confirmed; RA stator mount remains unverified.",
+    "Plate lock slots limit nominal latitude only if BOTH stop pins have rated metal retaining hardware; NOT yet approved.",
+    "Metal components must never be printed for structural service; metal thickness and fastener accessibility require prototype checks.",
+    "DfAM Gate A means closed STL & metadata only, not slicer Gate B or structural Gate C."
+  ]
+}
