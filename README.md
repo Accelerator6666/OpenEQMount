@@ -140,3 +140,9 @@ V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**�
 FreeCAD 整机三轴概念 STEP：`hardware/cad/v09_generated/OpenEQMount_V09_THREE_AXIS_MOUNT_CONCEPT_UNQUALIFIED.step`，以及独立 ROT 概念子装配 STEP。**实际 DEC 相机鞍座、轴承、硬限位和防坠仍未设计完成；全部模型均无 3–5 kg 承载认证。**
 
 参阅 [V0.9 设计与 DfAM 规范](docs/mechanical-v09-three-axis-rotator.md) 和 [V0.9 Actions](.github/workflows/cad-v09.yml)。
+
+## V1.1 — DEC–ROT 金属连接桥及 FreeCAD 三轴一体总装（Gate A）
+
+V1.1 使用一件**连续金属桥架概念实体**连接 DEC 输出法兰与 ROT 轴承平台，并将 V1.0 轴承台架、金属电机安装隔柱及相机端金属空白法兰纳入同一装配坐标系；完整模型见 [`hardware/cad/v11_generated/OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step`](hardware/cad/v11_generated/OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step)（53 实体、FreeCAD 可直接打开）。另有一件仅用于尺寸检查的非承力 FDM 孔位检具。
+
+**严禁将连续 STEP 模型理解为已验证的实际焊接/螺接工艺。** OEM DEC 输出 PCD23、机加工/焊接工艺、轴承力矩刚性、相机夹持、独立防坠、限位、线缆、实体承载 Gate B/C 都仍待验证；不可带电、不可悬挂相机。阅读 [V1.1 机械设计与全部限制](docs/mechanical-v11-dec-rot-integration.md)。

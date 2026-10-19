@@ -1,0 +1,74 @@
+name: V1.1 Integrated Three-Axis CAD + DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v11_three_axis_mated_concept.py'
+      - 'hardware/cad/generate_v10_rotator_bench.py'
+      - 'hardware/cad/generate_v08_concept_assembly.py'
+      - 'tests/test_v11_three_axis_mated.py'
+      - 'tools/dfam_gate_v11.py'
+      - 'tools/render_v11.py'
+      - 'docs/mechanical-v11-dec-rot-integration.md'
+      - '.github/workflows/cad-v11.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v11_three_axis_mated_concept.py'
+      - 'tests/test_v11_three_axis_mated.py'
+      - 'tools/dfam_gate_v11.py'
+      - '.github/workflows/cad-v11.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v11-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  integrated-cad-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and DfAM dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Verify DEC-ROT geometry and kinematic reference
+        run: python -m pytest -q tests/test_v11_three_axis_mated.py
+      - name: Generate integrated and loose STEP STL
+        run: python hardware/cad/generate_v11_three_axis_mated_concept.py --out hardware/cad/v11_generated --latitude 35 --dec-preview 25 --rot-preview 0
+      - name: Check DfAM digital Gate A
+        run: python tools/dfam_gate_v11.py --dir hardware/cad/v11_generated --report hardware/cad/v11_generated/dfam-gate-report.json
+      - name: Reimport combined STEP and validate 53 solids
+        run: |
+          python - <<'PY'
+          import cadquery as cq
+          p='hardware/cad/v11_generated/OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step'
+          n=len(cq.importers.importStep(p).solids().vals())
+          assert n==53,(n,'integrated STEP count changed')
+          print('FreeCAD-compatible STEP import smoke test:',n,'solids')
+          PY
+      - name: Render full and close-up engineering previews
+        run: python tools/render_v11.py
+      - name: Commit generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v11_generated
+          if git diff --cached --quiet; then
+            echo 'V1.1 generated CAD identical.'
+          else
+            git commit -m 'Generate V1.1 integrated 3-axis STEP STL previews [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Upload verified unqualified V1.1 CAD
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V11-3AXIS-METAL-BRIDGE-GATE-A-UNQUALIFIED
+          path: |
+            hardware/cad/v11_generated/*.step
+            hardware/cad/v11_generated/*.stl
+            hardware/cad/v11_generated/*.json
+            hardware/cad/v11_generated/*.png
+          if-no-files-found: error

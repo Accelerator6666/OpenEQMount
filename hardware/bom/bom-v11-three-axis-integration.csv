@@ -1,0 +1,12 @@
+Subassembly,Part,Qty,Material/process,Status,Notes
+DEC-ROT,v11 continuous metal bridge with hub and deck,1,Aluminum or steel engineered fabrication,Unqualified,DEC output PCD23 unverified; weld/machining and load tests required
+ROT motor,v11 revised NEMA17 mount plate,1,Engineered metal,Unqualified,3 spacer clearance holes PCD146 and slotted NEMA17 fit
+ROT motor,v11 nominal metal through-bolt stand-off 14mm,3,Engineered metal,Unqualified,OD10 ID5.5; bolt and spacing stack unverified
+ROT camera,v11 output connector blank,1,Engineered metal,Unqualified,Not a camera lens clamp or Arca saddle
+DEC-ROT,v11 PCD23 removable flat fit coupon,1,PETG non-load only,Gate A only,No printed load interface
+ROT main,V1.0 6808-2RS candidate bearings,2,Manufacturer metal bearings,Unqualified,40x52x7 mm pair bending stiffness/preload not proven
+ROT main,V1.0 fixed bearing metal housing,1,Engineered metal,Unqualified,Metal machine tolerance and press fit unverified
+ROT main,V1.0 hollow metal spindle,1,Engineered metal,Unqualified,No verified shoulders axial capture and preload
+ROT safety,Independent cable-safe metal restraint,1,Steel tether plus rated ends,NOT DESIGNED,Mandatory prior to camera and powered testing
+ROT safety,Independent positive hard limit and home/end switches,1,Engineered metal plus sensor,NOT DESIGNED,Mandatory prior to powered testing
+Camera,Measured interchangeable metal camera/lens collar,1,Engineered metal clamp,NOT DESIGNED,Mandatory prior to camera placement
