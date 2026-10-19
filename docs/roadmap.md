@@ -57,3 +57,13 @@
 - [ ] **V0.6 blocking safety design:** fixed-RA-housing reducer adapter; positive mechanical altitude lock and physical stops; metal redundant retention
 - [ ] V0.6 engineering: M8 jack/buckling/preload, axially supported azimuth turntable, actual tripod adapter
 - [ ] Gate B slicer, measurement and bench assembly; Gate C structural + creep + shock + fail-safe tests
+
+
+## V0.6 — 金属锁紧、止挡与通用三脚架接口（Gate A CAD 已完成）
+
+- [x] 独立 M8 锁紧弧槽与 M6 限位弧槽的 25°–45° 数字轨迹验证
+- [x] 金属侧板与顶板连接耳座、通用金属三脚架接口参考 CAD
+- [x] DfAM 4 件非承力护件、校准检具，自动 Gate A 审核
+- [ ] 确认真实三脚架与谐波减速器（尤其 RA 固定机壳端）安装尺寸
+- [ ] 金属防坠独立约束、销轴保持、螺栓长度、锁紧力和力矩选型
+- [ ] 实物装配、打印公差 Gate B，负载/长期蠕变/温度/振动 Gate C

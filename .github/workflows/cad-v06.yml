@@ -1,0 +1,68 @@
+name: V0.6 Independent Latitude Lock DfAM
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v06.py'
+      - 'hardware/cad/generate_v05.py'
+      - 'tests/test_v06_latitude_lock.py'
+      - 'tools/dfam_gate_v06.py'
+      - 'tools/render_v06.py'
+      - 'docs/mechanical-v06-safety-lock.md'
+      - '.github/workflows/cad-v06.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v06.py'
+      - 'hardware/cad/generate_v05.py'
+      - 'tests/test_v06_latitude_lock.py'
+      - 'tools/dfam_gate_v06.py'
+      - '.github/workflows/cad-v06.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v06-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  dfam-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+      - name: Numerical and CAD interface tests
+        run: python -m pytest -q tests/test_v06_latitude_lock.py
+      - name: Rebuild unqualified V0.6 STEP/STL
+        run: python hardware/cad/generate_v06.py --latitude 35 --out hardware/cad/v06_generated
+      - name: Gate A digital only — prohibit mechanical load claims
+        run: python tools/dfam_gate_v06.py --dir hardware/cad/v06_generated --report hardware/cad/v06_generated/dfam-gate-report.json
+      - name: Render CAD previews (best effort)
+        continue-on-error: true
+        run: |
+          python -m pip install vtk
+          if command -v xvfb-run >/dev/null 2>&1; then xvfb-run -a python tools/render_v06.py; else python tools/render_v06.py; fi
+      - name: Commit V0.6 generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v06_generated
+          if git diff --cached --quiet; then
+            echo 'V0.6 generated outputs are current.'
+          else
+            git commit -m 'Generate V0.6 CAD bench files [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Attach digital-only model files
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V06-GateA-UNQUALIFIED
+          path: |
+            hardware/cad/v06_generated/*.step
+            hardware/cad/v06_generated/*.stl
+            hardware/cad/v06_generated/*.json
+            hardware/cad/v06_generated/*.png
+          if-no-files-found: error

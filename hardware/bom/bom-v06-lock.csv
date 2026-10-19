@@ -1,0 +1,12 @@
+category,component,quantity,material_or_spec,status,notes
+METAL,latitude lock sector plate,2,6 mm steel/aluminum REFERENCE,unqualified,Slot edge distances & material stresses require review
+METAL,upper latch lug,2,aluminum/steel REFERENCE,unqualified,M6 top deck bolt + independent crosspins
+METAL,modified metal azimuth deck,1,aluminum reference,unqualified,Four Ø6.6 lock foot holes
+METAL,M8 clamp shoulder fastener with washer and nut,2,M8 to be selected,NOT SELECTED,Clamp torque & metal friction not qualified
+METAL,M6 travel stop shoulder pin and locking retainer,2,M6 to be selected,NOT SELECTED,Must be retained independently
+METAL,metal tripod adapter option,1,Ø146 x 6 aluminum or steel,unqualified,Select M10 OR 3/8 candidate - NOT BOTH
+FASTENER,sector-to-azimuth metal screw set,4,M6 length TBD,NOT SELECTED,Washer/tool access & metal thread engagement unverified
+FASTENER,lug-to-tilt-deck metal screw set,2,M6 length TBD,NOT SELECTED,Nominal holes x45 y±45
+FDM,slot guard left/right,2,PETG trial,Gate A only,No load path and no field approval
+FDM,clearance hole gauge,1,PETG trial,Gate A only,Check Ø6.4 Ø6.6 Ø8.4 Ø8.6 Ø10.5 after print
+FDM,unqualified warning tag,1,PETG trial,Gate A only,Not a mechanical stop

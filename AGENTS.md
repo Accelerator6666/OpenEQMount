@@ -38,3 +38,10 @@ Track pending slicer and mechanical acceptance in [issue #1](https://github.com/
 - The RA mounting surface is for the **stationary reducer housing** through a future engineered adapter, not the rotating V0.4 RA output plate. Never connect the RA rotating output to the fixed tripod structure.
 - V0.5 nominal range 25–45° and azimuth ±5° are *kinematic targets*, not qualified motion/strength limits.
 - Keep independent mechanical altitude lock, physical motion stops, metal retention, rated M8/azimuth jack, tripod adapter and Gate B/C evidence explicitly pending.
+
+
+### V0.6 specific safety hold
+
+- `docs/mechanical-v06-safety-lock.md` and `hardware/cad/generate_v06.py` model **metal-only** locking and stop interfaces; no equivalent printed load-bearing pieces are allowed.
+- Keep Gate B and Gate C pending and forbid any 3–5 kg load claim until documented physical qualification and independent fall restraint exist.
+- New CAD versions must not bolt the rotating RA output flange to the stationary polar wedge. Actual RA stator and tripod interfaces remain provisional.

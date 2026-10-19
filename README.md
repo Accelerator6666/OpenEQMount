@@ -107,3 +107,11 @@ V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**�
 - `python -m pytest -q tests/test_v05_polar_wedge.py` and `python tools/dfam_gate_v05.py --dir hardware/cad/v05_generated`.
 
 **V0.5 is a bench-fit research model; no photography or external load until Gate B/C verification, metal locks and safety restraint.**
+
+
+## V0.6 安全锁紧原型
+
+- 新增独立的金属纬度锁紧和限位销槽，供 25°–45° 可调极轴底座进行**无载荷试装**。
+- 新增可替换的 Ø146 mm 金属三脚架转接板（Ø10.5 / Ø10.0 中心通孔为候选值，**未验证任何具体三脚架型号**）。
+- DfAM 新增 4 件非承力打印件，附参数化 CAD、STEP/STL、BOM、8 项数字测试与 Gate A 工作流。
+- 详见 [V0.6 机械设计及待验证项目](docs/mechanical-v06-safety-lock.md)。**当前不可带摄影载荷使用。**
