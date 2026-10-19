@@ -1,6 +1,6 @@
 # OpenEQMount — 开源双轴摄影赤道仪
 
-**当前版本：V0.3 / DfAM 受控 FDM 打印试装原型，尚未经过真实负载与安全验证。**
+**当前版本：V0.9 三轴数字概念 / DfAM Gate A（未经过载荷与安全验证）**
 
 用途已经确定：**广角星野摄影；目标摄影载荷 3–5 kg；最长焦距 ≤500 mm**。这些属于研发目标，不是量产参数或已确认的安全载荷。项目以德式双轴赤道仪 (GEM) 为基础，拟使用 RA/DEC 独立谐波减速器 + 3:1 同步带传动，第一阶段优先兼容 OnStepX 生态。
 
@@ -131,3 +131,12 @@ V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**�
 - [Windows FreeCAD 打开说明及安全边界](docs/mechanical-v08-combined-view.md)
 
 此整机 STEP 仅为位置参考，不可用于制造、3D 打印整机或挂载设备。尚未完成真实电机输入、皮带传动对接和载荷验证。
+
+
+## V0.9 — 三轴 RA / DEC / ROT（DfAM Gate A 概念）
+
+新增 **ROT 相机光轴滚转**；ROT 与 DEC 赤纬转轴垂直，用于拍摄构图。新增纯 Python 三轴同步运动*模拟器*（`tools/three_axis_motion.py`），物理行程候选为 ±160°；软件未连接实际电机，未实现 ASCOM/INDI 驱动、自动翻中天或连续视场消旋。
+
+FreeCAD 整机三轴概念 STEP：`hardware/cad/v09_generated/OpenEQMount_V09_THREE_AXIS_MOUNT_CONCEPT_UNQUALIFIED.step`，以及独立 ROT 概念子装配 STEP。**实际 DEC 相机鞍座、轴承、硬限位和防坠仍未设计完成；全部模型均无 3–5 kg 承载认证。**
+
+参阅 [V0.9 设计与 DfAM 规范](docs/mechanical-v09-three-axis-rotator.md) 和 [V0.9 Actions](.github/workflows/cad-v09.yml)。

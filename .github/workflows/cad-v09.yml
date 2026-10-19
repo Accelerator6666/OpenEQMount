@@ -1,0 +1,68 @@
+name: V0.9 Three-Axis ROT Concept Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v09_rotator.py'
+      - 'tools/three_axis_motion.py'
+      - 'tools/dfam_gate_v09.py'
+      - 'tests/test_v09_*'
+      - 'docs/mechanical-v09-three-axis-rotator.md'
+      - '.github/workflows/cad-v09.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v09_rotator.py'
+      - 'tools/three_axis_motion.py'
+      - 'tools/dfam_gate_v09.py'
+      - 'tests/test_v09_*'
+      - '.github/workflows/cad-v09.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v09-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  three-axis-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD / Gate A tools
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh
+      - name: Test 3-axis geometry and motion planner (simulation only)
+        run: python -m pytest -q tests/test_v09_three_axis_motion.py tests/test_v09_rotator_cad.py
+      - name: Generate FreeCAD three-axis concept assemblies and STL gauges
+        run: python hardware/cad/generate_v09_rotator.py --out hardware/cad/v09_generated
+      - name: DfAM digital Gate A
+        run: python tools/dfam_gate_v09.py --dir hardware/cad/v09_generated --report hardware/cad/v09_generated/dfam-gate-report.json
+      - name: Render V0.9 view preview
+        run: |
+          python -m pip install matplotlib
+          python tools/render_v09_preview.py
+      - name: Commit reproducible generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v09_generated
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+          else
+            git commit -m 'Generate V0.9 3-axis ROT concept CAD [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Publish bench CAD only
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V09-THREE-AXIS-UNQUALIFIED-CAD
+          path: |
+            hardware/cad/v09_generated/*.step
+            hardware/cad/v09_generated/*.stl
+            hardware/cad/v09_generated/*.json
+            hardware/cad/v09_generated/*.png
+          if-no-files-found: error

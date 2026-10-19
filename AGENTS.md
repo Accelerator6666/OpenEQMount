@@ -45,3 +45,11 @@ Track pending slicer and mechanical acceptance in [issue #1](https://github.com/
 - `docs/mechanical-v06-safety-lock.md` and `hardware/cad/generate_v06.py` model **metal-only** locking and stop interfaces; no equivalent printed load-bearing pieces are allowed.
 - Keep Gate B and Gate C pending and forbid any 3–5 kg load claim until documented physical qualification and independent fall restraint exist.
 - New CAD versions must not bolt the rotating RA output flange to the stationary polar wedge. Actual RA stator and tripod interfaces remain provisional.
+
+
+## V0.9 三轴运动学约束
+
+- ROT 绕相机光轴旋转，并与 DEC 转轴垂直；不可把 ROT 误建成与 DEC 共轴。
+- 未完成 HOME、硬限位、急停、断电防坠、线缆路径及实际力学验证前禁止通电。
+- 不允许通过把 ROT 机械角模 360° 来绕过软限位；天空 PA 必须经过相机实际标定。
+- 所有第三轴 FDM 件遵循 DfAM；仿真代码不代表 ASCOM/INDI 驱动或真实机械安全。

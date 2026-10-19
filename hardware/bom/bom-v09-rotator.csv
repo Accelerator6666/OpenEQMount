@@ -1,0 +1,11 @@
+Item,Description,Quantity,Material,Stage,Notes
+R1,Stationary ring concept,1,Metal proposed,UNQUALIFIED,Vendor DEC output mating and real metal grade required
+R2,Camera rotator rotating carrier concept,1,Metal proposed,UNQUALIFIED,No certified optical output connection
+R3,Rotator thin-section bearing,1,Undecided,UNSELECTED,Spatial envelope only not a purchasing SKU
+R4,Independent axial retention ring,1,Metal proposed,UNQUALIFIED,Must be re-engineered for anti-drop safety
+R5,GT2 180T large pulley pitch concept,1,Metal proposed,CONCEPT ONLY,No pulley teeth hub or belt confirmed
+R6,GT2 20T motor pulley pitch concept,1,Metal proposed,CONCEPT ONLY,Motor input design pending
+R7,Home and physical end stops,1 set,Metal+electronic,TBD,Physical limits and watchdog safety missing
+R8,3D printed position scale bezel gauge,1,PETG trial,Gate A only,Nonstructural
+R9,3D printed cable loop sample,1,PETG trial,Gate A only,Not an installed cable restraint
+R10,3D printed clearance coupon,1,PETG trial,Gate A only,Printer calibration only
