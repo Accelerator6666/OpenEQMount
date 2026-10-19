@@ -40,3 +40,11 @@
 - [ ] KiCad 自研控制板（可选）
 - [ ] Release 包含源文件与物料表
 - [ ] 发布完整装配教程与安全声明
+
+
+## V0.4 — DfAM RA–DEC frame
+- [x] Generate provisional orthogonal metal-load path and nonstructural FDM covers.
+- [x] Add parameterized STEP/STL and automated Gate A for V0.4.
+- [ ] Validate OEM fastener phase, bolt engagement, real angle profiles and shim gaps.
+- [ ] Complete Gate B slicer/fit and Gate C mechanical/safety qualification.
+- [ ] Design polar wedge, wave-generator shaft, counterweight, camera saddle and independent retention.

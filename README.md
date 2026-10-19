@@ -85,3 +85,14 @@ python hardware/cad/generate_v03.py --out hardware/cad/v03_generated
 BOM: [`hardware/bom/bom-v03-print.csv`](hardware/bom/bom-v03-print.csv).
 CAD: [`hardware/cad/generate_v03.py`](hardware/cad/generate_v03.py).
 Automation: [`.github/workflows/cad-v03.yml`](.github/workflows/cad-v03.yml).
+
+
+## V0.4 — DfAM 正交 RA–DEC 连接框架（Gate A）
+V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**金属承力结构参考 STEP**、RA/DEC 90° 连接装配 STEP、CAD 参数化生成器、BOM、测试与 GitHub Actions 自动构建。打印零件不承受减速器的主承力/防坠载荷。
+- [V0.4 机械结构与安全边界](docs/mechanical-v04-frame.md)
+- [V0.4 生成器](hardware/cad/generate_v04.py)
+- [V0.4 数字 DfAM Gate A](tools/dfam_gate_v04.py)
+- [V0.4 构建工作流](.github/workflows/cad-v04.yml)
+- [已生成 V0.4 STEP/STL](hardware/cad/v04_generated)
+
+**仍为 bench-fit 原型；3–5 kg 只是研发目标，不得加载摄影器材。** 需采购实物验证厂家孔位、打印测试 Gate B、力学及失效保护 Gate C 后才能评估野外使用。

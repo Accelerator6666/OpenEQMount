@@ -24,3 +24,9 @@ python -m pytest -q
 ```
 
 Track pending slicer and mechanical acceptance in [issue #1](https://github.com/Accelerator6666/OpenEQMount/issues/1).
+
+## V0.4 Gate A additional requirements
+- Treat printed V0.4 cheek covers and drill gauges as **nonstructural**. The primary RA-to-DEC path must remain metal-to-metal. Do not trap printed polymer under metal bolt preload.
+- Keep source `hardware/cad/generate_v04.py`, Gate A checker `tools/dfam_gate_v04.py`, and tests `tests/test_v04_frame.py` in sync. The metal part STEP files are **provisional**, not machining-release drawings.
+- Before merging changes to V0.4: `python hardware/cad/generate_v04.py --out hardware/cad/v04_generated && python tools/dfam_gate_v04.py --dir hardware/cad/v04_generated --report hardware/cad/v04_generated/dfam-gate-report.json && python -m pytest -q tests/test_v04_frame.py`.
+- Only Gate A is automated. Do not mark Gate B or C qualified without physical measurements and safety evidence.

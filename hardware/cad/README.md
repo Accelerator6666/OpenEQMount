@@ -47,3 +47,7 @@ python tools/dfam_gate.py --report hardware/cad/v03_generated/dfam-gate-report.j
 ```
 
 The automated **digital Gate A** checks watertight single-body STL meshes, metadata, file inventory and 220 mm bed size; this does not demonstrate absence of supports, field durability or payload safety. Each design requires human slicer/fit **Gate B** and mechanical **Gate C** before use.
+
+
+### V0.4 DfAM metal-reinforced RA/DEC frame
+Run `python hardware/cad/generate_v04.py --out hardware/cad/v04_generated`, then `python tools/dfam_gate_v04.py --dir hardware/cad/v04_generated --report hardware/cad/v04_generated/dfam-gate-report.json`. The 5 printable prototypes are nonstructural. Metal STEP proposals are not cutting-ready engineering drawings. See [V0.4 mechanical note](../../docs/mechanical-v04-frame.md). GitHub Action `cad-v04.yml` regenerates these files on main.

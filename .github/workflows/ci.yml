@@ -5,6 +5,7 @@ on:
     paths-ignore:
       - 'hardware/cad/generated/**'
       - 'hardware/cad/v03_generated/**'
+      - 'hardware/cad/v04_generated/**'
   pull_request:
 
 jobs:

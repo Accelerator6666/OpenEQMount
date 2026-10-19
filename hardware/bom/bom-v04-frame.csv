@@ -1,0 +1,16 @@
+Item,Qty,Material,Specification,Role,State
+RA output interface plate,1,6061-T6 aluminum preliminary,150x150x5 mm 6x M5 PCD27 + 4x M5 side cleats,primary metal force path,engineering prototype
+DEC rear interface plate,1,6061-T6 aluminum preliminary,5x150x150 mm center aperture Ø54 + 6x M4 PCD65,primary metal force path,engineering prototype
+RA/DEC side diagonal webs,2,6061-T6 aluminum preliminary,5 mm custom profiled sheet with 4x M5 and 2x M3 holes,primary metal force path,engineering prototype
+RA angle cleats,2,6061-T6 aluminum preliminary,105 mm length 4 mm section L profile,attach side webs to RA plate,section not yet sourced
+DEC angle cleats,2,6061-T6 aluminum preliminary,122 mm length 5 mm section L profile,attach side webs to DEC plate,section not yet sourced
+FDM left/right side cover,2,PETG bench-fit only,8 mm thick in-plane printed DfAM profile,non-structural service and alignment,Gate A only
+FDM RA hole drill template,1,PETG bench-fit only,142x142x3.5 mm,transfer preliminary hole layout,Gate A only
+FDM DEC hole drill template,1,PETG bench-fit only,150x150x3.5 mm,transfer preliminary hole layout,Gate A only
+FDM hole clearance coupon,1,PETG bench-fit only,4 hole dia trials,printer calibration,Gate A only
+Metal rail M5 tie bolts,8,M5 class 8.8 or engineered alternative,bolt length pending tolerance stack,metal-only shear/joint clamping,unverified
+M5 RA/DEC angle plate screws,8,M5 class 8.8 or engineered alternative,full through bolt with washer and nut required,metal plate joints,unverified
+DEC rear M4 factory thread screws,6,M4 appropriate class,engagement and phase MUST be verified,connect DEC body to metal plate,unverified
+RA output M5 factory thread screws,6,M5 appropriate class,engagement and phase MUST be verified,connect RA rotating flange to plate,unverified
+M5 metal shim washers,16,metal,2 mm nominal gap built up from measured shim stack,avoid bending RA/DEC cleat legs,unverified
+Independent camera safety restraint,1,metal strap/cable TBD,anchored independently of printed components,fail safe,mandatory before field use
