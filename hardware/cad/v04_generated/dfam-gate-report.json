@@ -1,0 +1,62 @@
+{
+  "release": "V0.4",
+  "gate": "A digital-only",
+  "result": "PASS",
+  "explicit_not_load_qualified": true,
+  "slicer_gate_B": "PENDING",
+  "physical_gate_C": "PENDING",
+  "parts_checked": 5,
+  "items": [
+    {
+      "name": "v04_cheek_left_PRINT_FLAT",
+      "watertight": true,
+      "body_count": 1,
+      "extent_mm": [
+        167.0,
+        145.0,
+        8.0
+      ]
+    },
+    {
+      "name": "v04_cheek_right_PRINT_FLAT",
+      "watertight": true,
+      "body_count": 1,
+      "extent_mm": [
+        167.0,
+        145.0,
+        8.0
+      ]
+    },
+    {
+      "name": "v04_ra_bolt_pattern_GAUGE",
+      "watertight": true,
+      "body_count": 1,
+      "extent_mm": [
+        142.0,
+        142.0,
+        3.5
+      ]
+    },
+    {
+      "name": "v04_dec_bolt_pattern_GAUGE",
+      "watertight": true,
+      "body_count": 1,
+      "extent_mm": [
+        150.0,
+        150.0,
+        3.5
+      ]
+    },
+    {
+      "name": "v04_fastener_fit_GAUGE",
+      "watertight": true,
+      "body_count": 1,
+      "extent_mm": [
+        92.0,
+        25.0,
+        6.0
+      ]
+    }
+  ],
+  "failures": []
+}

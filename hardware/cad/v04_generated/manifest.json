@@ -1,0 +1,208 @@
+{
+  "release": "V0.4",
+  "status": "prototype_unqualified_Gate_A_only",
+  "target": "3–5 kg payload and ≤500 mm focal length only AFTER field qualification",
+  "oem_holes": "nominal interface and angular clocking not physically verified",
+  "mechanism": "metal RA plate -> metal angle cleats -> metal side webs -> metal DEC cleats -> metal DEC rear plate",
+  "printed_parts": [
+    {
+      "name": "v04_cheek_left_PRINT_FLAT",
+      "material": "PETG trial only (nonstructural)",
+      "status": "prototype_unqualified",
+      "role": "removable_nonstructural_alignment_cover",
+      "print_orientation": "bed oriented XY profile, bottom face Z=0",
+      "layer_direction": "+Z perpendicular to main planar profile",
+      "load_path": "no structural load permitted; metal-to-metal structural fasteners only",
+      "overhang_strategy": "flat on bed, no planned supports; slicer confirmation required",
+      "metal_joint": "M5 joint heads pass through Ø11 windows; printed cheek held only by service M3",
+      "min_wall_mm": "not certified; measure slicer perimeters and critical ligaments",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        167.0,
+        145.0,
+        8.01
+      ],
+      "volume_cc": 62.78
+    },
+    {
+      "name": "v04_cheek_right_PRINT_FLAT",
+      "material": "PETG trial only (nonstructural)",
+      "status": "prototype_unqualified",
+      "role": "removable_nonstructural_alignment_cover",
+      "print_orientation": "bed oriented XY profile, bottom face Z=0",
+      "layer_direction": "+Z perpendicular to main planar profile",
+      "load_path": "no structural load permitted; metal-to-metal structural fasteners only",
+      "overhang_strategy": "flat on bed, no planned supports; slicer confirmation required",
+      "metal_joint": "M5 joint heads pass through Ø11 windows; printed cheek held only by service M3",
+      "min_wall_mm": "not certified; measure slicer perimeters and critical ligaments",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        167.0,
+        145.0,
+        8.01
+      ],
+      "volume_cc": 62.78
+    },
+    {
+      "name": "v04_ra_bolt_pattern_GAUGE",
+      "material": "PETG trial only (nonstructural)",
+      "status": "prototype_unqualified",
+      "role": "nonstructural_drill_or_fit_gauge",
+      "print_orientation": "bed oriented XY profile, bottom face Z=0",
+      "layer_direction": "+Z perpendicular to main planar profile",
+      "load_path": "no structural load permitted; metal-to-metal structural fasteners only",
+      "overhang_strategy": "flat on bed, no planned supports; slicer confirmation required",
+      "metal_joint": "M5 joint heads pass through Ø11 windows; printed cheek held only by service M3",
+      "min_wall_mm": "not certified; measure slicer perimeters and critical ligaments",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        142.0,
+        142.0,
+        3.51
+      ],
+      "volume_cc": 69.33
+    },
+    {
+      "name": "v04_dec_bolt_pattern_GAUGE",
+      "material": "PETG trial only (nonstructural)",
+      "status": "prototype_unqualified",
+      "role": "nonstructural_drill_or_fit_gauge",
+      "print_orientation": "bed oriented XY profile, bottom face Z=0",
+      "layer_direction": "+Z perpendicular to main planar profile",
+      "load_path": "no structural load permitted; metal-to-metal structural fasteners only",
+      "overhang_strategy": "flat on bed, no planned supports; slicer confirmation required",
+      "metal_joint": "M5 joint heads pass through Ø11 windows; printed cheek held only by service M3",
+      "min_wall_mm": "not certified; measure slicer perimeters and critical ligaments",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        150.0,
+        150.0,
+        3.54
+      ],
+      "volume_cc": 70.06
+    },
+    {
+      "name": "v04_fastener_fit_GAUGE",
+      "material": "PETG trial only (nonstructural)",
+      "status": "prototype_unqualified",
+      "role": "nonstructural_drill_or_fit_gauge",
+      "print_orientation": "bed oriented XY profile, bottom face Z=0",
+      "layer_direction": "+Z perpendicular to main planar profile",
+      "load_path": "no structural load permitted; metal-to-metal structural fasteners only",
+      "overhang_strategy": "flat on bed, no planned supports; slicer confirmation required",
+      "metal_joint": "M5 joint heads pass through Ø11 windows; printed cheek held only by service M3",
+      "min_wall_mm": "not certified; measure slicer perimeters and critical ligaments",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        92.0,
+        25.0,
+        6.0
+      ],
+      "volume_cc": 13.32
+    }
+  ],
+  "metal_parts": [
+    {
+      "name": "v04_ra_output_plate_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        150.0,
+        150.0,
+        5.0
+      ],
+      "volume_cc": 110.73
+    },
+    {
+      "name": "v04_dec_rear_plate_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        5.0,
+        150.0,
+        150.0
+      ],
+      "volume_cc": 100.08
+    },
+    {
+      "name": "v04_left_side_web_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        167.0,
+        5.0,
+        145.0
+      ],
+      "volume_cc": 40.66
+    },
+    {
+      "name": "v04_right_side_web_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        167.0,
+        5.0,
+        145.0
+      ],
+      "volume_cc": 40.66
+    },
+    {
+      "name": "v04_left_ra_angle_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        105.0,
+        18.0,
+        25.0
+      ],
+      "volume_cc": 15.99
+    },
+    {
+      "name": "v04_right_ra_angle_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        105.0,
+        18.0,
+        25.0
+      ],
+      "volume_cc": 15.99
+    },
+    {
+      "name": "v04_left_dec_angle_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        25.0,
+        14.0,
+        122.0
+      ],
+      "volume_cc": 17.86
+    },
+    {
+      "name": "v04_right_dec_angle_METAL",
+      "source": "fabricated metal — not 3D printed",
+      "material": "6061-T6 aluminum proposed; engineer must approve",
+      "bbox_mm": [
+        25.0,
+        14.0,
+        122.0
+      ],
+      "volume_cc": 17.86
+    }
+  ],
+  "open_items": [
+    "OEM CSF input/rear thread angular clock & counterbore access",
+    "DEC rear bearing/output torque path, fastener embedment, and central 54mm aperture",
+    "aluminum grade, real angle section, bend radii & joining process",
+    "bolt head/wrench clearance, torque and vibration locking",
+    "verified metal fail-safe strap, physical pull test and field safety interlocks",
+    "slicer inspection and print coupon metrology",
+    "gravity/accelerated force calculations with actual camera and RA polar orientation"
+  ]
+}
