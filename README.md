@@ -122,3 +122,12 @@ V0.4 已提供 5 个 FDM 平放打印的非承力盖板/公差工具、8 个**�
 - RA、DEC 分别新增未连接到减速器的 **GT2 60T/20T 同步带台架参考模型**（3:1，中心距 115±5mm）；波发生器输入轴、实际联轴器、轴承和皮带都**尚未设计/确认**。
 - 3 件不承力的 DfAM 打印检具；完整源代码、STEP/STL、自动化测试和 Gate A 检查。详情：[V0.7 设计说明](docs/mechanical-v07-ra-stator-and-belt-bench.md)。
 - **安全声明：数字几何原型，禁止载荷与通电测试；Gate B/C 尚未完成。**
+
+
+## V0.8 — 单文件整机概念装配预览（FreeCAD）
+
+- [下载包含 V0.4–V0.7 主要已定位子结构的整机 STEP](hardware/cad/v08_generated/OpenEQMount_V08_WHOLE_MOUNT_CONCEPT_UNQUALIFIED.step)
+- [查看整机预览 PNG](hardware/cad/v08_generated/OpenEQMount_V08_WHOLE_MOUNT_CONCEPT.png)
+- [Windows FreeCAD 打开说明及安全边界](docs/mechanical-v08-combined-view.md)
+
+此整机 STEP 仅为位置参考，不可用于制造、3D 打印整机或挂载设备。尚未完成真实电机输入、皮带传动对接和载荷验证。

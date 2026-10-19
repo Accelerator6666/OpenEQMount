@@ -1,0 +1,59 @@
+name: V0.8 Whole Mount Concept STEP
+
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v08_concept_assembly.py'
+      - 'tools/render_v08_concept.py'
+      - 'tests/test_v08_concept_assembly.py'
+      - 'docs/mechanical-v08-combined-view.md'
+      - '.github/workflows/cad-v08-assembly.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v08-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  combine-system-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install preview CAD tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1
+          python -m pip install 'cadquery>=2.5,<3' pytest vtk
+      - name: Verify assembly layout contracts
+        run: python -m pytest -q tests/test_v08_concept_assembly.py
+      - name: Generate combined FreeCAD STEP
+        run: python hardware/cad/generate_v08_concept_assembly.py --latitude 35 --out hardware/cad/v08_generated
+      - name: Render combined reference assembly image
+        run: xvfb-run -a python tools/render_v08_concept.py
+      - name: Commit generated preview to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v08_generated
+          if git diff --cached --quiet; then
+            echo 'No changed generated STEP preview.'
+          else
+            git commit -m 'Generate V0.8 single-view concept assembly [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Publish STEP and image
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V08-WHOLE-MOUNT-CONCEPT-NOT-RATED
+          path: |
+            hardware/cad/v08_generated/*.step
+            hardware/cad/v08_generated/*.png
+            hardware/cad/v08_generated/*.json
+          if-no-files-found: error
