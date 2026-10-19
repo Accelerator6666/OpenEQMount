@@ -1,0 +1,61 @@
+{
+  "version": "V0.5",
+  "gate": "A geometry only",
+  "result": "PASS",
+  "not_load_qualified": true,
+  "gate_B": "PENDING",
+  "gate_C": "PENDING",
+  "items": [
+    {
+      "name": "v05_left_wedge_cover_PRINT_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "extents_mm": [
+        111.0,
+        29.0,
+        4.0
+      ]
+    },
+    {
+      "name": "v05_right_wedge_cover_PRINT_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "extents_mm": [
+        111.0,
+        29.0,
+        4.0
+      ]
+    },
+    {
+      "name": "v05_altitude_pointer_PRINT_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "extents_mm": [
+        78.0,
+        28.0,
+        4.0
+      ]
+    },
+    {
+      "name": "v05_azimuth_scale_RING_PRINT_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "extents_mm": [
+        110.0,
+        110.0,
+        3.0
+      ]
+    },
+    {
+      "name": "v05_screw_fit_COUPON_PRINT_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "extents_mm": [
+        104.0,
+        27.0,
+        6.0
+      ]
+    }
+  ],
+  "errors": []
+}
