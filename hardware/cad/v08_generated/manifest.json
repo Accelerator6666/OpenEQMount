@@ -1,0 +1,566 @@
+{
+  "release": "V0.8-view",
+  "status": "prototype_unqualified_Gate_A_preview_only",
+  "purpose": "one selectable assembly document for FreeCAD STEP viewer",
+  "latitude_degrees": 35.0,
+  "not_a_print_model": true,
+  "structural_qualified": false,
+  "selected_tripod_interface": "generic M10 reference only",
+  "subassemblies": [
+    "V0.5 wedge",
+    "V0.6 mechanical lock",
+    "V0.7 RA stator",
+    "V0.4 RA/DEC orthogonal frame"
+  ],
+  "excluded_from_installed_mount": [
+    "separate V0.7 RA/DEC belt fixtures",
+    "loose fit gauges / coupons",
+    "alternative 3/8-in tripod adapter",
+    "V0.5 superseded deck and pivot top"
+  ],
+  "unresolved": [
+    "OEM reducer input geometry and rotor/output constraints",
+    "V0.7-to-V0.4 output flange mating proof",
+    "DEC stationary/stator support and moving outputs",
+    "fastener access, retention, collision at full motion",
+    "metal stress/deflection calculations",
+    "DfAM Gate B and Gate C real-world testing"
+  ],
+  "contains_working_drivetrain": false,
+  "safe_for_payload": false,
+  "parts": [
+    {
+      "name": "v05_hinge_lower_LEFT_METAL",
+      "category": "metal_wedge",
+      "bbox": [
+        -78.5,
+        -69.5,
+        14.0,
+        -27.0,
+        -54.5,
+        45.5
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_hinge_lower_RIGHT_METAL",
+      "category": "metal_wedge",
+      "bbox": [
+        -78.5,
+        54.5,
+        14.0,
+        -27.0,
+        69.5,
+        45.5
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_lower_jack_CLEVIS_METAL",
+      "category": "metal_wedge",
+      "bbox": [
+        50.0,
+        -15.5,
+        14.0,
+        78.0,
+        15.5,
+        34.0
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_hinge_M8_PIN_METAL_REFERENCE",
+      "category": "metal_wedge",
+      "bbox": [
+        -65.0,
+        -75.0,
+        25.0,
+        -57.0,
+        75.0,
+        33.0
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_altitude_M8_JACK_METAL_REFERENCE",
+      "category": "metal_wedge",
+      "bbox": [
+        10.71,
+        -4.0,
+        23.07,
+        67.5,
+        4.0,
+        117.43
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_az_push_screw_-1_METAL_REFERENCE",
+      "category": "metal_wedge",
+      "bbox": [
+        93.0,
+        -29.0,
+        18.0,
+        99.0,
+        -7.0,
+        24.0
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "v05_az_push_screw_1_METAL_REFERENCE",
+      "category": "metal_wedge",
+      "bbox": [
+        93.0,
+        7.0,
+        18.0,
+        99.0,
+        29.0,
+        24.0
+      ],
+      "notes": "V0.5 kinematic reference"
+    },
+    {
+      "name": "TRIPOD_FIXED_MAIN_BASE",
+      "category": "metal_base",
+      "bbox": [
+        -105.0,
+        -79.0,
+        0.0,
+        105.0,
+        79.0,
+        25.0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "v06_az_deck_WITH_LOCK_M6_HOLES_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -83.0,
+        -72.5,
+        8.0,
+        110.0,
+        72.5,
+        30.0
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_tripod_PCD62_M10_GENERIC_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -73.0,
+        -73.0,
+        -6.0,
+        73.0,
+        73.0,
+        0.0
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_lock_sector_LEFT_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -51.0,
+        -71.0,
+        14.0,
+        30.5,
+        -55.0,
+        142.0
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_upper_lock_lug_LEFT_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -41.9,
+        -58.0,
+        85.69,
+        9.02,
+        -37.0,
+        134.18
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_M8_clamp_pin_LEFT_METAL_ENVELOPE",
+      "category": "metal_lock",
+      "bbox": [
+        -22.88,
+        -77.0,
+        107.82,
+        -14.88,
+        -53.0,
+        115.82
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_M6_stop_pin_LEFT_METAL_ENVELOPE",
+      "category": "metal_lock",
+      "bbox": [
+        -29.91,
+        -77.0,
+        97.35,
+        -23.91,
+        -53.0,
+        103.35
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_lock_sector_RIGHT_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -51.0,
+        55.0,
+        14.0,
+        30.5,
+        71.0,
+        142.0
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_upper_lock_lug_RIGHT_METAL",
+      "category": "metal_lock",
+      "bbox": [
+        -41.9,
+        37.0,
+        85.69,
+        9.02,
+        58.0,
+        134.18
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_M8_clamp_pin_RIGHT_METAL_ENVELOPE",
+      "category": "metal_lock",
+      "bbox": [
+        -22.88,
+        53.0,
+        107.82,
+        -14.88,
+        77.0,
+        115.82
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v06_M6_stop_pin_RIGHT_METAL_ENVELOPE",
+      "category": "metal_lock",
+      "bbox": [
+        -29.91,
+        53.0,
+        97.35,
+        -23.91,
+        77.0,
+        103.35
+      ],
+      "notes": "Lock/stop are geometry-only references, not load/anti-fall proven"
+    },
+    {
+      "name": "v07_wedge_RA_STATOR_BASE_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -98.27,
+        -55.0,
+        32.2,
+        6.93,
+        55.0,
+        177.68
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_WEDGE_REPLACEMENT_TOP_DECK_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -79.27,
+        -53.0,
+        9.22,
+        29.13,
+        53.0,
+        152.45
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_STATOR_REAR_FLANGE_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -122.03,
+        -55.0,
+        48.83,
+        -16.82,
+        55.0,
+        194.32
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_RISER_1_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -101.14,
+        -35.0,
+        57.27,
+        -74.76,
+        -19.0,
+        82.42
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_1_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -77.38,
+        -35.0,
+        37.77,
+        -46.91,
+        -19.0,
+        65.78
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_RISER_2_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -101.14,
+        19.0,
+        57.27,
+        -74.76,
+        35.0,
+        82.42
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_2_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -77.38,
+        19.0,
+        37.77,
+        -46.91,
+        35.0,
+        65.78
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_RISER_3_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -39.19,
+        -35.0,
+        145.74,
+        -12.81,
+        -19.0,
+        170.89
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_3_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -15.44,
+        -35.0,
+        126.23,
+        15.04,
+        -19.0,
+        154.25
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_RISER_4_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -39.19,
+        19.0,
+        145.74,
+        -12.81,
+        35.0,
+        170.89
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_4_METAL",
+      "category": "metal_ra_stator",
+      "bbox": [
+        -15.44,
+        19.0,
+        126.23,
+        15.04,
+        35.0,
+        154.25
+      ],
+      "notes": "Stationary RA connection only; OEM bolt phase unverified"
+    },
+    {
+      "name": "RA_HARMONIC_GEARBOX_ENVELOPE_NOT_PURCHASED",
+      "category": "reference_gearbox",
+      "bbox": [
+        -137.96,
+        -39.5,
+        83.32,
+        -55.78,
+        39.5,
+        173.84
+      ],
+      "notes": "RA CSF17 size envelope only; no input coupling modeled"
+    },
+    {
+      "name": "v04_ra_output_plate_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -162.41,
+        -75.0,
+        80.05,
+        -72.28,
+        75.0,
+        205.79
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_dec_rear_plate_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -204.24,
+        -75.0,
+        254.46,
+        -78.5,
+        75.0,
+        344.59
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_left_side_web_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -188.35,
+        -61.0,
+        102.17,
+        -59.25,
+        -56.0,
+        322.14
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_right_side_web_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -188.35,
+        56.0,
+        102.17,
+        -59.25,
+        61.0,
+        322.14
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_left_ra_angle_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -168.55,
+        -54.0,
+        103.4,
+        -87.85,
+        -36.0,
+        203.75
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_right_ra_angle_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -168.55,
+        36.0,
+        103.4,
+        -87.85,
+        54.0,
+        203.75
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_left_dec_angle_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -198.1,
+        -54.0,
+        235.7,
+        -83.82,
+        -40.0,
+        326.15
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "v04_right_dec_angle_METAL",
+      "category": "metal_ra_dec_frame",
+      "bbox": [
+        -198.1,
+        40.0,
+        235.7,
+        -83.82,
+        54.0,
+        326.15
+      ],
+      "notes": "V0.4 orthogonal frame conceptual alignment, NOT certified attachment"
+    },
+    {
+      "name": "DEC_HARMONIC_GEARBOX_ENVELOPE_NOT_PURCHASED",
+      "category": "reference_gearbox",
+      "bbox": [
+        -169.84,
+        -36.5,
+        280.63,
+        -86.52,
+        36.5,
+        356.09
+      ],
+      "notes": "DEC CSF14 approximate envelope only; rear bolts/rotation not verified"
+    },
+    {
+      "name": "v04_cheek_left_PRINT_FLAT_ASSEMBLY_POSITION",
+      "category": "printed_nonstructural",
+      "bbox": [
+        -188.35,
+        -69.0,
+        102.17,
+        -59.25,
+        -61.0,
+        322.14
+      ],
+      "notes": "Non-load-bearing decorative cover; print-file orientations remain unchanged"
+    },
+    {
+      "name": "v04_cheek_right_PRINT_FLAT_ASSEMBLY_POSITION",
+      "category": "printed_nonstructural",
+      "bbox": [
+        -188.35,
+        61.0,
+        102.17,
+        -59.25,
+        69.0,
+        322.14
+      ],
+      "notes": "Non-load-bearing decorative cover; print-file orientations remain unchanged"
+    }
+  ]
+}
