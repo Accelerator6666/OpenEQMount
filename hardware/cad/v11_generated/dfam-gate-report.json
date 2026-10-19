@@ -1,0 +1,15 @@
+{
+  "gate": "A digital only",
+  "passed": true,
+  "errors": [],
+  "gauges": [
+    {
+      "name": "v11_NONLOAD_DEC_OUTPUT_PCD23_FIT_GAUGE_PRINT_FLAT",
+      "valid": true
+    }
+  ],
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "camera_load_approved": false,
+  "motor_power_authorized": false
+}

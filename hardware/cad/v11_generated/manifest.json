@@ -1,0 +1,282 @@
+{
+  "release": "V1.1_DEC_TO_ROT_CONTINUOUS_METAL_CONCEPT_GATE_A",
+  "status": "digital_gate_A_only_not_for_manufacture",
+  "purpose": "connected geometric metal path concept from provisional DEC output through ROT bearing bench to camera interface blank",
+  "latitude_deg": 35.0,
+  "dec_preview_deg": 25.0,
+  "rot_preview_deg": 0.0,
+  "coordinate_system": "DEC rotation local +X about (158,0,112), ROT spin optical +Z before RA/wedge transformations",
+  "assembled_step": "OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step",
+  "parts_in_assembly": 53,
+  "parts": [
+    {
+      "name": "v05_hinge_lower_LEFT_METAL",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_hinge_lower_RIGHT_METAL",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_lower_jack_CLEVIS_METAL",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_hinge_M8_PIN_METAL_REFERENCE",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_altitude_M8_JACK_METAL_REFERENCE",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_az_push_screw_-1_METAL_REFERENCE",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "v05_az_push_screw_1_METAL_REFERENCE",
+      "role": "metal_wedge"
+    },
+    {
+      "name": "TRIPOD_FIXED_MAIN_BASE",
+      "role": "metal_base"
+    },
+    {
+      "name": "v06_az_deck_WITH_LOCK_M6_HOLES_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_tripod_PCD62_M10_GENERIC_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_lock_sector_LEFT_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_upper_lock_lug_LEFT_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_M8_clamp_pin_LEFT_METAL_ENVELOPE",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_M6_stop_pin_LEFT_METAL_ENVELOPE",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_lock_sector_RIGHT_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_upper_lock_lug_RIGHT_METAL",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_M8_clamp_pin_RIGHT_METAL_ENVELOPE",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v06_M6_stop_pin_RIGHT_METAL_ENVELOPE",
+      "role": "metal_lock"
+    },
+    {
+      "name": "v07_wedge_RA_STATOR_BASE_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_WEDGE_REPLACEMENT_TOP_DECK_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_STATOR_REAR_FLANGE_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_RISER_1_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_1_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_RISER_2_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_2_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_RISER_3_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_3_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_RISER_4_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "v07_RA_LOWER_POST_4_METAL",
+      "role": "metal_ra_stator"
+    },
+    {
+      "name": "RA_HARMONIC_GEARBOX_ENVELOPE_NOT_PURCHASED",
+      "role": "reference_gearbox"
+    },
+    {
+      "name": "v04_ra_output_plate_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_dec_rear_plate_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_left_side_web_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_right_side_web_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_left_ra_angle_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_right_ra_angle_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_left_dec_angle_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "v04_right_dec_angle_METAL",
+      "role": "metal_ra_dec_frame"
+    },
+    {
+      "name": "DEC_HARMONIC_GEARBOX_ENVELOPE_NOT_PURCHASED",
+      "role": "reference_gearbox"
+    },
+    {
+      "name": "v04_cheek_left_PRINT_FLAT_ASSEMBLY_POSITION",
+      "role": "printed_nonstructural"
+    },
+    {
+      "name": "v04_cheek_right_PRINT_FLAT_ASSEMBLY_POSITION",
+      "role": "printed_nonstructural"
+    },
+    {
+      "name": "v11_DEC_OUTPUT_TO_ROT_CONTINUOUS_METAL_BRIDGE_UNQUALIFIED",
+      "role": "primary_metal_intent"
+    },
+    {
+      "name": "v10_METAL_STATOR_DUAL_6808_SEATS_PROPOSAL",
+      "role": "rot_stator_reference"
+    },
+    {
+      "name": "v10_METAL_HOLLOW_ROT_SPINDLE_PROPOSAL",
+      "role": "rotating_metal_reference"
+    },
+    {
+      "name": "v10_METAL_CAMERA_OUTPUT_FLANGE_PROPOSAL",
+      "role": "rotating_metal_reference"
+    },
+    {
+      "name": "v10_METAL_INDEPENDENT_CAPTURE_COLLAR_PROPOSAL",
+      "role": "rot_stator_reference"
+    },
+    {
+      "name": "v11_REVISED_METAL_NEMA17_MOTOR_CARRIER_WITH_MOUNT_PCD146",
+      "role": "rot_stator_reference"
+    },
+    {
+      "name": "v10_6808_2RS_BEARING_1_REFERENCE",
+      "role": "rot_stator_reference"
+    },
+    {
+      "name": "v10_6808_2RS_BEARING_2_REFERENCE",
+      "role": "rot_stator_reference"
+    },
+    {
+      "name": "v11_MOTOR_STANDOFF_METAL_060",
+      "role": "motor_metal_support_unqualified"
+    },
+    {
+      "name": "v11_MOTOR_STANDOFF_METAL_180",
+      "role": "motor_metal_support_unqualified"
+    },
+    {
+      "name": "v11_MOTOR_STANDOFF_METAL_300",
+      "role": "motor_metal_support_unqualified"
+    },
+    {
+      "name": "v11_CAMERA_MATING_FLANGE_METAL_BLANK_NO_LENS_CLAMP",
+      "role": "metal_camera_interface_blank"
+    }
+  ],
+  "metal_reference_exports": [
+    "v11_DEC_OUTPUT_TO_ROT_CONTINUOUS_METAL_BRIDGE_UNQUALIFIED",
+    "v11_REVISED_METAL_NEMA17_MOTOR_CARRIER_WITH_MOUNT_PCD146",
+    "v11_CAMERA_MATING_FLANGE_METAL_BLANK_NO_LENS_CLAMP",
+    "v11_MOTOR_STANDOFF_METAL_060",
+    "v11_MOTOR_STANDOFF_METAL_180",
+    "v11_MOTOR_STANDOFF_METAL_300"
+  ],
+  "nonload_printed_parts": [
+    {
+      "name": "v11_NONLOAD_DEC_OUTPUT_PCD23_FIT_GAUGE_PRINT_FLAT",
+      "status": "prototype_unqualified",
+      "material": "PETG gauge specimen only",
+      "print_orientation": "XY flat at Z=0",
+      "layer_direction": "+Z",
+      "role": "nonstructural DEC output PCD gauge, not a clamp",
+      "load_path": "none, MUST NOT support camera or rotator",
+      "overhang_strategy": "bed-flat through-holes; slicer review pending",
+      "metal_joint": "only a fit gauge; NEVER replace metal hub",
+      "min_wall_mm": "slicer Gate B pending",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        78.0,
+        78.0,
+        3.0
+      ]
+    }
+  ],
+  "structural_material": "METAL REQUIRED; alloy/weld/machining design pending",
+  "vendor_DEC_output_PCD23_confirmed": false,
+  "DEC_to_ROT_path_implemented_in_CAD": true,
+  "motor_standoff_bolt_paths_proposed": true,
+  "bearing_6808_pair_moment_qualified": false,
+  "camera_interface_blank_only": true,
+  "camera_or_lens_clamp_implemented": false,
+  "independent_metal_fall_arrest_implemented": false,
+  "hard_stop_moving_contact_implemented": false,
+  "limit_switch_implemented": false,
+  "motor_drive_implemented": false,
+  "safe_to_energize": false,
+  "camera_payload_approved": false,
+  "full_kinematic_collision_proved": false,
+  "DfAM_Gate_B": "pending",
+  "physical_safety_Gate_C": "pending",
+  "todo": [
+    "obtain measured DEC output flange and actual screw clocking/grade/engagement",
+    "design manufacturable metal bridge, qualified welding or machined joints and verified metal load path",
+    "replace 6808 pair if fatigue, moment rigidity or runout fail engineering test",
+    "correct V1.0 spindle end shoulders and prove preload and axial positive metal bearing capture",
+    "camera/lens collar and independently anchored metal fall-arrest verified for full ROT travel",
+    "true hard-stop moving lug and limit sensors, independent motor cutoff",
+    "RA/DEC/ROT 25/35/45 latitude, full articulation collision and cable sweep",
+    "3-5kg payload structural stiffness/creep/tilt/meridian-flip and cable snags",
+    "slicer / printing fit Gate B and real-load/safety Gate C"
+  ]
+}
