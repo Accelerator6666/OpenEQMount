@@ -1,0 +1,149 @@
+{
+  "release": "V1.0_ROT_BENCH_GATE_A",
+  "status": "digital_Gate_A_only_unqualified",
+  "axis": "ROT around optical +Z; exact DEC saddle and camera coaxial alignment not provided",
+  "bearing_candidate": "2 x 6808-2RS (40x52x7) 30mm nominal separation",
+  "bearing_moment_qualified": false,
+  "load_qualified": false,
+  "safe_to_energize": false,
+  "soft_limit_deg": [
+    -150,
+    150
+  ],
+  "hard_stop_reference_deg": [
+    -160,
+    160
+  ],
+  "hard_stop_force_verified": false,
+  "drive_pulley_teeth_reference": [
+    80,
+    20
+  ],
+  "belt_ratio_reference": 4.0,
+  "belt_pitch_reference_mm": 2.0,
+  "motor_center_nominal_mm": 105.0,
+  "motor_slide_plus_minus_mm": 5.0,
+  "belt_length_estimate_mm": 313.47,
+  "belt_cad_status": "pitch-only; no belt wrap, gear tooth geometry, shaft/hub or belt tension verification",
+  "physical_switches_implemented": false,
+  "independent_motor_cutoff_implemented": false,
+  "camera_adapter_implemented": false,
+  "camera_fall_restraint_qualified": false,
+  "DEC_output_mated": false,
+  "rotator_cable_route_qualified": false,
+  "printed_parts": [
+    {
+      "name": "v10_NONLOAD_ROT_INDEX_BEZEL_PRINT_FLAT",
+      "status": "prototype_unqualified",
+      "material": "PETG fit specimen only",
+      "print_orientation": "XY flat bed Z=0",
+      "layer_direction": "+Z",
+      "role": "unpowered non-load removable gauge",
+      "load_path": "none - never restrain camera or bearing",
+      "overhang_strategy": "planar reference; slicer review still required",
+      "metal_joint": "no structural printed threads; test clearances only",
+      "min_wall_mm": "requires slicer and actual printer measurement",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        150.059,
+        150.089,
+        3.119
+      ]
+    },
+    {
+      "name": "v10_NONLOAD_M4_CALIBRATION_COUPON_PRINT_FLAT",
+      "status": "prototype_unqualified",
+      "material": "PETG fit specimen only",
+      "print_orientation": "XY flat bed Z=0",
+      "layer_direction": "+Z",
+      "role": "unpowered non-load removable gauge",
+      "load_path": "none - never restrain camera or bearing",
+      "overhang_strategy": "planar reference; slicer review still required",
+      "metal_joint": "no structural printed threads; test clearances only",
+      "min_wall_mm": "requires slicer and actual printer measurement",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        90.005,
+        26.005,
+        5.005
+      ]
+    },
+    {
+      "name": "v10_NONLOAD_CABLE_CLEARANCE_COUPON_PRINT_FLAT",
+      "status": "prototype_unqualified",
+      "material": "PETG fit specimen only",
+      "print_orientation": "XY flat bed Z=0",
+      "layer_direction": "+Z",
+      "role": "unpowered non-load removable gauge",
+      "load_path": "none - never restrain camera or bearing",
+      "overhang_strategy": "planar reference; slicer review still required",
+      "metal_joint": "no structural printed threads; test clearances only",
+      "min_wall_mm": "requires slicer and actual printer measurement",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        96.006,
+        35.006,
+        5.008
+      ]
+    }
+  ],
+  "metal_parts": [
+    {
+      "name": "v10_METAL_STATOR_DUAL_6808_SEATS_PROPOSAL",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_METAL_HOLLOW_ROT_SPINDLE_PROPOSAL",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_METAL_CAMERA_OUTPUT_FLANGE_PROPOSAL",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_METAL_INDEPENDENT_CAPTURE_COLLAR_PROPOSAL",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_METAL_FIXED_STOP_ARC_REFERENCE",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_METAL_NEMA17_TENSIONER_PLATE_PROPOSAL",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_6808_2RS_BEARING_1_REFERENCE",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    },
+    {
+      "name": "v10_6808_2RS_BEARING_2_REFERENCE",
+      "status": "vendor fit / machining approval pending",
+      "printed_load_part": false
+    }
+  ],
+  "unfinished": [
+    "DEC rotating output to rotator fixed stator CAD connection",
+    "camera saddle/ring/tailored lens collar and optical axis centring",
+    "actual 6808 fits, spindle shoulders and metal capture verified for axial load",
+    "bearing pair bending deflection/fatigue/tilt under 3-5 kg payload",
+    "timing belt teeth, actual pulley hubs and real-length belt selection",
+    "motor mount collision, winding constraints, cable clamp and continuous movement",
+    "real home sensor, hard stop, watchdog, E-Stop, STO or power interlock",
+    "3-axis integrated collision, counterweight, cable, meridian flip checks",
+    "Gate B and Gate C physical testing"
+  ]
+}

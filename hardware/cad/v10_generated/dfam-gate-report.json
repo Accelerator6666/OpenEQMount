@@ -1,0 +1,22 @@
+{
+  "gate": "A digital only",
+  "passed": true,
+  "errors": [],
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "load_qualified": false,
+  "parts": [
+    {
+      "name": "v10_NONLOAD_ROT_INDEX_BEZEL_PRINT_FLAT",
+      "digital_mesh_valid": true
+    },
+    {
+      "name": "v10_NONLOAD_M4_CALIBRATION_COUPON_PRINT_FLAT",
+      "digital_mesh_valid": true
+    },
+    {
+      "name": "v10_NONLOAD_CABLE_CLEARANCE_COUPON_PRINT_FLAT",
+      "digital_mesh_valid": true
+    }
+  ]
+}
