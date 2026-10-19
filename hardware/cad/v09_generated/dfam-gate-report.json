@@ -1,0 +1,26 @@
+{
+  "gate": "A digital model ONLY",
+  "passed": true,
+  "printed_count": 3,
+  "gate_B": "pending",
+  "gate_C": "pending",
+  "load_qualified": false,
+  "errors": [],
+  "prints": [
+    {
+      "name": "v09_ROT_NONLOAD_POSITION_SCALE_BEZEL_PRINT_FLAT",
+      "single_body": true,
+      "watertight": true
+    },
+    {
+      "name": "v09_ROT_LOOSE_CABLE_ROUTE_GAUGE_PRINT_FLAT",
+      "single_body": true,
+      "watertight": true
+    },
+    {
+      "name": "v09_ROT_M4_CLEARANCE_COUPON_PRINT_FLAT",
+      "single_body": true,
+      "watertight": true
+    }
+  ]
+}

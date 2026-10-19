@@ -1,0 +1,119 @@
+{
+  "release": "V0.9_Gate_A_CONCEPT",
+  "status": "prototype_unqualified_Gate_A_only",
+  "rot_axis": "Optical-axis roll, perpendicular to DEC rotation axis at all DEC angles",
+  "optical_axis_verified": false,
+  "travel_limit_deg": [
+    -160,
+    160
+  ],
+  "limit_status": "soft proposal; NO tested physical end stop",
+  "motor_pitch_teeth_reference": [
+    180,
+    20
+  ],
+  "gear_ratio_reference": 9.0,
+  "field_derotation_not_implemented": true,
+  "ASCOM_INDI_drivers_not_implemented": true,
+  "hardware_motor_drive_not_implemented": true,
+  "is_load_qualified": false,
+  "is_safe_to_energize": false,
+  "vendor_interface_verified": false,
+  "unspecified": [
+    "DEC-to-camera saddle and optical axis-to-camera flange geometry; ROT is not coaxial with DEC",
+    "DEC rotating output screw pattern and reference face",
+    "thin section crossed roller bearing real model and torque",
+    "camera lens support or optical clearance and weight shift under DEC motion",
+    "independent metal capture and fastener engagement",
+    "rotator hard stops, cable snag/strain relief, home switch, firmware E-stop",
+    "belt teeth/belt stock/motor mount geometry",
+    "balance, moment, deflection, Gate B/C tests"
+  ],
+  "printed_parts": [
+    {
+      "name": "v09_ROT_NONLOAD_POSITION_SCALE_BEZEL_PRINT_FLAT",
+      "material": "PETG for fit coupons only",
+      "status": "prototype_unqualified",
+      "role": "loose nonstructural scale, cable routing sample, or printer fit gauge",
+      "print_orientation": "flat XY on bed; bottom surface Z=0",
+      "layer_direction": "+Z normal to print bed; no certified load direction",
+      "load_path": "NONE. Never retain lens/camera/metal bearing or cover powered drivetrain",
+      "overhang_strategy": "bed-flat planar prototype; slicer Gate B not performed",
+      "metal_joint": "No structural polymer threaded joints or compression/clamping",
+      "min_wall_mm": "slicer and real printed wall audit pending",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        150.105,
+        150.105,
+        3.105
+      ]
+    },
+    {
+      "name": "v09_ROT_LOOSE_CABLE_ROUTE_GAUGE_PRINT_FLAT",
+      "material": "PETG for fit coupons only",
+      "status": "prototype_unqualified",
+      "role": "loose nonstructural scale, cable routing sample, or printer fit gauge",
+      "print_orientation": "flat XY on bed; bottom surface Z=0",
+      "layer_direction": "+Z normal to print bed; no certified load direction",
+      "load_path": "NONE. Never retain lens/camera/metal bearing or cover powered drivetrain",
+      "overhang_strategy": "bed-flat planar prototype; slicer Gate B not performed",
+      "metal_joint": "No structural polymer threaded joints or compression/clamping",
+      "min_wall_mm": "slicer and real printed wall audit pending",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        86.007,
+        34.007,
+        5.007
+      ]
+    },
+    {
+      "name": "v09_ROT_M4_CLEARANCE_COUPON_PRINT_FLAT",
+      "material": "PETG for fit coupons only",
+      "status": "prototype_unqualified",
+      "role": "loose nonstructural scale, cable routing sample, or printer fit gauge",
+      "print_orientation": "flat XY on bed; bottom surface Z=0",
+      "layer_direction": "+Z normal to print bed; no certified load direction",
+      "load_path": "NONE. Never retain lens/camera/metal bearing or cover powered drivetrain",
+      "overhang_strategy": "bed-flat planar prototype; slicer Gate B not performed",
+      "metal_joint": "No structural polymer threaded joints or compression/clamping",
+      "min_wall_mm": "slicer and real printed wall audit pending",
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "field_load_approved": false,
+      "bbox_mm": [
+        98.006,
+        25.006,
+        5.006
+      ]
+    }
+  ],
+  "metal_parts": [
+    {
+      "name": "v09_DEC_STATOR_INTERFACE_METAL_PROPOSAL",
+      "status": "unspecified metal spatial envelope / not for manufacture"
+    },
+    {
+      "name": "v09_ROT_OUTPUT_CARRIER_METAL_PROPOSAL",
+      "status": "unspecified metal spatial envelope / not for manufacture"
+    },
+    {
+      "name": "v09_BEARING_ENVELOPE_UNSPECIFIED",
+      "status": "unspecified metal spatial envelope / not for manufacture"
+    },
+    {
+      "name": "v09_INDEPENDENT_RETENTION_RING_METAL_REFERENCE",
+      "status": "unspecified metal spatial envelope / not for manufacture"
+    }
+  ],
+  "camera_payload_target_kg": [
+    3,
+    5
+  ],
+  "camera_payload_safe_kg": null,
+  "combined_mount": "spatial concept only: ROT floats above an unmodeled DEC-to-camera saddle; camera coupling unverified",
+  "mount_body_count": 46
+}
