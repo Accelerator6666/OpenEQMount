@@ -1,0 +1,72 @@
+name: V1.5 ROT Bearing Architecture Study Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v15_bearing_comparison.py'
+      - 'tools/rotator_bearing_tradeoff.py'
+      - 'tests/test_v15_bearing_architectures.py'
+      - 'tools/dfam_gate_v15.py'
+      - 'tools/render_v15.py'
+      - 'docs/mechanical-v15-bearing-architecture-comparison.md'
+      - '.github/workflows/cad-v15.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v15_bearing_comparison.py'
+      - 'tools/rotator_bearing_tradeoff.py'
+      - 'tests/test_v15_bearing_architectures.py'
+      - 'tools/dfam_gate_v15.py'
+      - '.github/workflows/cad-v15.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v15-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  candidate-envelope-gate-A:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and math test dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Pure and CAD contract tests
+        run: python -m pytest -q tests/test_v15_bearing_architectures.py
+      - name: Rebuild comparison STEP, individual candidates, PETG coupons and 81-case report
+        run: python hardware/cad/generate_v15_bearing_comparison.py --out hardware/cad/v15_generated
+      - name: STEP structural record sanity (not full import or strength qualification)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          f=Path('hardware/cad/v15_generated/OpenEQMount_V15_ROT_BEARING_ARCHITECTURE_COMPARISON_UNQUALIFIED.step')
+          data=f.read_text('latin1')
+          assert data.startswith('ISO-10303-21;')
+          assert data.count('MANIFOLD_SOLID_BREP') == 14
+          print('STEP exchange file: 14 manifold solid records; FULL BREP re-import NOT CLAIMED')
+          PY
+      - name: DfAM Gate A digital only
+        run: python tools/dfam_gate_v15.py --dir hardware/cad/v15_generated --report hardware/cad/v15_generated/dfam-gate-report.json
+      - name: Comparison drawings
+        run: python tools/render_v15.py
+      - name: Synchronize V1.5 generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v15_generated
+          if git diff --cached --quiet; then
+            echo 'Generated candidate files unchanged.'
+          else
+            git commit -m 'Generate V1.5 bearing architectures [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload unqualified comparison only
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V15-Bearing-Candidates-GateA-NOT-MANUFACTURING
+          path: hardware/cad/v15_generated/
+          if-no-files-found: error

@@ -1,0 +1,8 @@
+Candidate,Item,Quantity,Material_or_vendor,Dimensions_mm,Role,Procurement,GateB,GateC
+A,6808-2RS deep groove bearing,2,Manufacturer not selected,40x52x7,Baseline candidate,DO NOT ORDER,pending,pending
+B,7008C matched angular contact pair,2,NSK candidate,40x68x15,Preferred research alternative exact DB suffix pending,DO NOT ORDER,pending,pending
+C,RU66UUCC0 crossed-roller ring,1,THK,35x95x15,Alternate architecture requires NEW 35mm spindle,DO NOT ORDER,pending,pending
+A,Outer housing placeholder,1,Metal reference only,76 OD,Not machining ready,DO NOT MAKE,pending,pending
+B,Outer housing placeholder,1,Metal reference only,90 OD,Not machining ready,DO NOT MAKE,pending,pending
+C,Separate housing interfaces,2,Metal reference only,113/110 OD,No OEM fastening positions in CAD,DO NOT MAKE,pending,pending
+All,Nonload DfAM gauge coupon,3,PETG,6808 7008 RU66 nominal bores,Flat printing and dimension verification only,OPTIONAL COUPON,pending,pending

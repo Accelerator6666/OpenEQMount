@@ -146,3 +146,13 @@ FreeCAD 整机三轴概念 STEP：`hardware/cad/v09_generated/OpenEQMount_V09_TH
 V1.1 使用一件**连续金属桥架概念实体**连接 DEC 输出法兰与 ROT 轴承平台，并将 V1.0 轴承台架、金属电机安装隔柱及相机端金属空白法兰纳入同一装配坐标系；完整模型见 [`hardware/cad/v11_generated/OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step`](hardware/cad/v11_generated/OpenEQMount_V11_THREE_AXIS_MATED_CONCEPT_UNQUALIFIED.step)（53 实体、FreeCAD 可直接打开）。另有一件仅用于尺寸检查的非承力 FDM 孔位检具。
 
 **严禁将连续 STEP 模型理解为已验证的实际焊接/螺接工艺。** OEM DEC 输出 PCD23、机加工/焊接工艺、轴承力矩刚性、相机夹持、独立防坠、限位、线缆、实体承载 Gate B/C 都仍待验证；不可带电、不可悬挂相机。阅读 [V1.1 机械设计与全部限制](docs/mechanical-v11-dec-rot-integration.md)。
+
+
+## V1.5 — ROT bearing architectures (comparison only)
+
+Three **detached, non-manufacturing** bearing-space choices: 2×6808 (40×52×7), 2×7008C family (40×68×15; DB pairing **not selected**) and THK RU66 (35×95×15; **cannot use the existing Ø40 spindle**). V1.5 provides a side-by-side FreeCAD STEP, 81 purely illustrative support-reaction cases, and three PETG **non-load** fit coupons. **No bearing or camera payload is approved.**
+
+- [V1.5 comparison CAD and preview](hardware/cad/v15_generated/)
+- [Bearing study: OEM sources, assumptions and unresolved interfaces](docs/mechanical-v15-bearing-architecture-comparison.md)
+- [Editable CadQuery generator](hardware/cad/generate_v15_bearing_comparison.py)
+- [Automated Gate A build](.github/workflows/cad-v15.yml)
