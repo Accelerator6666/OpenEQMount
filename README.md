@@ -1,6 +1,6 @@
-> **Latest engineering iteration: V1.2 (ROT serviceable-bearing cartridge / geometric hard-stop contact / Gate A only).** The full three-axis STEP is at [v12_generated](hardware/cad/v12_generated/) and the safety limitations are documented in [V1.2 mechanical note](docs/mechanical-v12-rot-cartridge-and-stops.md). No payload or powered operation is authorized. **V1.0/V1.1 had an inaccessible bearing counterbore; V1.2 fixes the nominal insertion path but NOT the bearing retention/preload, camera clamp, fall tether or impact rating.**\n\n# OpenEQMount — 开源三轴摄影赤道仪
+> **Latest engineering iteration: V1.3 (ROT stepped-metal-shaft/nominal axial bearing stack + replaceable camera-clamp mounting datum; DIGITAL Gate A ONLY).** Windows/FreeCAD whole-mount STEP: [V1.3 66-solid assembly](hardware/cad/v13_generated/OpenEQMount_V13_THREE_AXIS_RETENTION_DATUM_CONCEPT_UNQUALIFIED.step); [all V1.3 STEP/STL/PNG](hardware/cad/v13_generated/) · [design limitations & assembly notes](docs/mechanical-v13-rot-bearing-and-camera-interface.md) · [V1.3 CAD build](.github/workflows/cad-v13.yml). **NO camera loading, NO powered drive.** Real locknut thread/preload, measured bearing faces, selected camera clamp, independent fall restraint, and Gates B/C are still missing.
 
-**当前开发进度：V1.0 / ROT 金属轴承机械台架（数字 Gate A；未通过承载与安全验证）**
+**当前开发进度：V1.3 / 三轴整机轴向保持与相机端接口数字模型（Gate A；未通过承载与安全验证）**
 
 用途已经确定：**广角星野摄影；目标摄影载荷 3–5 kg；最长焦距 ≤500 mm**。这些属于研发目标，不是量产参数或已确认的安全载荷。项目以德式双轴赤道仪 (GEM) 为基础，拟使用 RA/DEC 独立谐波减速器 + 3:1 同步带传动，第一阶段优先兼容 OnStepX 生态。
 
