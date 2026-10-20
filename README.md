@@ -1,4 +1,4 @@
-# OpenEQMount — 开源三轴摄影赤道仪
+> **Latest engineering iteration: V1.2 (ROT serviceable-bearing cartridge / geometric hard-stop contact / Gate A only).** The full three-axis STEP is at [v12_generated](hardware/cad/v12_generated/) and the safety limitations are documented in [V1.2 mechanical note](docs/mechanical-v12-rot-cartridge-and-stops.md). No payload or powered operation is authorized. **V1.0/V1.1 had an inaccessible bearing counterbore; V1.2 fixes the nominal insertion path but NOT the bearing retention/preload, camera clamp, fall tether or impact rating.**\n\n# OpenEQMount — 开源三轴摄影赤道仪
 
 **当前开发进度：V1.0 / ROT 金属轴承机械台架（数字 Gate A；未通过承载与安全验证）**
 

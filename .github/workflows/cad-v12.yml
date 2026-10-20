@@ -1,0 +1,77 @@
+name: V1.2 Three-Axis ROT Cartridge + Contact-Stop DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v12_rot_cartridge.py'
+      - 'hardware/cad/generate_v11_three_axis_mated_concept.py'
+      - 'hardware/cad/generate_v10_rotator_bench.py'
+      - 'tests/test_v12_rot_cartridge.py'
+      - 'tools/dfam_gate_v12.py'
+      - 'tools/render_v12.py'
+      - 'docs/mechanical-v12-rot-cartridge-and-stops.md'
+      - '.github/workflows/cad-v12.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v12_rot_cartridge.py'
+      - 'tests/test_v12_rot_cartridge.py'
+      - 'tools/dfam_gate_v12.py'
+      - '.github/workflows/cad-v12.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v12-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install geometry and mesh audit dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Test V1.2 mechanical hypotheses
+        run: python -m pytest -q tests/test_v12_rot_cartridge.py
+      - name: Regenerate unqualified ROT cartridge and complete 3-axis STEP
+        run: python hardware/cad/generate_v12_rot_cartridge.py --latitude 35 --dec-preview 25 --rot-preview 0 --out hardware/cad/v12_generated
+      - name: Verify digital DfAM Gate A
+        run: python tools/dfam_gate_v12.py --dir hardware/cad/v12_generated --report hardware/cad/v12_generated/dfam-gate-report.json
+      - name: FreeCAD-compatible STEP reimport smoke test
+        run: |
+          python - <<'PY'
+          import cadquery as cq
+          p='hardware/cad/v12_generated/OpenEQMount_V12_THREE_AXIS_SERVICEABLE_CARTRIDGE_CONCEPT_UNQUALIFIED.step'
+          count=len(cq.importers.importStep(p).solids().vals())
+          assert count==64,(count,'expected 64 solids')
+          print('Reimport succeeded:',count,'separate STEP solids')
+          PY
+      - name: Render full-assembly and ROT details
+        run: python tools/render_v12.py
+      - name: Commit reproducible Gate-A CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v12_generated
+          if git diff --cached --quiet; then
+            echo 'V1.2 generated files unchanged.'
+          else
+            git commit -m 'Generate V1.2 serviceable ROT cartridge Gate A CAD [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Publish unqualified V1.2 CAD build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V12-ThreeAxis-Cartridge-GateA-UNQUALIFIED
+          path: |
+            hardware/cad/v12_generated/*.step
+            hardware/cad/v12_generated/*.stl
+            hardware/cad/v12_generated/*.json
+            hardware/cad/v12_generated/*.png
+          if-no-files-found: error
