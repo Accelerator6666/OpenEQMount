@@ -1,0 +1,8 @@
+item,part,quantity,material,role,qualification
+1,Candidate 2xM6 slotted vendor fixture metal plate,1,Metal TBD,Rotating camera mount interface stock,UNQUALIFIED vendor clamp bolt spacing and material
+2,Separate camera-side eye reference,1,Metal TBD,Geometry for future independent restraint,NOT ATTACHED no cable no drop approval
+3,6808-2RS bearing pair from earlier stages,2,Bearing OEM TBD,Bearing pair 30mm centers,Candidate not rated for chosen payload
+4,Printed CG spacing calibration coupon,1,PETG,Non-load measuring aid,Gate A only
+5,Candidate actual camera cage or lens collar,1,User-measured OEM part,Load to plate and separate tether,NOT SELECTED
+6,Independent metal restraint cable and connectors,1,Rated components TBD,Fall arrest distinct camera anchor,NOT DESIGNED OR INSTALLED
+7,ROT motor GT2 4:1 drive from earlier stages,1,Motor TBD,Hold and rotate off-axis mass,Static ideal only real motor torque unverified

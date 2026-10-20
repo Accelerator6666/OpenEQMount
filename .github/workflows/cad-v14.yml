@@ -1,0 +1,76 @@
+name: V1.4 Three-axis load-envelope CAD and DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v14_load_fixture.py'
+      - 'tools/rotator_load_cases.py'
+      - 'tools/dfam_gate_v14.py'
+      - 'tools/render_v14.py'
+      - 'tests/test_v14_rotator_load_fixture.py'
+      - 'docs/mechanical-v14-load-envelope-and-interface.md'
+      - '.github/workflows/cad-v14.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v14_load_fixture.py'
+      - 'tools/rotator_load_cases.py'
+      - 'tools/dfam_gate_v14.py'
+      - 'tests/test_v14_rotator_load_fixture.py'
+      - '.github/workflows/cad-v14.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v14-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  digital-only-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install test/CAD stack
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Mechanical modelling and load arithmetic regression tests
+        run: python -m pytest -q tests/test_v14_rotator_load_fixture.py
+      - name: Build V1.4 conceptual FreeCAD STEP and CSV
+        run: python hardware/cad/generate_v14_load_fixture.py --out hardware/cad/v14_generated
+      - name: DfAM Gate A (no safety approvals)
+        run: python tools/dfam_gate_v14.py --dir hardware/cad/v14_generated --report hardware/cad/v14_generated/dfam-gate-report.json
+      - name: Verify complete 68-solid STEP can be reimported
+        run: |
+          python - <<'PY'
+          import cadquery as cq
+          f='hardware/cad/v14_generated/OpenEQMount_V14_THREE_AXIS_CAMERA_LOAD_ENVELOPE_UNQUALIFIED.step'
+          assert len(cq.importers.importStep(f).solids().vals())==68
+          print('68-solid combined STEP reimport validated')
+          PY
+      - name: Preview geometry and load sensitivity
+        run: python tools/render_v14.py
+      - name: Commit regenerated digital-only artifacts to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v14_generated
+          if git diff --cached --quiet; then
+            echo 'V1.4 outputs match source.'
+          else
+            git commit -m 'Generate V1.4 three-axis load-envelope CAD Gate A [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V14-LoadEnvelope-GateA-UNQUALIFIED
+          path: |
+            hardware/cad/v14_generated/*.step
+            hardware/cad/v14_generated/*.stl
+            hardware/cad/v14_generated/*.json
+            hardware/cad/v14_generated/*.csv
+            hardware/cad/v14_generated/*.png
+          if-no-files-found: error

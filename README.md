@@ -1,6 +1,6 @@
-> **Latest engineering iteration: V1.3 (ROT stepped-metal-shaft/nominal axial bearing stack + replaceable camera-clamp mounting datum; DIGITAL Gate A ONLY).** Windows/FreeCAD whole-mount STEP: [V1.3 66-solid assembly](hardware/cad/v13_generated/OpenEQMount_V13_THREE_AXIS_RETENTION_DATUM_CONCEPT_UNQUALIFIED.step); [all V1.3 STEP/STL/PNG](hardware/cad/v13_generated/) · [design limitations & assembly notes](docs/mechanical-v13-rot-bearing-and-camera-interface.md) · [V1.3 CAD build](.github/workflows/cad-v13.yml). **NO camera loading, NO powered drive.** Real locknut thread/preload, measured bearing faces, selected camera clamp, independent fall restraint, and Gates B/C are still missing.
+> **Latest engineering iteration: V1.4 (ROT load-envelope estimates + adjustable metal camera-mount datum; DIGITAL Gate A ONLY).** [68-solid FreeCAD assembly](hardware/cad/v14_generated/OpenEQMount_V14_THREE_AXIS_CAMERA_LOAD_ENVELOPE_UNQUALIFIED.step) · [54 illustrative load cases](hardware/cad/v14_generated/rotator_load_cases_ILLUSTRATIVE.csv) · [V1.4 design and safety notes](docs/mechanical-v14-load-envelope-and-interface.md) · [V1.4 CAD workflow](.github/workflows/cad-v14.yml). **NO camera loading or powered drive.** Real bearing/load selection, selected camera/lens/cage, independent fall arrest and Gate B/C are still pending.
 
-**当前开发进度：V1.3 / 三轴整机轴向保持与相机端接口数字模型（Gate A；未通过承载与安全验证）**
+**当前开发进度：V1.4 / 三轴相机载荷包络与可更换金属接口数字模型（Gate A；未通过承载与安全验证）**
 
 用途已经确定：**广角星野摄影；目标摄影载荷 3–5 kg；最长焦距 ≤500 mm**。这些属于研发目标，不是量产参数或已确认的安全载荷。项目以德式双轴赤道仪 (GEM) 为基础，拟使用 RA/DEC 独立谐波减速器 + 3:1 同步带传动，第一阶段优先兼容 OnStepX 生态。
 
