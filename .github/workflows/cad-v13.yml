@@ -62,7 +62,10 @@ jobs:
             echo 'V1.3 outputs match source.'
           else
             git commit -m 'Generate V1.3 axial stack and camera datum Gate A CAD [skip ci]'
-            git pull --rebase origin main
+            # pytest cache is tracked in the legacy repository; its nodeids change on test runs.
+            git restore --worktree -- .pytest_cache || true
+            # Other CAD Actions may push while this job is running.
+            git -c rebase.autoStash=true pull --rebase origin main
             git push origin HEAD:main
           fi
       - name: Publish prototype CAD artifact (not load approved)
