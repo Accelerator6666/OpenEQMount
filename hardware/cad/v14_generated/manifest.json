@@ -1,0 +1,73 @@
+{
+  "release": "V1.4_VENDOR_ADAPTER_CG_ENVELOPE_GATE_A_UNQUALIFIED",
+  "assembled_step": "OpenEQMount_V14_THREE_AXIS_CAMERA_LOAD_ENVELOPE_UNQUALIFIED.step",
+  "parts_in_assembly": 68,
+  "metal_reference_exports": [
+    "v14_METAL_SLOTTED_CAMERA_VENDOR_FIXTURE_STOCK_UNQUALIFIED",
+    "v14_METAL_SEPARATE_CAMERA_CAGE_ANCHOR_UNCONNECTED_REFERENCE"
+  ],
+  "camera_visual_only": [
+    "v14_REFERENCE_CAMERA_BODY_NOT_MANUFACTURING",
+    "v14_REFERENCE_LENS_NOT_MANUFACTURING"
+  ],
+  "nonload_printed_parts": [
+    {
+      "name": "v14_NONLOAD_CG_RANGE_REFERENCE_COUPON_PRINT_FLAT",
+      "material": "PETG fit coupon ONLY",
+      "print_orientation": "XY flat on Z0",
+      "layer_direction": "+Z",
+      "load_path": "none",
+      "overhang_strategy": "planar through holes",
+      "metal_joint": "NO printed mounting structure",
+      "field_load_approved": false,
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending"
+    }
+  ],
+  "candidate_adjustable_2xM6_spacing_mm": [
+    50,
+    70
+  ],
+  "camera_vendor_clamp_selected": false,
+  "camera_attached_to_cad": false,
+  "photographic_cg_measured": false,
+  "bearing_catalogue_fatigue_confirmed": false,
+  "bearing_pair_deflection_model_completed": false,
+  "shaft_thread_specified": false,
+  "bearing_preload_defined": false,
+  "independent_camera_tether_attached": false,
+  "tether_length_and_sweep_qualified": false,
+  "camera_saddle_strength_qualified": false,
+  "full_three_axis_kinematic_collision_verified": false,
+  "belt_efficiency_measured": false,
+  "motor_torque_qualified": false,
+  "physical_gates_completed": false,
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "nominal_theoretical_case": {
+    "mass_kg": 4.0,
+    "cg_from_mount_mm": 80.0,
+    "eccentricity_mm": 20.0,
+    "illustration_multiplier": 1.0,
+    "cg_z_mm": 155.0,
+    "gravity_force_N": 39.2266,
+    "radial_reaction_upper_N_example": 188.9415,
+    "radial_reaction_lower_N_example_opposite": 149.7149,
+    "cg_moment_about_bearing_midpoint_Nm_envelope": 5.1401,
+    "roll_gravity_torque_Nm_envelope": 0.7845,
+    "motor_static_torque_Nm_ideal_no_losses": 0.1961,
+    "bearing_rating_comparison_permitted": false,
+    "system_payload_approved": false
+  },
+  "load_case_count": 54,
+  "critical_findings": [
+    "Visual camera/lens envelopes overlap unqualified ROT output and use fictional geometry; not a camera/lens mounting solution.",
+    "Candidate slotted 2xM6 adapter is NOT a universal Arca clamp interface; obtain actual clamp manufacturer drawing.",
+    "Bearing-reaction model assumes transverse gravity, two simple radial supports; 6808 contact geometry and deflection unknown.",
+    "2x illustration multiplier is NOT a safety factor; load cells, slip, dynamic impact and all-axis collision still need testing.",
+    "Separate camera eye study is not connected to a real camera cage; a true independent metal tether/cable and drop test are still missing.",
+    "No camera, motors, or astrophotography payload may be mounted or energized under this version."
+  ]
+}

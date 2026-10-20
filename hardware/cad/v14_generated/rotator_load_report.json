@@ -1,0 +1,42 @@
+{
+  "release": "V1.4_LOAD_ENVELOPE_GATE_A_NOT_QUALIFIED",
+  "units": "kg, mm, N, Nm",
+  "gravity_m_per_s2": 9.80665,
+  "bearings_candidate": "2x 6808-2RS, 40x52x7 mm (NO manufacturer load verification)",
+  "bearing_z_centers_mm": [
+    10.5,
+    40.5
+  ],
+  "camera_mount_face_z_mm": 75.0,
+  "rot_belt_ideal_ratio": 4.0,
+  "nominal_example": {
+    "mass_kg": 4.0,
+    "cg_from_mount_mm": 80.0,
+    "eccentricity_mm": 20.0,
+    "illustration_multiplier": 1.0,
+    "cg_z_mm": 155.0,
+    "gravity_force_N": 39.2266,
+    "radial_reaction_upper_N_example": 188.9415,
+    "radial_reaction_lower_N_example_opposite": 149.7149,
+    "cg_moment_about_bearing_midpoint_Nm_envelope": 5.1401,
+    "roll_gravity_torque_Nm_envelope": 0.7845,
+    "motor_static_torque_Nm_ideal_no_losses": 0.1961,
+    "bearing_rating_comparison_permitted": false,
+    "system_payload_approved": false
+  },
+  "case_count": 54,
+  "cases_csv": "rotator_load_cases_ILLUSTRATIVE.csv",
+  "two_times_multiplier_is_NOT_safety_factor_or_rating": true,
+  "reaction_model_is_complete": false,
+  "reaction_model_limit": "Radial reaction example under gravity perpendicular to optical axis; ignores true contact stiffness, races, shaft/bridge deflection and simultaneous axial/radial loads.",
+  "roll_torque_model_limit": "Gravity eccentricity only; ignores belt friction, transmission efficiency, tracking acceleration and motor holding-current derating.",
+  "preload_selected": false,
+  "bearing_rated": false,
+  "power_authorized": false,
+  "camera_load_authorized": false,
+  "gates": {
+    "A": "illustrative mathematical checks only",
+    "B": "pending",
+    "C": "pending"
+  }
+}

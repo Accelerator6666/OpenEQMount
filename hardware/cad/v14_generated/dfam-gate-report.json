@@ -1,0 +1,10 @@
+{
+  "gate": "Gate A DIGITAL ONLY",
+  "passed": true,
+  "errors": [],
+  "print_parts_tested": 1,
+  "bearing_or_payload_qualified": false,
+  "motor_energization_authorized": false,
+  "Gate_B": "pending",
+  "Gate_C": "pending"
+}
