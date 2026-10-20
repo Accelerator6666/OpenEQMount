@@ -36,7 +36,7 @@ jobs:
       - name: Install test/CAD stack
         run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
       - name: Mechanical modelling and load arithmetic regression tests
-        run: python -m pytest -q tests/test_v14_rotator_load_fixture.py
+        run: python -m pytest -p no:cacheprovider -q tests/test_v14_rotator_load_fixture.py
       - name: Build V1.4 conceptual FreeCAD STEP and CSV
         run: python hardware/cad/generate_v14_load_fixture.py --out hardware/cad/v14_generated
       - name: DfAM Gate A (no safety approvals)
@@ -61,7 +61,7 @@ jobs:
             echo 'V1.4 outputs match source.'
           else
             git commit -m 'Generate V1.4 three-axis load-envelope CAD Gate A [skip ci]'
-            git pull --rebase origin main
+            git -c rebase.autoStash=true pull --rebase origin main
             git push origin HEAD:main
           fi
       - uses: actions/upload-artifact@v4
