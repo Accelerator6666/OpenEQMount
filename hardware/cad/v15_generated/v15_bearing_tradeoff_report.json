@@ -1,0 +1,149 @@
+{
+  "release": "V1.5_COMPARE_BEARING_ARCHITECTURES_DIGITAL_GATE_A_NO_LOAD_APPROVAL",
+  "candidate_boundary_dimensions": [
+    {
+      "key": "6808_pair",
+      "product": "6808-2RS",
+      "kind": "two_deep_groove",
+      "bore_mm": 40,
+      "od_mm": 52,
+      "width_mm": 7,
+      "count": 2,
+      "theoretical_support_centers_mm": [
+        10.5,
+        40.5
+      ],
+      "previous_40mm_spindle_compatible": true,
+      "rated_static_radial_kN_per_bearing": null,
+      "manufacturer_reference": "ISO envelope; exact manufacturer and rating not selected"
+    },
+    {
+      "key": "7008_db_pair",
+      "product": "NSK 7008C family",
+      "kind": "two_angular_contact_DB_proposed",
+      "bore_mm": 40,
+      "od_mm": 68,
+      "width_mm": 15,
+      "count": 2,
+      "theoretical_support_centers_mm": [
+        7.5,
+        57.5
+      ],
+      "previous_40mm_spindle_compatible": true,
+      "rated_static_radial_kN_per_bearing": null,
+      "manufacturer_reference": "https://www.nsk.com/eu-en/engineering/7008ctrv1vsuelp4y-apn.html"
+    },
+    {
+      "key": "ru66_single",
+      "product": "THK RU66UUCC0",
+      "kind": "integrated_cross_roller",
+      "bore_mm": 35,
+      "od_mm": 95,
+      "width_mm": 15,
+      "count": 1,
+      "theoretical_support_centers_mm": [
+        32.0
+      ],
+      "previous_40mm_spindle_compatible": false,
+      "rated_static_radial_kN_per_bearing": 22.3,
+      "manufacturer_reference": "https://store-na.thk.com/Product/ru66uucc0"
+    }
+  ],
+  "baseline": {
+    "assumptions": {
+      "G_m_s2": 9.80665,
+      "camera_mount_face_z_mm": 75.0,
+      "loading": "transverse gravity illustrative worst-orientation envelope, no dynamics",
+      "preload_and_internal_load_distribution": "not calculated"
+    },
+    "results": [
+      {
+        "key": "6808_pair",
+        "product": "6808-2RS",
+        "kind": "two_deep_groove",
+        "mass_kg": 4,
+        "cg_from_face_mm": 80,
+        "radial_eccentricity_mm": 20,
+        "transverse_force_N": 39.2266,
+        "cg_z_mm": 155.0,
+        "ext_bending_moment_about_z0_Nm": 6.08012,
+        "ideal_gravity_roll_torque_Nm": 0.78453,
+        "hole_pattern_OEM_verified": false,
+        "actual_stiffness_known": false,
+        "bearing_moment_capacity_verified": false,
+        "rotation_accuracy_verified": false,
+        "payload_certified": false,
+        "claim_comparable_bearing_rating": false,
+        "near_support_opposed_abs_N": 149.71486,
+        "far_support_same_direction_abs_N": 188.94146,
+        "center_distance_mm": 30.0,
+        "simple_support_only_NOT_a_real_bearing_internal_load": true,
+        "status": "Illustrative two-simple-support reaction only; contact geometry/preload NOT modeled"
+      },
+      {
+        "key": "7008_db_pair",
+        "product": "NSK 7008C family",
+        "kind": "two_angular_contact_DB_proposed",
+        "mass_kg": 4,
+        "cg_from_face_mm": 80,
+        "radial_eccentricity_mm": 20,
+        "transverse_force_N": 39.2266,
+        "cg_z_mm": 155.0,
+        "ext_bending_moment_about_z0_Nm": 6.08012,
+        "ideal_gravity_roll_torque_Nm": 0.78453,
+        "hole_pattern_OEM_verified": false,
+        "actual_stiffness_known": false,
+        "bearing_moment_capacity_verified": false,
+        "rotation_accuracy_verified": false,
+        "payload_certified": false,
+        "claim_comparable_bearing_rating": false,
+        "near_support_opposed_abs_N": 76.49187,
+        "far_support_same_direction_abs_N": 115.71847,
+        "center_distance_mm": 50.0,
+        "simple_support_only_NOT_a_real_bearing_internal_load": true,
+        "status": "Illustrative two-simple-support reaction only; contact geometry/preload NOT modeled"
+      },
+      {
+        "key": "ru66_single",
+        "product": "THK RU66UUCC0",
+        "kind": "integrated_cross_roller",
+        "mass_kg": 4,
+        "cg_from_face_mm": 80,
+        "radial_eccentricity_mm": 20,
+        "transverse_force_N": 39.2266,
+        "cg_z_mm": 155.0,
+        "ext_bending_moment_about_z0_Nm": 6.08012,
+        "ideal_gravity_roll_torque_Nm": 0.78453,
+        "hole_pattern_OEM_verified": false,
+        "actual_stiffness_known": false,
+        "bearing_moment_capacity_verified": false,
+        "rotation_accuracy_verified": false,
+        "payload_certified": false,
+        "claim_comparable_bearing_rating": false,
+        "near_support_opposed_abs_N": null,
+        "far_support_same_direction_abs_N": null,
+        "center_distance_mm": null,
+        "simple_support_only_NOT_a_real_bearing_internal_load": false,
+        "status": "RU single crossed roller: do NOT apply two-support reactions; obtain OEM moment and mounting calculation"
+      }
+    ]
+  },
+  "sweep_count": 81,
+  "output_csv": "v15_bearing_support_sensitivity_UNQUALIFIED.csv",
+  "critical_uncertainties": [
+    "7008 single bearing catalogue radial C/C0 ratings cannot be used as paired-bearing moment/stiffness ratings.",
+    "7008 is a family: exact matched DB pair contact angle and preload are not selected.",
+    "RU66 inner bore is 35 mm, incompatible with existing 40 mm ROT spindle; a full redesign is mandatory.",
+    "RU66 C0=22.3 kN is a basic radial static rating, NOT an allowable tilting moment.",
+    "Two-deep-groove 6808 supports cannot be assumed preloaded or suitable for precision tracking.",
+    "Candidate CAD holes/races and shoulder interfaces are visual reference only, NOT OEM CAD.",
+    "No actual camera clamp, independent tether, fastener strength, runout, thermal, safety, or life validation."
+  ],
+  "gates": {
+    "Gate_A": "math and visual envelope only",
+    "Gate_B": "pending",
+    "Gate_C": "pending"
+  },
+  "power_on_allowed": false,
+  "camera_payload_allowed": false
+}

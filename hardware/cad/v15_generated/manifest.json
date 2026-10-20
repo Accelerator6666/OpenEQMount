@@ -1,0 +1,103 @@
+{
+  "release": "V1.5_ROT_BEARING_COMPARISON_GATE_A_NOT_MANUFACTURING",
+  "assembled_step": "OpenEQMount_V15_ROT_BEARING_ARCHITECTURE_COMPARISON_UNQUALIFIED.step",
+  "parts_in_assembly": 14,
+  "architecture_choices": [
+    {
+      "key": "6808_pair",
+      "bearing": "6808-2RS",
+      "diameters": [
+        40,
+        52,
+        7
+      ],
+      "count": 2,
+      "spindle_40mm_compatible": true
+    },
+    {
+      "key": "7008_db_pair",
+      "bearing": "NSK 7008C family",
+      "diameters": [
+        40,
+        68,
+        15
+      ],
+      "count": 2,
+      "spindle_40mm_compatible": true
+    },
+    {
+      "key": "ru66_single",
+      "bearing": "THK RU66UUCC0",
+      "diameters": [
+        35,
+        95,
+        15
+      ],
+      "count": 1,
+      "spindle_40mm_compatible": false
+    }
+  ],
+  "separate_options_not_installable": true,
+  "machining_dimensions_qualified": false,
+  "RU66_35mm_requires_redesign": true,
+  "7008_DB_preload_selected": false,
+  "bearing_moment_stiffness_verified": false,
+  "vendor_bolt_pattern_verified": false,
+  "spindle_locknut_preload_qualified": false,
+  "camera_clamp_and_tether_qualified": false,
+  "three_axis_motion_verified": false,
+  "camera_attached": false,
+  "nonload_printed_parts": [
+    {
+      "name": "v15_NONLOAD_6808_BORE_FIT_COUPON",
+      "material": "PETG coupon only",
+      "print_orientation": "flat XY on Z0",
+      "layer_direction": "+Z",
+      "load_path": "none",
+      "overhang_strategy": "vertical bore/flat layers",
+      "joint": "no mounting or load-bearing function",
+      "field_load_approved": false,
+      "Gate_B": "pending",
+      "Gate_C": "pending"
+    },
+    {
+      "name": "v15_NONLOAD_7008_BORE_FIT_COUPON",
+      "material": "PETG coupon only",
+      "print_orientation": "flat XY on Z0",
+      "layer_direction": "+Z",
+      "load_path": "none",
+      "overhang_strategy": "vertical bore/flat layers",
+      "joint": "no mounting or load-bearing function",
+      "field_load_approved": false,
+      "Gate_B": "pending",
+      "Gate_C": "pending"
+    },
+    {
+      "name": "v15_NONLOAD_RU66_BORE_FIT_COUPON",
+      "material": "PETG coupon only",
+      "print_orientation": "flat XY on Z0",
+      "layer_direction": "+Z",
+      "load_path": "none",
+      "overhang_strategy": "vertical bore/flat layers",
+      "joint": "no mounting or load-bearing function",
+      "field_load_approved": false,
+      "Gate_B": "pending",
+      "Gate_C": "pending"
+    }
+  ],
+  "numerical_cases": 81,
+  "digital_gate_A": "candidate geometry/data sanity only",
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "warnings": [
+    "7008 single bearing catalogue radial C/C0 ratings cannot be used as paired-bearing moment/stiffness ratings.",
+    "7008 is a family: exact matched DB pair contact angle and preload are not selected.",
+    "RU66 inner bore is 35 mm, incompatible with existing 40 mm ROT spindle; a full redesign is mandatory.",
+    "RU66 C0=22.3 kN is a basic radial static rating, NOT an allowable tilting moment.",
+    "Two-deep-groove 6808 supports cannot be assumed preloaded or suitable for precision tracking.",
+    "Candidate CAD holes/races and shoulder interfaces are visual reference only, NOT OEM CAD.",
+    "No actual camera clamp, independent tether, fastener strength, runout, thermal, safety, or life validation."
+  ]
+}

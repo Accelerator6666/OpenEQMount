@@ -1,0 +1,49 @@
+{
+  "gate": "A",
+  "result": "PASS",
+  "qualification": "DIGITAL ONLY",
+  "checks": [
+    {
+      "name": "v15_NONLOAD_6808_BORE_FIT_COUPON",
+      "exists": true,
+      "watertight": true,
+      "components": 1,
+      "zmin_mm": 0.0,
+      "mesh_extent_mm": [
+        72.0,
+        71.92749786376953,
+        3.0
+      ],
+      "nonload_only": true
+    },
+    {
+      "name": "v15_NONLOAD_7008_BORE_FIT_COUPON",
+      "exists": true,
+      "watertight": true,
+      "components": 1,
+      "zmin_mm": 0.0,
+      "mesh_extent_mm": [
+        89.0,
+        88.91038513183594,
+        3.0
+      ],
+      "nonload_only": true
+    },
+    {
+      "name": "v15_NONLOAD_RU66_BORE_FIT_COUPON",
+      "exists": true,
+      "watertight": true,
+      "components": 1,
+      "zmin_mm": 0.0,
+      "mesh_extent_mm": [
+        108.0,
+        107.89125061035156,
+        3.0
+      ],
+      "nonload_only": true
+    }
+  ],
+  "Gate_B": "PENDING",
+  "Gate_C": "PENDING",
+  "payload_approved": false
+}
