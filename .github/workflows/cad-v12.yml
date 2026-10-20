@@ -62,7 +62,7 @@ jobs:
             echo 'V1.2 generated files unchanged.'
           else
             git commit -m 'Generate V1.2 serviceable ROT cartridge Gate A CAD [skip ci]'
-            git pull --rebase origin main
+            git -c rebase.autoStash=true pull --rebase origin main
             git push origin HEAD:main
           fi
       - name: Publish unqualified V1.2 CAD build artifact
