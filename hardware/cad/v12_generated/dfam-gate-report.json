@@ -1,0 +1,18 @@
+{
+  "gate": "A digital only",
+  "passed": true,
+  "errors": [],
+  "printed": [
+    {
+      "name": "v12_NONLOAD_6808_HOUSING_BORE_COUPON_PRINT_FLAT",
+      "watertight_single_flat": true
+    },
+    {
+      "name": "v12_NONLOAD_6808_SHAFT_CLEARANCE_COUPON_PRINT_FLAT",
+      "watertight_single_flat": true
+    }
+  ],
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "qualified_for_motor_or_camera": false
+}

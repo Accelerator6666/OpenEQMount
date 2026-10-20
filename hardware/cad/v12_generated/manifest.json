@@ -1,0 +1,107 @@
+{
+  "release": "V1.2_ROT_CARTRIDGE_STOP_CONTACT_GATE_A",
+  "assembled_step": "OpenEQMount_V12_THREE_AXIS_SERVICEABLE_CARTRIDGE_CONCEPT_UNQUALIFIED.step",
+  "parts_in_assembly": 64,
+  "metal_reference_exports": [
+    "v12_METAL_SERVICEABLE_THROUGH_BORE_STATOR_PROPOSAL",
+    "v12_METAL_LOWER_OUTER_RING_CAP_UNQUALIFIED",
+    "v12_METAL_UPPER_OUTER_RING_CAP_UNQUALIFIED",
+    "v12_METAL_INNER_RING_SPACER_NARROW_REFERENCE",
+    "v12_METAL_FIXED_ROT_STOP_NEGATIVE_PROPOSAL",
+    "v12_METAL_FIXED_ROT_STOP_POSITIVE_PROPOSAL",
+    "v12_METAL_FIXED_TETHER_ANCHOR_NO_CABLE",
+    "v12_METAL_MOVING_ROT_STOP_DOG_NO_FASTENERS",
+    "v12_METAL_MOVING_TETHER_ANCHOR_NO_CABLE",
+    "v12_METAL_OUTER_RING_SPACER_1_UNQUALIFIED",
+    "v12_METAL_OUTER_RING_SPACER_2_UNQUALIFIED",
+    "v12_METAL_OUTER_RING_SPACER_3_UNQUALIFIED"
+  ],
+  "nonload_printed_parts": [
+    {
+      "name": "v12_NONLOAD_6808_HOUSING_BORE_COUPON_PRINT_FLAT",
+      "material": "PETG coupon only",
+      "role": "non-load clearance specimen",
+      "load_path": "none",
+      "print_orientation": "XY flat Z=0",
+      "layer_direction": "+Z",
+      "overhang_strategy": "planar through opening; slicer Gate B pending",
+      "metal_joint": "no printed structural fasteners",
+      "min_wall_mm": "inspection needed",
+      "field_load_approved": false,
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        148.0,
+        148.0,
+        3.0
+      ]
+    },
+    {
+      "name": "v12_NONLOAD_6808_SHAFT_CLEARANCE_COUPON_PRINT_FLAT",
+      "material": "PETG coupon only",
+      "role": "non-load clearance specimen",
+      "load_path": "none",
+      "print_orientation": "XY flat Z=0",
+      "layer_direction": "+Z",
+      "overhang_strategy": "planar through opening; slicer Gate B pending",
+      "metal_joint": "no printed structural fasteners",
+      "min_wall_mm": "inspection needed",
+      "field_load_approved": false,
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        84.0,
+        84.0,
+        3.0
+      ]
+    }
+  ],
+  "status": "unqualified_digitally_checked_concept_not_for_manufacturing",
+  "bearing_candidate": "6808-2RS / 40x52x7 mm",
+  "through_bore_nominal_diameter_mm": 52.2,
+  "through_bore_is_manufacturing_tolerance": false,
+  "outer_ring_retention_path_assembled": false,
+  "inner_ring_positive_retention_qualified": false,
+  "bearing_preload_defined": false,
+  "approved_bearing_fit": false,
+  "camera_mating_plate_qualified": false,
+  "fall_arrest_complete": false,
+  "fall_arrest_anchor_strength_qualified": false,
+  "stop_strength_qualified": false,
+  "stop_fasteners_qualified": false,
+  "independent_limit_switches_implemented": false,
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "full_RA_DEC_ROT_collision_proved": false,
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "soft_angle_range_deg": [
+    -150.0,
+    150.0
+  ],
+  "fixed_stop_pin_centre_deg": [
+    -166,
+    166
+  ],
+  "stop_overlap_mm3_reference": {
+    "-150.0": 0.0,
+    "0.0": 0.0,
+    "150.0": 0.0,
+    "-160.0": 620.7746,
+    "160.0": 620.7746
+  },
+  "stop_contacts_beyond_soft_range": true,
+  "cleared_at_soft_range": true,
+  "critical_findings": [
+    "V1.0 single-piece blind 52mm counterbore cannot insert bearings through 50mm end openings; V1.2 serviceable bore is a geometry study",
+    "6808 40/52mm thin section leaves narrow 42/40mm nominal inner spacer, 50/52mm outer spacer; check manufacturer ring face and installation shoulder diameters",
+    "Shaft axial retention thread/circlip/nut, rotating hub fastening and bearing preload NOT designed; no approval",
+    "Tether anchors are only holes and pads: cable, routing, fastening and fall-drop proof ABSENT",
+    "Stop contact is merely BREP overlap for a narrow angular sweep; bracket machining, strength and clearance all NOT tested",
+    "Camera interface is still a blank flange; actual camera lens collar and load path absent"
+  ],
+  "source_dependency": [
+    "generate_v11_three_axis_mated_concept.py",
+    "generate_v10_rotator_bench.py"
+  ]
+}
