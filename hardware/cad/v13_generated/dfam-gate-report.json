@@ -1,0 +1,18 @@
+{
+  "gate": "A digital ONLY",
+  "passed": true,
+  "errors": [],
+  "parts": [
+    {
+      "name": "v13_NONLOAD_CAMERA_TWO_M6_LOCATOR_GAUGE_PRINT_FLAT",
+      "closed_single_body_flat": true
+    },
+    {
+      "name": "v13_NONLOAD_SHAFT_NUT_CLEARANCE_GAUGE_PRINT_FLAT",
+      "closed_single_body_flat": true
+    }
+  ],
+  "field_load_or_power_qualified": false,
+  "Gate_B": "pending",
+  "Gate_C": "pending"
+}

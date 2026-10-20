@@ -1,0 +1,102 @@
+{
+  "release": "V1.3_ROT_AXIAL_RETENTION_CAMERA_DATUM_GATE_A",
+  "assembled_step": "OpenEQMount_V13_THREE_AXIS_RETENTION_DATUM_CONCEPT_UNQUALIFIED.step",
+  "parts_in_assembly": 66,
+  "metal_reference_exports": [
+    "v13_METAL_INTEGRAL_SHOULDER_STEPPED_SPINDLE_HYPOTHESIS",
+    "v13_METAL_INNER_RACE_DISTANCE_SLEEVE_HYPOTHESIS",
+    "v13_METAL_LOCKNUT_THREAD_ENVELOPE_NO_THREAD",
+    "v13_METAL_SECONDARY_WASHER_UNKEYED_NOT_A_LOCK",
+    "v13_METAL_CAMERA_VENDOR_CLAMP_INTERFACE_TWO_M6_CANDIDATE",
+    "v13_METAL_CAMERA_CAGE_EYE_FLOATING_NOT_CONNECTED"
+  ],
+  "nonload_printed_parts": [
+    {
+      "name": "v13_NONLOAD_CAMERA_TWO_M6_LOCATOR_GAUGE_PRINT_FLAT",
+      "role": "nonload_dimensional_check_only",
+      "material": "PETG coupon",
+      "load_path": "none",
+      "print_orientation": "XY flat Z=0",
+      "layer_direction": "+Z",
+      "overhang_strategy": "through-holes; slicer Gate B required",
+      "metal_joint": "NO printed safety or load joint",
+      "field_load_approved": false,
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        76.0,
+        76.0,
+        3.0
+      ]
+    },
+    {
+      "name": "v13_NONLOAD_SHAFT_NUT_CLEARANCE_GAUGE_PRINT_FLAT",
+      "role": "nonload_dimensional_check_only",
+      "material": "PETG coupon",
+      "load_path": "none",
+      "print_orientation": "XY flat Z=0",
+      "layer_direction": "+Z",
+      "overhang_strategy": "through-holes; slicer Gate B required",
+      "metal_joint": "NO printed safety or load joint",
+      "field_load_approved": false,
+      "slicer_gate_B": "pending",
+      "physical_gate_C": "pending",
+      "bbox_mm": [
+        78.0,
+        78.0,
+        3.0
+      ]
+    }
+  ],
+  "bearing_candidate": "2x6808-2RS 40x52x7; 30mm nominal spacing; NOT qualified for overturning moment",
+  "bearing_axial_stack_geometry_consistent": true,
+  "bearing_actual_shoulder_race_face_confirmed": false,
+  "bearing_inner_ring_spacer_face_mm_hypothesis": [
+    40.2,
+    45
+  ],
+  "thread_model_is_functional": false,
+  "real_locknut_specified": false,
+  "positive_locking_qualified": false,
+  "bearing_preload_defined": false,
+  "bearing_fit_tolerance_defined": false,
+  "camera_clamp_vendor_confirmed": false,
+  "camera_clamp_attached": false,
+  "camera_clamp_candidate_M6_hole_spacing_mm": 60.0,
+  "camera_lens_collar_selected": false,
+  "camera_mating_interface_qualified": false,
+  "fall_arrest_complete": false,
+  "fall_arrest_cable_in_CAD": false,
+  "fall_arrest_anchor_strength_qualified": false,
+  "independent_camera_eye_attached": false,
+  "tether_reference_centre_spacing_mm_by_rot_angle": {
+    "-150": 136.35,
+    "-120": 150.61,
+    "-90": 155.5,
+    "-60": 150.61,
+    "-30": 136.35,
+    "0": 114.03,
+    "30": 86.1,
+    "60": 57.64,
+    "90": 42.72,
+    "120": 57.64,
+    "150": 86.1
+  },
+  "tether_unapproved_slack_length_mm": 220.0,
+  "tether_path_cleared_for_collision": false,
+  "stop_fasteners_qualified": false,
+  "stop_strength_qualified": false,
+  "full_RA_DEC_ROT_collision_proved": false,
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "Gate_B": "pending",
+  "Gate_C": "pending",
+  "reference_only": true,
+  "critical_findings": [
+    "Shaft shoulder z3..7, inner bearings z7..14 and z37..44, spacer z14..37, symbolic locknut z44..50 form a NOMINAL axial stack; shaft tolerance/preload nut threads and inner-race contacts unknown.",
+    "V1.2 outer-ring 1mm contact lips remain unqualified: maker race and seal clearance drawings required.",
+    "Candidate clamp plate has nominal 2xM6 60mm spacing with 6xM4 PCD88. No measured camera clamp; ARCA 38mm width is not an interchangeable vendor mount hole standard.",
+    "Unconnected camera-side eye is a FLOATING shape; a fall-arrest cable needs a separately fastened camera cage/lens collar anchor and measured cable sweep. No cable is supplied.",
+    "Load, torque, axial shaft backlash, witness marks, full motor-overrun impact, power-loss, and 3-axis collision/flexibility tests are NOT complete."
+  ]
+}
