@@ -1,0 +1,12 @@
+part,qty,material,status,notes
+Candidate 6808-2RS bearing,2,metal/OEM,verify,"40x52x7 mm; actual bearing series and bending rigidity NOT qualified"
+V1.3 integral shoulder stepped spindle,1,metal,prototype only,"OD40 bearing seats and OD38 hypothetical external thread; missing tolerance, thread and strength"
+V1.3 inner ring distance sleeve,1,metal,prototype only,"23 mm long; race ring face geometry not verified"
+V1.3 threaded locknut envelope,1,metal,DO NOT MACHINE,"OD47 ID37.7; symbolic unmodelled M-series thread; no preload"
+V1.3 unkeyed lock washer blank,1,metal,DO NOT RELY UPON,"not a functional locking washer"
+V1.3 camera clamp mounting datum plate,1,metal,prototype only,"6xM4 PCD88 + 2xM6 60mm candidate pattern; no vendor clamp confirmed"
+V1.3 floating camera cage safety eye,1,metal,NOT ATTACHED,"independent camera-side fastener and sling MUST be validated"
+Rated fall-arrest cable and clips,1,OEM,NOT SPECIFIED,"select only after complete travel/kinematic and drop qualification; no fixed length approved"
+Commercial metal camera/lens foot clamp,1,OEM,NOT SELECTED,"measure clamp fastener locations anti-rotation retention and real lens center"
+V1.3 nonload camera two-hole fit gauge,1,PETG,Gate A,"flat coupon NEVER supports camera"
+V1.3 nonload shaft/nut fit gauge,1,PETG,Gate A,"flat coupon NEVER captures bearing"

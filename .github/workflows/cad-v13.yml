@@ -1,0 +1,77 @@
+name: V1.3 ROT Axial Stack + Camera Datum DfAM Gate A
+on:
+  push:
+    paths:
+      - 'hardware/cad/generate_v13_rot_retention.py'
+      - 'hardware/cad/generate_v12_rot_cartridge.py'
+      - 'hardware/cad/generate_v11_three_axis_mated_concept.py'
+      - 'hardware/cad/generate_v10_rotator_bench.py'
+      - 'tests/test_v13_rot_retention.py'
+      - 'tools/dfam_gate_v13.py'
+      - 'tools/render_v13.py'
+      - 'docs/mechanical-v13-rot-bearing-and-camera-interface.md'
+      - '.github/workflows/cad-v13.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v13_rot_retention.py'
+      - 'tests/test_v13_rot_retention.py'
+      - 'tools/dfam_gate_v13.py'
+      - '.github/workflows/cad-v13.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cad-v13-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  digital-cad-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install geometry tools
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Test V1.3 design hypotheses
+        run: python -m pytest -q tests/test_v13_rot_retention.py
+      - name: Generate V1.3 FreeCAD-compatible STEP/STL
+        run: python hardware/cad/generate_v13_rot_retention.py --out hardware/cad/v13_generated
+      - name: Run DfAM digital-only audit
+        run: python tools/dfam_gate_v13.py --dir hardware/cad/v13_generated --report hardware/cad/v13_generated/dfam-gate-report.json
+      - name: Reimport complete three-axis STEP
+        run: |
+          python - <<'PY'
+          import cadquery as cq
+          f='hardware/cad/v13_generated/OpenEQMount_V13_THREE_AXIS_RETENTION_DATUM_CONCEPT_UNQUALIFIED.step'
+          assert len(cq.importers.importStep(f).solids().vals())==66
+          print('Complete STEP import: 66 separate solids')
+          PY
+      - name: Make engineering overview and nominal stack diagram
+        run: python tools/render_v13.py
+      - name: Commit fully regenerated V1.3 outputs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v13_generated
+          if git diff --cached --quiet; then
+            echo 'V1.3 outputs match source.'
+          else
+            git commit -m 'Generate V1.3 axial stack and camera datum Gate A CAD [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Publish prototype CAD artifact (not load approved)
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V13-ROT-GateA-UNQUALIFIED
+          path: |
+            hardware/cad/v13_generated/*.step
+            hardware/cad/v13_generated/*.stl
+            hardware/cad/v13_generated/*.json
+            hardware/cad/v13_generated/*.png
+          if-no-files-found: error
