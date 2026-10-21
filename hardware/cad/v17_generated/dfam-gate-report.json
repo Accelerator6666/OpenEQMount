@@ -1,0 +1,19 @@
+{
+  "gate": "A",
+  "status": "PASS",
+  "checked": [
+    {
+      "name": "v17_NONLOAD_DUAL_PCD_TRANSFER_CHECK_PETG_PRINT_FLAT",
+      "watertight": true,
+      "zmin": 0.0,
+      "size": [
+        136.0,
+        136.0,
+        3.0
+      ]
+    }
+  ],
+  "not_field_approved": true,
+  "Gate_B": "PENDING",
+  "Gate_C": "PENDING"
+}

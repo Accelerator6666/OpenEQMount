@@ -1,0 +1,81 @@
+{
+  "release": "V1.7",
+  "status": "prototype_unqualified",
+  "assembled_step": "OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step",
+  "subassembly_step": "OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step",
+  "parts_in_assembly": 52,
+  "parts_in_subassembly": 10,
+  "digital_coordinates_mm": {
+    "interface_plate_bore_mm": 64.0,
+    "pcd_on_V11_bridge_mm": 110.0,
+    "pcd_on_V16_housing_mm": 80.0,
+    "min_nominal_radial_ligament_mm": 5.75,
+    "bearing_z_nominal_mm": [
+      [
+        13.0,
+        28.0
+      ],
+      [
+        28.0,
+        43.0
+      ]
+    ],
+    "lower_cap_z_nominal_mm": [
+      8.0,
+      13.0
+    ],
+    "nominal_cartridge_housing_z_mm": [
+      13.0,
+      43.0
+    ],
+    "manufacturer_a0_load_centre_mm": 46.2,
+    "physical_matched_width_mm": 30.0,
+    "fastener_preload_access_verified": false,
+    "interface_rivet_weld_or_screw_loadpath_verified": false,
+    "independent_camera_retention_verified": false,
+    "camera_shaft_connection_verified": false
+  },
+  "latitude": 35.0,
+  "DEC_angle": 25.0,
+  "ROT_angle": 0.0,
+  "previous_6808_parts_removed": true,
+  "new_7008AWDB_mated_envelope_count": 2,
+  "old_bearing_housing_present": false,
+  "gate_A": "digital_only",
+  "gate_B": "PENDING",
+  "gate_C": "PENDING",
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "fastener_qualified": false,
+  "OEM_dec_mount_verified": false,
+  "OEM_rot_housing_verified": false,
+  "camera_lens_collar_selected": false,
+  "spindle_camera_connection_qualified": false,
+  "tether_strongpoint_attached": false,
+  "preload_qualified": false,
+  "whole_mount_collisions_qualified": false,
+  "nonload_printed_parts": [
+    {
+      "name": "v17_NONLOAD_DUAL_PCD_TRANSFER_CHECK_PETG_PRINT_FLAT",
+      "material": "PETG bench gauge ONLY",
+      "print_orientation": "XY flat on Z=0",
+      "layer_direction": "+Z",
+      "layer_load": "NO structural or field load",
+      "minimum_nominal_wall_mm": 5,
+      "overhang_strategy": "planar geometry and through holes; slicing still required",
+      "metal_joint": "NONE; gauge MUST NOT be sandwiched between metal faces",
+      "field_load_approved": false,
+      "gate_B": "PENDING",
+      "gate_C": "PENDING"
+    }
+  ],
+  "warnings": [
+    "V1.1 DEC PCD23 reducer output is not OEM-verified; bridge attachment remains only a CAD reference.",
+    "V1.6 nominal housing PCD80 and V1.1 bridge PCD110 are provisional; fastener grade, service access, length, torque, thread engagement, thread locking, plate stresses and deflections are unverified.",
+    "NSK 7008AWDB CN pair is NOT a proven preloaded precision rotor; bearing interference/clearance, shoulders, thread, locknut and heat treatment are pending.",
+    "V1.6 camera interface BLANK is geometrically disconnected from the spindle; its ROT rotation is only a viewing transform, not a valid torque/axial load path.",
+    "No independent attached metal camera cage tether, catch test, powered stop or motion-sweep clearance is implemented.",
+    "Only one conceptual 35/25/0 pose is exported; this is NOT full RA/DEC/ROT collision testing.",
+    "Never machine critical components, install camera/lens, or run motors based on this assembly."
+  ]
+}
