@@ -156,3 +156,14 @@ Three **detached, non-manufacturing** bearing-space choices: 2×6808 (40×52×7)
 - [Bearing study: OEM sources, assumptions and unresolved interfaces](docs/mechanical-v15-bearing-architecture-comparison.md)
 - [Editable CadQuery generator](hardware/cad/generate_v15_bearing_comparison.py)
 - [Automated Gate A build](.github/workflows/cad-v15.yml)
+
+
+## V1.6 — NSK 7008AWDB matched DB bearing cartridge (Gate A only)
+
+Selected a concrete NSK 7008AWDB back-to-back matched angular-contact pair as a dimensional reference: **40 mm bore / 68 mm OD / 30 mm paired physical width**, 30-degree contact angle and OEM **a0=46.2 mm load-centre spacing**. The catalogue pair is **CN axial internal clearance, not a selected preload grade**. V1.5's hypothetical 50 mm support span must not be read as a bearing pair dimension.
+
+- [V1.6 assembled FreeCAD STEP](hardware/cad/v16_generated/OpenEQMount_V16_NSK7008AWDB_DB_SERVICE_CARTRIDGE_UNQUALIFIED.step) / [Exploded STEP](hardware/cad/v16_generated/OpenEQMount_V16_DB7008_INSTALLATION_SEQUENCE_UNQUALIFIED.step)
+- [V1.6 axial design and qualification requirements](docs/mechanical-v16-7008awdb-db-cartridge.md) / [CAD source](hardware/cad/generate_v16_db7008_cartridge.py)
+- [V1.6 CAD + DfAM automation](.github/workflows/cad-v16.yml)
+
+**Standalone ROT bearing assembly study** — not yet integrated as a certified third-axis spindle, no tolerance-approved journal or housing fit, no functioning locknut/anti-fall camera connection. Gate B/C are pending, **no camera or power permitted**.

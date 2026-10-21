@@ -1,0 +1,81 @@
+name: V1.6 7008AWDB matched DB cartridge - digital Gate A
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hardware/cad/generate_v16_db7008_cartridge.py'
+      - 'tools/rotator_db7008_study.py'
+      - 'tools/dfam_gate_v16.py'
+      - 'tools/render_v16_db.py'
+      - 'tests/test_v16_db7008_cartridge.py'
+      - 'docs/mechanical-v16-7008awdb-db-cartridge.md'
+      - '.github/workflows/cad-v16.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v16_db7008_cartridge.py'
+      - 'tools/rotator_db7008_study.py'
+      - 'tools/dfam_gate_v16.py'
+      - 'tests/test_v16_db7008_cartridge.py'
+      - '.github/workflows/cad-v16.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: v16-digital-gate-a-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  digital-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and Gate A dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Confirm OEM matched DB parametric test contract
+        run: python -m pytest -p no:cacheprovider -q tests/test_v16_db7008_cartridge.py
+      - name: Generate unqualified cartridge / exploded FreeCAD STEP and coupons
+        run: python hardware/cad/generate_v16_db7008_cartridge.py --out hardware/cad/v16_generated
+      - name: DfAM Gate A - nonstructural meshes only
+        run: python tools/dfam_gate_v16.py --dir hardware/cad/v16_generated --report hardware/cad/v16_generated/dfam-gate-report.json
+      - name: Verify assembled 9-body and exploded 9-body STEP reimport
+        run: |
+          python - <<'PY'
+          import cadquery as cq
+          from pathlib import Path
+          root=Path('hardware/cad/v16_generated')
+          for name in ('OpenEQMount_V16_NSK7008AWDB_DB_SERVICE_CARTRIDGE_UNQUALIFIED.step',
+                       'OpenEQMount_V16_DB7008_INSTALLATION_SEQUENCE_UNQUALIFIED.step'):
+              solids=cq.importers.importStep(str(root/name)).solids().vals()
+              assert len(solids)==9,(name,len(solids))
+              assert all(s.isValid() for s in solids)
+              print(name,'reimports:',len(solids),'valid solids')
+          PY
+      - name: Render CAD visuals from source
+        run: python tools/render_v16_db.py
+      - name: Sync V1.6 generated CAD to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v16_generated
+          if git diff --cached --quiet; then
+            echo 'V1.6 generated output is already current.'
+          else
+            git commit -m 'Generate V1.6 7008AWDB digital cartridge reference CAD [skip ci]'
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V16-7008AWDB-UNQUALIFIED-GateA
+          path: |
+            hardware/cad/v16_generated/*.step
+            hardware/cad/v16_generated/*.stl
+            hardware/cad/v16_generated/*.png
+            hardware/cad/v16_generated/*.json
+            hardware/cad/v16_generated/*.csv
+          if-no-files-found: error

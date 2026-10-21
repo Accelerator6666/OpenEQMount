@@ -1,0 +1,10 @@
+ID,Description,Quantity,Material,Part_or_datum,Procurement_status,Qualification
+V16-01,NSK matched DB angular contact bearing pair,1 matched pair,Bearing steel,7008AWDB;40x68x30mm;a0=46.2mm,CATALOG_REFERENCE_NO_PRELOAD_SELECTED,Gate B/C pending
+V16-02,Removable bearing through bore stator reference,1,Aluminum/steel TBD,OD90 ID68.2 length30 reference only,NO_FIT_OR_MACHINING_RELEASE,Gate B/C pending
+V16-03,Removable outer-race end caps reference,2,Aluminum/steel TBD,Outer OD89 inner opening OD60; M4 hole PCD80 candidate,NO_FASTENER_QUALIFICATION,Gate B/C pending
+V16-04,Hollow 40mm spindle and integral shoulder reference,1,Steel/aluminum TBD,40 journal 30 through bore 48 shoulder -7..0,NO_JOURNAL_TOLERANCE_OR_THREAD,Gate B/C pending
+V16-05,Upper retaining washer envelope,1,Steel TBD,52 outer 40.2 clearance,NO_LOCKING_FEATURE,Gate B/C pending
+V16-06,Upper locknut envelope,1,Steel TBD,50 outer 40.2 clearance,NO_THREAD_OR_TORQUE,Gate B/C pending
+V16-07,Camera fixture interface blank,1,Aluminum/steel TBD,Ø102 annular reference only,NO_CAMERA_CLAMP,Gate B/C pending
+V16-08,68mm bore calibration coupon,1,PETG flat,FDM print 88x68x4,NONSTRUCTURAL_ONLY,Gate B pending
+V16-09,40mm shaft gauge coupon,1,PETG flat,FDM print 52x40x4,NONSTRUCTURAL_ONLY,Gate B pending
