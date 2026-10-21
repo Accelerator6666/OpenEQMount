@@ -1,0 +1,60 @@
+name: V1.7 one-time clean CI verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v17-one-time-ci-cleanup.yml'
+permissions:
+  contents: read
+  actions: write
+jobs:
+  verify-and-clean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and test stack
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Check V1.7 7008AWDB geometry / DfAM
+        run: python -m pytest -p no:cacheprovider -q tests/test_v17_7008_mated_integration.py
+      - name: Rebuild three-axis STEP
+        run: python hardware/cad/generate_v17_integrated_7008.py --out hardware/cad/v17_generated
+      - name: DfAM digital Gate A
+        run: python tools/dfam_gate_v17.py --dir hardware/cad/v17_generated --report hardware/cad/v17_generated/dfam-gate-report.json
+      - name: Verify assembled 52 and 10 STEP bodies
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import cadquery as cq
+          folder=Path('hardware/cad/v17_generated')
+          for n, count in [('OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step',52),('OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step',10)]:
+              s=cq.importers.importStep(str(folder/n)).solids().vals()
+              assert len(s)==count,(n,len(s))
+              assert all(x.isValid() for x in s)
+              print(n,'STEP OK',count)
+          PY
+      - name: Render engineering preview
+        run: python tools/render_v17.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V17-ThreeAxis-Validation-UNQUALIFIED
+          path: |
+            hardware/cad/v17_generated/*.step
+            hardware/cad/v17_generated/*.stl
+            hardware/cad/v17_generated/*.png
+            hardware/cad/v17_generated/*.json
+          if-no-files-found: error
+      - name: Remove only verified resolved V1.7 historical failure
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          run_id=39612549579
+          result="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/$run_id")"
+          test "$(jq -r .status <<< "$result")" = "completed"
+          test "$(jq -r .conclusion <<< "$result")" = "failure"
+          gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/runs/$run_id" --silent
+          echo "Deleted one obsolete failed workflow run $run_id after passing validation."
