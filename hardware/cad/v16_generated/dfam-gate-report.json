@@ -1,0 +1,34 @@
+{
+  "gate": "A",
+  "status": "PASS",
+  "scope": "only reference meshes and metadata, not manufacturing",
+  "checked": [
+    {
+      "name": "V16_NONLOAD_68MM_BORE_PRINT_CALIBRATION_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "zmin_mm": 0.0,
+      "size_mm": [
+        88.0,
+        87.911,
+        4.0
+      ],
+      "nonload": true
+    },
+    {
+      "name": "V16_NONLOAD_40MM_SHAFT_DIA_CALIBRATION_FLAT",
+      "watertight": true,
+      "bodies": 1,
+      "zmin_mm": 0.0,
+      "size_mm": [
+        52.0,
+        51.948,
+        4.0
+      ],
+      "nonload": true
+    }
+  ],
+  "Gate_B": "PENDING",
+  "Gate_C": "PENDING",
+  "payload_approved": false
+}
