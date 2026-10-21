@@ -1,0 +1,35 @@
+name: One-time cleanup of resolved failed runs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cleanup-resolved-failures-once.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+jobs:
+  remove-verified-historical-failures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete only the nine specifically verified failed runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Fixed historical IDs. Do not delete successful, running or future runs.
+          ids=(39424283787 39390825657 39379126351 39377388077 39135223958 39135112274 39135013943 39134692432 39134581274)
+          for id in "${ids[@]}"; do
+            json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${id}")"
+            conclusion="$(jq -r '.conclusion' <<<"$json")"
+            status="$(jq -r '.status' <<<"$json")"
+            if [[ "$status" != "completed" || "$conclusion" != "failure" ]]; then
+              echo "::error::Run $id is not a completed failure: $status/$conclusion. Stop."
+              exit 1
+            fi
+            gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/runs/${id}" --silent
+            echo "Deleted confirmed failed run $id"
+          done
+          echo "All nine historical resolved failed runs deleted."
