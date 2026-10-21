@@ -1,4 +1,4 @@
-> **Latest engineering iteration: V1.7 — DEC–ROT 7008AWDB candidate cartridge integration (DIGITAL Gate A ONLY).** [52-body three-axis FreeCAD STEP](hardware/cad/v17_generated/OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step) · [10-body interface STEP](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step) · [mechanical report](docs/mechanical-v17-dec-rot-db7008-integration.md). **NOT for machining, payload or powered use.**
+> **Latest engineering iteration: V1.7 — DEC–ROT 7008AWDB candidate cartridge integration (DIGITAL Gate A ONLY).** [52-body three-axis FreeCAD ZIP (contains STEP)](hardware/cad/v17_generated/OpenEQMount_V17_ThreeAxis_FreeCAD_Package.zip) · [10-body interface STEP](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step) · [mechanical report](docs/mechanical-v17-dec-rot-db7008-integration.md). **NOT for machining, payload or powered use.**
 
 **当前开发进度：V1.4 / 三轴相机载荷包络与可更换金属接口数字模型（Gate A；未通过承载与安全验证）**
 
@@ -170,6 +170,6 @@ Selected a concrete NSK 7008AWDB back-to-back matched angular-contact pair as a 
 
 ## V1.7 — 7008AWDB DEC–ROT mated geometry study
 
-- [52-entity three-axis concept FreeCAD STEP](hardware/cad/v17_generated/OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step) and [10-entity DEC–ROT subassembly](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step)
+- [52-entity three-axis STEP (in ZIP package)](hardware/cad/v17_generated/OpenEQMount_V17_ThreeAxis_FreeCAD_Package.zip) and [10-entity DEC–ROT subassembly](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step)
 - [V1.7 mechanical limitations](docs/mechanical-v17-dec-rot-db7008-integration.md), [CadQuery source](hardware/cad/generate_v17_integrated_7008.py), [DfAM CAD Actions](.github/workflows/cad-v17.yml)
 - V1.4 6808 rotor references are replaced with V1.6 7008AWDB candidate envelope and a metal PCD110-to-PCD80 adapter. **No verified camera torque connection, preload, fall arrest, or OEM mounting. Gate B/C pending; camera and motors prohibited.**
