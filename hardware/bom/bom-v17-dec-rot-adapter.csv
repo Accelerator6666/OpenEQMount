@@ -1,0 +1,9 @@
+Item,Qty,Category,Nominal specification,Validation,Purchase/release status
+DEC to ROT dual-PCD transfer plate,1,Metal reference,"OD136 ID64 H8 six 5.5mm on PCD110 + six 4.5mm on PCD80",geometry only / ligaments nominal,DO NOT MACHINE
+NSK 7008AWDB candidate matched DB unit,1,Commercial bearing candidate,"paired width 30mm ID40 OD68 a0 46.2",OEM nominal outline; preload/application fit unverified,DO NOT PURCHASE FOR ASSEMBLY
+V1.6 serviceable bearing housing/caps,1 set,Metal reference,"housing ID68.2 candidate 6x4.5 PCD80",fit and fastener access unverified,DO NOT MACHINE
+V1.6 hollow metal spindle and symbolic nut,1 set,Metal reference,"ID30 OD40 journal / nut no usable thread",positive axial retention UNQUALIFIED,DO NOT MACHINE
+V1.1 DEC bridge,1,Metal reference,"candidate DEC PCD23 + ROT deck PCD110",OEM fit metal joint strength unverified,DO NOT MACHINE
+Camera/lens collar positive-coupling assembly,1,Missing safety-critical mechanical assembly,unknown,not implemented,DO NOT INSTALL CAMERA
+Independent metal camera tether and anchor pair,1 set,Missing safety-critical assembly,unknown,not implemented,DO NOT INSTALL CAMERA
+PCD-transfer PETG flat fit coupon,1,NONSTRUCTURAL 3D print,"nominal Ø136 with 12 holes 3mm bed flat",DfAM Gate A only; slicer/fit pending,PRINT BENCH GAUGE ONLY

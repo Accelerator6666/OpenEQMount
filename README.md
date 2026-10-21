@@ -1,4 +1,4 @@
-> **Latest engineering iteration: V1.4 (ROT load-envelope estimates + adjustable metal camera-mount datum; DIGITAL Gate A ONLY).** [68-solid FreeCAD assembly](hardware/cad/v14_generated/OpenEQMount_V14_THREE_AXIS_CAMERA_LOAD_ENVELOPE_UNQUALIFIED.step) · [54 illustrative load cases](hardware/cad/v14_generated/rotator_load_cases_ILLUSTRATIVE.csv) · [V1.4 design and safety notes](docs/mechanical-v14-load-envelope-and-interface.md) · [V1.4 CAD workflow](.github/workflows/cad-v14.yml). **NO camera loading or powered drive.** Real bearing/load selection, selected camera/lens/cage, independent fall arrest and Gate B/C are still pending.
+> **Latest engineering iteration: V1.7 — DEC–ROT 7008AWDB candidate cartridge integration (DIGITAL Gate A ONLY).** [52-body three-axis FreeCAD STEP](hardware/cad/v17_generated/OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step) · [10-body interface STEP](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step) · [mechanical report](docs/mechanical-v17-dec-rot-db7008-integration.md). **NOT for machining, payload or powered use.**
 
 **当前开发进度：V1.4 / 三轴相机载荷包络与可更换金属接口数字模型（Gate A；未通过承载与安全验证）**
 
@@ -167,3 +167,9 @@ Selected a concrete NSK 7008AWDB back-to-back matched angular-contact pair as a 
 - [V1.6 CAD + DfAM automation](.github/workflows/cad-v16.yml)
 
 **Standalone ROT bearing assembly study** — not yet integrated as a certified third-axis spindle, no tolerance-approved journal or housing fit, no functioning locknut/anti-fall camera connection. Gate B/C are pending, **no camera or power permitted**.
+
+## V1.7 — 7008AWDB DEC–ROT mated geometry study
+
+- [52-entity three-axis concept FreeCAD STEP](hardware/cad/v17_generated/OpenEQMount_V17_THREE_AXIS_7008AWDB_INTERFACE_STUDY_UNQUALIFIED.step) and [10-entity DEC–ROT subassembly](hardware/cad/v17_generated/OpenEQMount_V17_DEC_ROT_7008_AWDB_INTERFACE_SUBASSEMBLY_UNQUALIFIED.step)
+- [V1.7 mechanical limitations](docs/mechanical-v17-dec-rot-db7008-integration.md), [CadQuery source](hardware/cad/generate_v17_integrated_7008.py), [DfAM CAD Actions](.github/workflows/cad-v17.yml)
+- V1.4 6808 rotor references are replaced with V1.6 7008AWDB candidate envelope and a metal PCD110-to-PCD80 adapter. **No verified camera torque connection, preload, fall arrest, or OEM mounting. Gate B/C pending; camera and motors prohibited.**
