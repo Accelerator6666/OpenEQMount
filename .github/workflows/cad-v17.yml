@@ -1,4 +1,5 @@
 name: V1.7 three-axis 7008AWDB DEC-ROT integration Gate A
+# Source-first STEP/STL CAD: digital Gate A only, no payload or motor clearance.
 on:
   push:
     branches: [main]
