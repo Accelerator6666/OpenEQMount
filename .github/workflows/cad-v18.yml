@@ -1,0 +1,84 @@
+name: V1.8 ROT metal positive-drive CAD and DfAM Gate A
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hardware/cad/generate_v18_positive_drive.py'
+      - 'hardware/cad/generate_v17_integrated_7008.py'
+      - 'tools/dfam_gate_v18.py'
+      - 'tools/render_v18.py'
+      - 'tests/test_v18_positive_drive.py'
+      - 'docs/mechanical-v18-positive-drive-and-axial-joint.md'
+      - '.github/workflows/cad-v18.yml'
+  pull_request:
+    paths:
+      - 'hardware/cad/generate_v18_positive_drive.py'
+      - 'hardware/cad/generate_v17_integrated_7008.py'
+      - 'tools/dfam_gate_v18.py'
+      - 'tests/test_v18_positive_drive.py'
+      - '.github/workflows/cad-v18.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: v18-metal-joint-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  digital-only-gate-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install CAD and DfAM checker dependencies
+        run: python -m pip install 'cadquery>=2.5,<3' pytest trimesh matplotlib
+      - name: Run 13 joint tests
+        run: python -m pytest -p no:cacheprovider -q tests/test_v18_positive_drive.py
+      - name: Regenerate three-axis STEP and local joint
+        run: python hardware/cad/generate_v18_positive_drive.py --out hardware/cad/v18_generated
+      - name: DfAM Gate A non-load PETG coupon only
+        run: python tools/dfam_gate_v18.py --dir hardware/cad/v18_generated --report hardware/cad/v18_generated/dfam-gate-report.json
+      - name: Verify 66 / 24 / 16 bodies via STEP reimport
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import cadquery as cq
+          p=Path('hardware/cad/v18_generated')
+          for f,n in [
+            ('OpenEQMount_V18_THREE_AXIS_POSITIVE_DRIVE_CONCEPT_UNQUALIFIED.step',66),
+            ('OpenEQMount_V18_DEC_ROT_SHAFT_TO_CAMERA_JOINT_UNQUALIFIED.step',24),
+            ('OpenEQMount_V18_LOCAL_SHAFT_TO_CAMERA_INTERFACE_UNQUALIFIED.step',16)]:
+            objs=cq.importers.importStep(str(p/f)).solids().vals()
+            assert len(objs)==n,(f,len(objs),n)
+            assert all(s.isValid() for s in objs)
+            print(f,':',len(objs),'valid solids')
+          PY
+      - name: Render V1.8 mechanical previews
+        run: python tools/render_v18.py
+      - name: Sync generated STEP/STL/PNG/JSON to main (source-controlled)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          set -e
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hardware/cad/v18_generated
+          if git diff --cached --quiet; then
+            echo 'V1.8 generated geometry already matches source'
+          else
+            git commit -m 'Generate V1.8 source-derived unqualified CAD Gate A [skip ci]'
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenEQMount-V18-MetalPositiveDrive-UNQUALIFIED-GateA
+          path: |
+            hardware/cad/v18_generated/*.step
+            hardware/cad/v18_generated/*.stl
+            hardware/cad/v18_generated/*.json
+            hardware/cad/v18_generated/*.png
+          if-no-files-found: error

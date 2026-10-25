@@ -1,0 +1,10 @@
+part_id,qty,material_or_candidate,description,status,validation_needed
+V18-SPINDLE-FLANGE,1,metal grade TBD,one-piece hollow 40 mm shaft and Ø110 integral drive flange,UNQUALIFIED,CNC manufacturability bearings geometry material GD&T fatigue
+V18-CAMERA-BLANK,1,metal grade TBD,removable Ø122 interface blank not a camera clamp,UNQUALIFIED,real clamp or cage hole measurements axial load and access
+V18-PIN,2,steel dowel candidate Ø6,PCD68 torque pins placeholder Ø6.2 holes NOT actual fit,UNQUALIFIED,pin standard fit hardness fatigue pullout shear and fretting
+V18-M6-BOLT,6,M6 metal fastener candidate,through-bolts Ø6 blank envelopes with nut and head,UNQUALIFIED,grade length washer torque preload corrosion fatigue locking
+V18-M6-NUT,6,metal nut envelope candidate,axial retention nuts reference only,UNQUALIFIED,locknut washer torque accessibility
+V18-7008AWDB,1 matched set,NSK 7008AWDB CN,existing adjacent DB bearing pair from V1.6 envelope,UNQUALIFIED,actual preload selection and purchase drawing
+V18-CAMERA-CLAMP,1,model not selected,no camera or lens clamp designed,BLOCKED,choose OEM camera cage/lens strongpoint
+V18-INDEPENDENT-TETHER,1,not designed,independent rated metallic camera fall-arrest NOT PRESENT,BLOCKED,anchor strength length clamp route drop proof
+V18-PRINT-GAUGE,1,PETG nonstructural,PCD68 Ø6.2 clearance coupon bed flat XY at z=0,GATE_A_ONLY,print slicer measured fit Gate B
