@@ -1,0 +1,89 @@
+{
+  "release": "V1.8",
+  "status": "prototype_unqualified",
+  "whole_step": "OpenEQMount_V18_THREE_AXIS_POSITIVE_DRIVE_CONCEPT_UNQUALIFIED.step",
+  "subassembly_step": "OpenEQMount_V18_DEC_ROT_SHAFT_TO_CAMERA_JOINT_UNQUALIFIED.step",
+  "whole_solids": 66,
+  "subassembly_solids": 24,
+  "local_joint_solids": 16,
+  "replaces_V16_floating_camera_blank": true,
+  "replaces_V16_spindle": true,
+  "metrics": {
+    "bolt_pcd_mm": 90.0,
+    "bolt_count": 6,
+    "bolt_nominal_d_mm": 6.0,
+    "bolt_clearance_d_mm": 6.6,
+    "dowel_pcd_mm": 68.0,
+    "dowel_count": 2,
+    "dowel_nominal_d_mm": 6.0,
+    "dowel_nominal_hole_mm": 6.2,
+    "shaft_journal_mm": 40.0,
+    "shaft_bore_mm": 30.0,
+    "integral_flange_od_mm": 110.0,
+    "flange_z_mm": [
+      45.0,
+      53.0
+    ],
+    "plate_z_mm": [
+      53.0,
+      61.0
+    ],
+    "worst_outer_radial_ligament_mm": 6.7,
+    "minimum_center_separation_bolt_dowel_mm": 23.04,
+    "upper_nut_to_flange_clearance_mm": 7.0,
+    "torque_path": "camera plate -> 2 dowels (after fit clearance) -> one-piece spindle flange; M6 bolts clamp the metal faces",
+    "axial_path": "camera blank -> 6 provisional bolts/nuts -> one-piece flange -> spindle; no independent fall arrest",
+    "groove_or_coupler_qualified": false,
+    "bolt_tension_fatigue_qualified": false,
+    "dowel_shear_bearing_stress_qualified": false,
+    "independent_tether_installed": false,
+    "bearing_preload_qualified": false
+  },
+  "angle_reference": {
+    "latitude": 35.0,
+    "dec": 25.0,
+    "rot": 0.0
+  },
+  "reference_dowels": 2,
+  "reference_through_bolts": 6,
+  "metal_primary_path_only": true,
+  "nominal_positive_drive_concept": true,
+  "transmission_and_axial_retention_PHYSICALLY_verified": false,
+  "actual_M6_fasteners_installed": false,
+  "actual_pin_fit_installed": false,
+  "independent_payload_tether_attached": false,
+  "camera_cage_lens_clamp_selected": false,
+  "bearing_pair_preload_verified": false,
+  "OEM_reducer_bolt_pattern_verified": false,
+  "fail_safe_completed": false,
+  "whole_mount_collision_sweep_completed": false,
+  "safe_to_energize": false,
+  "payload_approved": false,
+  "gate_A": "digital geometry and naming ONLY",
+  "gate_B": "PENDING",
+  "gate_C": "PENDING",
+  "nonload_printed_parts": [
+    {
+      "name": "v18_NONLOAD_DOWEL_PCD68_TRANSFER_COUPON_PRINT_FLAT",
+      "material": "PETG NONSTRUCTURAL print-only gauge",
+      "print_orientation": "XY flat Z0",
+      "layer_direction": "+Z",
+      "stress_in_Z": "none; no mechanical load",
+      "minimum_nominal_wall_mm": 6.9,
+      "overhang_strategy": "vertical through holes, slicer review PENDING",
+      "metal_joint": "NO metal contact, must never be installed in loaded joint",
+      "field_load_approved": false,
+      "gate_B": "PENDING",
+      "gate_C": "PENDING"
+    }
+  ],
+  "unresolved": [
+    "V16 7008AWDB bearings CN clearance is NOT validated preload",
+    "Dowel fit ISO 8734/pin retention/true pin bearing pressure and fatigue require engineer signoff",
+    "M6 fastener grade, preload, lock, cyclic loads, washer/nut retention and wrench access pending",
+    "Positive torque interface is only a model; metal primary axial joint still has no independent tether",
+    "One-piece spindle flange must be assessed for CNC feasibility, wall thickness and fatigue",
+    "Camera cage/lens clamp OEM interface and secondary anchor cannot be resolved without real hardware",
+    "Axis envelope, cable sweep and all Gate B/C physical qualifications remain pending"
+  ]
+}

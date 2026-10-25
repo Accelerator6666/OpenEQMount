@@ -1,0 +1,19 @@
+{
+  "gate": "A",
+  "status": "PASS",
+  "checked": [
+    {
+      "name": "v18_NONLOAD_DOWEL_PCD68_TRANSFER_COUPON_PRINT_FLAT",
+      "watertight": true,
+      "print_Z_min_mm": 0.0,
+      "dimensions_mm": [
+        83.96679306030273,
+        83.9833984375,
+        3.0
+      ]
+    }
+  ],
+  "not_manufacturing_or_field_certification": true,
+  "Gate_B": "PENDING",
+  "Gate_C": "PENDING"
+}

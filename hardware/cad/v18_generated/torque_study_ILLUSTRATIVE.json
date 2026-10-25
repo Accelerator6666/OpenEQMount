@@ -1,0 +1,20 @@
+[
+  {
+    "torque_Nm": 0.785,
+    "pin_force_N": 11.544,
+    "nominal_single_shear_MPa": 0.4083,
+    "caveat": "Equal force sharing and simple shear only; no shock, clearance impact, bending, fatigue, hole bearing or pullout"
+  },
+  {
+    "torque_Nm": 2.4525,
+    "pin_force_N": 36.066,
+    "nominal_single_shear_MPa": 1.2756,
+    "caveat": "Equal force sharing and simple shear only; no shock, clearance impact, bending, fatigue, hole bearing or pullout"
+  },
+  {
+    "torque_Nm": 5.0,
+    "pin_force_N": 73.529,
+    "nominal_single_shear_MPa": 2.6006,
+    "caveat": "Equal force sharing and simple shear only; no shock, clearance impact, bending, fatigue, hole bearing or pullout"
+  }
+]
